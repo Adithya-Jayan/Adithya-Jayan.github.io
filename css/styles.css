@@ -1,10 +1,10 @@
-@import 
+@import
 url('https://fonts.googleapis.com/css?family=Raleway:300,400,700,900');
 
 
 *{
 	box-sizing: border-box;
-	
+
 }
 
 
@@ -31,6 +31,7 @@ img {
 
 .title{
 	font-size: 2.5em;
+	margin-bottom: 1.5em
 }
 
 .title span{
@@ -39,16 +40,50 @@ img {
 	font-size:0.9em;
 }
 
+@media (min-width:60rem ){
+	.title{
+		font-size:4rem;
+	}
+}
+/*buttons*/
 
+
+.button{
+	display: inline-block;
+	font-size: 1.15em;
+	text-decoration: :none;
+	text-transform: uppercase;
+	border-width: 2px;
+	border-style: solid;
+	padding: .5em 1.75em;
+}
+
+.button-accent{
+	color: #00ff6c;
+	border-color:#00ff6c;
+}
+
+.button-accent:hover,
+.button-accent:focus{
+	background:#00ff6c;
+	color: #232323;
+}
+
+@media(min-width:60rem) {
+	.button{
+		font-size: 1.5rem;
+	}
+}
 /*Header
 **************************/
 header{
 	position:absolute;
 	left:0;
 	right:0;
-	margin-top: 1cm;
-	
+	margin: 1em;
+
 }
+
 
 nav ul{
 	margin:0;
@@ -75,11 +110,32 @@ nav a:focus {
 	color  #DDD;
 }
 
+.logo{
+ width: 15em;
+}
+
+@media (min-width:60rem ){
+	.logo{
+		float: left;
+	}
+	nav{
+		float: right;
+	}
+}
 /*home-hero *******************************/
 
 .home-hero{
-	background-image:url(../img/hero-bg.jpg);
+	background-image:
+	url(../img/hero-bg.png);
+	background-size: cover;
+	background-position: center;
 	padding:10em 0;
+	color: #FFF;
 }
-	
-	
+
+@media (min-width:60rem) {
+	.home-hero{
+		height: 100vh;
+		padding-top: 35vh;
+	}
+}
