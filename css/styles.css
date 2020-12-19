@@ -4,6 +4,7 @@ url('https://fonts.googleapis.com/css?family=Raleway:300,400,700,900');
 
 *{
 	box-sizing: border-box;
+	transition: all ease-in-out 250ms;
 
 }
 
@@ -22,16 +23,86 @@ img {
 
 .container{
 	width:95%;
-	margin:0 auto;
+	max-width: 70em;
+	margin: 0 auto;
 }
+
+.clearfix::after,
+section::after,
+footer::after{
+	content: '';
+	display: block;
+	clear: both;
+}
+
+/*Column System
+**************************/
+
+[class^=col-]{
+	width: 100%;
+	margin-top: 1em;
+}
+
+[class^=col-]:first-child{
+	margin-top: 0;
+}
+
+.col-1{
+	width: 33.33333334%;
+	float: left;
+}
+
+
+@media(min-width: 40rem){
+
+	[class^=col-]{
+		float: left;
+		padding: 0 .5em;
+		margin-top: 0;
+	}
+
+	[class^=col-]:first-child{
+		padding-left: 0;
+	}
+
+	[class^=col-]:last-child{
+		padding-right: 0;
+	}
+
+	.col-3{
+		width: 50%;
+	}
+
+	.col-1{
+		width: 16.6666%;
+	}
+}
+
+
 
 /*typography
 **************************/
 
+h1{
+	font-weight: 300;
+	font-size: 1.7rem;
+	margin-top: 0;
+}
+
+p{
+	margin-top: 0;
+	line-height: 1.5;
+}
+
+p:last-of-type{
+	margin-bottom: 0;
+}
 
 .title{
 	font-size: 2.5em;
-	margin-bottom: 1.5em
+	margin-bottom: 1.5em;
+	font-weight: 900;
+	margin-top:1em;
 }
 
 .title span{
@@ -40,11 +111,31 @@ img {
 	font-size:0.9em;
 }
 
+.title-cta{
+	margin-bottom: 0 0 .5em;
+}
+
+.unstyled-list{
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
 @media (min-width:60rem ){
+
+	P{
+		font-size: 1.2rem;
+		line-height: 1.6;
+	}
+
 	.title{
 		font-size:4rem;
 	}
 }
+
+
+
+
 /*buttons*/
 
 
@@ -58,6 +149,17 @@ img {
 	padding: .5em 1.75em;
 }
 
+@media(min-width:60rem) {
+	.button{
+		font-size: 1.5rem;
+	}
+}
+
+.button-small {
+	font-size: .7rem;
+	font-weight: 700;
+}
+
 .button-accent{
 	color: #00ff6c;
 	border-color:#00ff6c;
@@ -69,11 +171,18 @@ img {
 	color: #232323;
 }
 
-@media(min-width:60rem) {
-	.button{
-		font-size: 1.5rem;
-	}
+.button-dark{
+	color: #232323;
+	border-color:#232323;
 }
+
+.button-dark:hover,
+.button-dark:focus{
+	background:#232323;
+	color: #00ff6c;
+}
+
+
 /*Header
 **************************/
 header{
@@ -118,10 +227,13 @@ nav a:focus {
 	.logo{
 		float: left;
 	}
+
 	nav{
 		float: right;
 	}
 }
+
+
 /*home-hero *******************************/
 
 .home-hero{
@@ -138,4 +250,148 @@ nav a:focus {
 		height: 100vh;
 		padding-top: 35vh;
 	}
+}
+
+/*home-hero
+**************************************************/
+
+.home-about-textbox{
+	background-color: #232323;
+	padding: 4em;
+	width: 100vw;
+	margin-left:  -2.5vw;
+	outline: 2px solid #00ff6c;
+	outline-offset: -2.5em;
+	color: #FFF;
+	position: relative;
+}
+
+
+.home-about-textbox h1 {
+	color: #00ff6c;
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%);
+	top: .75em;
+	background: #232323;
+	padding:0 .1em;
+}
+
+@media (min-width: 25rem) {
+	h1{
+		font-size: 2rem;
+	}
+
+	.home-about-textbox{
+		padding: 5.5em;
+	}
+
+	.home-about-textbox h1{
+		top: .6em;
+		padding: 0 .325em;
+	}
+}
+
+@media (min-width: 60rem) {
+	h1{
+		font-size: 2.5rem;
+	}
+
+	.home-about {
+		background-image:
+		url(../img/who-we-are.jpg);
+		background-repeat: no-repeat;
+		padding-bottom: 10em;
+	}
+
+	.home-about-textbox{
+		width: 50%;
+		padding: 7em;
+		outline-offset: -3.75em;
+		margin-left:  -2.5%;
+		top: -5em;
+		text-align:left;
+		box-shadow: 0 0 4em 0 rgba(0,0,0,.3);
+	}
+
+	.home-about-textbox h1{
+		top: .75em;
+		left: 6rem;
+		transform: translate(0);
+	}
+}
+
+
+/* Portfolio
+********************************** */
+.portfolio{
+	margin: 3em 0 0;
+}
+
+.port-item{
+	margin: 0 ;
+	position: relative;
+}
+
+.port-item img{
+	display: block;
+}
+
+.port-description{
+	position: absolute;
+	z-index: 100;
+	bottom: 0em;
+	left: 0em;
+	right: 0em;
+	color: white;
+	background: rgba(0,0,0,.6);
+	padding: 1em;
+	padding-bottom: 2em;
+}
+
+.port-description p{
+	margin: 1em;
+}
+
+@media (min-width: 35rem) {
+	.port-item{
+		width: 50%;
+		float: left;
+	}
+}
+
+@media (min-width: 60rem) {
+	.port-item{
+		width: 33.3333334%;
+		float: left;
+		overflow: hidden;
+	}
+
+	.port-description{
+		transform: translateY(150%);
+	}
+
+	.port-item:hover .port-description{
+		transform: translateY(0%);
+	}
+}
+
+/*CTA
+**************************/
+
+
+.cta{
+	background-color: #00ff6c;
+	padding: 6em 0;
+}
+
+
+/*Footer
+**************************/
+
+footer{
+	background: #232323;
+	color: #fff;
+	text-align: left;
+	padding:5em 0;
 }
