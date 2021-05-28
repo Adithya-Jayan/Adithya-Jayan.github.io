@@ -129,6 +129,7 @@ section .title::after{
 	font-size: 23px;
 	cursor: pointer;
 	display: none;
+	z-index: 9999;
 }
 .scroll-up-btn{
 	position: fixed;
@@ -140,7 +141,7 @@ section .title::after{
 	text-align: center;
 	line-height: 45px;
 	color: #fff;
-	z-index: 9999;
+	z-index: 999;
 	font-size: 30px;
 	border-radius: 6px;
 	cursor: pointer;
@@ -193,6 +194,7 @@ section .title::after{
 	margin-top: 20px;
 	border-radius: 6px;
 	border: 2px solid crimson;
+	scroll-behavior: smooth;
 	transition: all 0.3s ease;
 }
 .home .home-content a:hover{
@@ -547,6 +549,7 @@ section .title::after{
 }
 .contact .contact-content .left p{
 	text-align: justify;
+	font-weight: 500;
 }
 .contact .contact-content .left .icons{
 	margin: 10px 0;
@@ -583,6 +586,7 @@ section .title::after{
 	width: 500;
 	background: lightgrey;
 	border-radius: 20px;
+	border: 2px solid crimson;
 }
 .contact .right .textarea{
 	height: 250px;
@@ -631,16 +635,23 @@ section .title::after{
 	color: crimson;
 	background: none;
 }
-.contact .insta{
+.contact .links{
+	background: lightgrey;
+	border-radius: 10px;
+	padding: 20px 25px;
+	width: 400px;	
+	border: 2px solid crimson;
+}
+.contact .link{
 	color: #222;
 	font-weight: 500;
 }
-.contact .insta a{
+.contact .link a{
 	color: crimson;
 	font-size: 20px;
 	font-weight: 500;
 }
-.contact .insta:hover a{
+.contact .link:hover a{
 	text-decoration: underline;
 }
 
@@ -684,9 +695,9 @@ footer span a:hover{
 
 @media (max-width:1104px ) {
 	.about .about-content .left img{
-	height: 350px;
-	width: 350px;
-}
+		height: 350px;
+		width: 350px;
+	}
 }
 
 @media (max-width:991px ) {
@@ -775,4 +786,57 @@ footer span a:hover{
 	.services .serv-content .card{
 		width: 100%;
 	}
+	.contact .links{
+		width: 350px;
+	}
+}
+@media (max-width:400px ) {
+	.contact .links{
+		font-size: 12px;
+		width: 300px;
+	}
+	.contact .links a{
+		font-size: 17px;
+	}	
+}
+@media (max-width:320px ) {
+	.home{
+		width: 450px;
+	}
+	.about{
+		width: 450px;
+	}
+	.services{
+		width: 450px;
+	}
+	.skills{
+		width: 450px;
+	}
+	.art{
+		width: 450px;
+	}
+	.contact{
+		width: 450px;
+	}
+	footer{
+		width: 450px;
+	}
+	.contact .links{
+		width: 350px;
+		font-size: 17px;
+	}
+	.contact .links a{
+		font-size: 20px;
+	}	
+	.navbar .menu.active{
+		height: 1000px;
+	}
+	.navbar .menu li{
+	
+	}
+	.navbar .menu li a{
+		margin-top: 40px;
+		font-size: 30px;
+	}
+}
 }
