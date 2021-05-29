@@ -698,6 +698,12 @@ footer span a:hover{
 		height: 350px;
 		width: 350px;
 	}
+	.about .about-content .right .text{
+		font-size: 20px;
+	}
+	.about .text span{
+		font-size: 20px;
+	}
 }
 
 @media (max-width:991px ) {
@@ -777,17 +783,29 @@ footer span a:hover{
 }
 
 @media (max-width:500px ) {
-	.home .home-content .text-2{
-		font-size: 50px;
-	}
-	.home .home-content .text-3{
-		font-size: 27px;
-	}
 	.services .serv-content .card{
 		width: 100%;
 	}
 	.contact .links{
 		width: 350px;
+	}
+	.home .home-content .text-1{
+		font-size: 32px;
+	}
+	.home .home-content .text-2{
+		font-size: 50px;
+	}
+	.home .home-content .text-3{
+		font-size: 25px;
+	}
+	.about .about-content .right .text{
+		font-size: 17px;
+	}
+	.about .text span{
+		font-size: 15px;
+	}
+	.about .about-content .right p{
+		font-size: 12px;
 	}
 }
 @media (max-width:400px ) {
@@ -798,6 +816,24 @@ footer span a:hover{
 	.contact .links a{
 		font-size: 17px;
 	}	
+	.home .home-content .text-1{
+		font-size: 32px;
+	}
+	.home .home-content .text-2{
+		font-size: 50px;
+	}
+	.home .home-content .text-3{
+		font-size: 22px;
+	}
+	.about .about-content .right .text{
+		font-size: 13px;
+	}
+	.about .text span{
+		font-size: 14px;
+	}
+	.about .about-content .right p{
+		font-size: 10px;
+	}
 }
 @media (max-width:320px ) {
 	.home{
@@ -837,6 +873,24 @@ footer span a:hover{
 	.navbar .menu li a{
 		margin-top: 40px;
 		font-size: 30px;
+	}
+	.home .home-content .text-1{
+		font-size: 32px;
+	}
+	.home .home-content .text-2{
+		font-size: 50px;
+	}
+	.home .home-content .text-3{
+		font-size: 25px;
+	}
+	.about .about-content .right .text{
+		font-size: 17px;
+	}
+	.about .text span{
+		font-size: 17px;
+	}
+	.about .about-content .right p{
+		font-size: 15px;
 	}
 }
 }
