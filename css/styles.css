@@ -303,8 +303,9 @@ nav a:focus {
 
 	.home-about {
 		background-image:
-		url(../images/who-we-are.jpg);
+		url(../images/Snowman.png);
 		background-repeat: no-repeat;
+		background-size: contain;
 		padding-bottom: 10em;
 	}
 
