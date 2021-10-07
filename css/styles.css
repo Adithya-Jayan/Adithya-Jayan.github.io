@@ -117,6 +117,7 @@ p:last-of-type{
 
 .title-cta{
 	margin-bottom: 0 0 .5em;
+	color: #EEEEEE;
 }
 
 .unstyled-list{
@@ -165,25 +166,25 @@ p:last-of-type{
 }
 
 .button-accent{
-	color: #00ff6c;
-	border-color:#00ff6c;
+	color: #004C20;
+	border-color:#004C20;
 }
 
 .button-accent:hover,
 .button-accent:focus{
-	background:#00ff6c;
+	background:#004C20;
 	color: #232323;
 }
 
-.button-dark{
-	color: #232323;
-	border-color:#232323;
+.button-light{
+	color: #EEEEEE;
+	border-color:#00190A;
 }
 
-.button-dark:hover,
-.button-dark:focus{
-	background:#232323;
-	color: #00ff6c;
+.button-light:hover,
+.button-light:focus{
+	background:#00190A;
+	color: #EEFFEE;
 }
 
 
@@ -386,7 +387,7 @@ nav a:focus {
 
 
 .cta{
-	background-color: #00ff6c;
+	background-color: #744700;
 	padding: 6em 0;
 }
 
