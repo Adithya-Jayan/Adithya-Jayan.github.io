@@ -166,13 +166,13 @@ p:last-of-type{
 }
 
 .button-accent{
-	color: #004C20;
-	border-color:#004C20;
+	color: #00ff6c;
+	border-color:#00ff6c;
 }
 
 .button-accent:hover,
 .button-accent:focus{
-	background:#004C20;
+	background:#00ff6c;
 	color: #232323;
 }
 
@@ -387,8 +387,8 @@ nav a:focus {
 
 
 .cta{
-	background-color: #744700;
-	padding: 6em 0;
+	background-color: #00cf3c;
+	padding: 2em 0em 1em 0em;
 }
 
 
