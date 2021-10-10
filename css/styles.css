@@ -401,3 +401,13 @@ footer{
 	text-align: left;
 	padding:5em 0;
 }
+
+/*Image overlap
+**************************/
+
+.ImageOverlap img{
+	z-index: 6;
+	position: absolute;
+	width: 30%;
+	transform: translate(30%, -42.5%);
+}
