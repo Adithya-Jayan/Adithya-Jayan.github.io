@@ -246,6 +246,7 @@ nav a:focus {
 	url(../images/Background.gif);  /*Ocean.gif ,hero-bg.png*/
 	background-size: cover;
 	background-position: center;
+	background-attachment: fixed;
 	padding:10em 0;
 	color: #FFF;
 }
