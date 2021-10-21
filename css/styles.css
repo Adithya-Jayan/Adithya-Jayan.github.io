@@ -370,7 +370,6 @@ nav a:focus {
 @media (min-width: 60rem) {
 	.port-item{
 		width: 33.3333334%;
-		float: left;
 		overflow: hidden;
 	}
 
@@ -409,6 +408,39 @@ footer{
 .ImageOverlap img{
 	z-index: 6;
 	position: absolute;
-	width: 30%;
-	transform: translate(30%, -42.5%);
+	width: 20%;
+	transform: translate(80%, -51%);
+}
+
+/***************************Gallary specific features********************************/
+
+/*Sketchfab Iframe
+**************************/
+.sketchfab-embed-wrapper{
+ 	aspect-ratio: 16/9
+}
+
+.sketchfab{
+    width:100%; 
+    height: 100%;
+}
+
+
+/*Gallery Home hero
+**************************/
+.gallery-home-hero{
+	background-image:
+	url(../Full_img/portfolio-07.png);
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+	padding:10em 0;
+	color: #FFF;
+}
+
+@media (min-width:60rem) {
+	.gallery-home-hero{
+		height: 100vh;
+		padding-top: 35vh;
+	}
 }
