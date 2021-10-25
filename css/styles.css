@@ -444,3 +444,30 @@ footer{
 		padding-top: 35vh;
 	}
 }
+
+/*Horizontal scroll page links
+**************************/
+div.scrollmenu {
+  background-color: #FFF;
+  overflow: auto;
+  white-space: nowrap;
+  
+  border-width: 2px;
+  border-top-style: solid;
+  border-bottom-style: solid ;
+}
+
+div.scrollmenu a {
+  display: inline-block;
+  color: black;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+  
+  border-radius: 0.5rem;
+  font-size: 2rem;
+}
+
+div.scrollmenu a:hover {
+  background-color: #CCC;
+}
