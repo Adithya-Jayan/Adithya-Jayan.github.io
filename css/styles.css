@@ -426,11 +426,11 @@ footer{
 }
 
 
-/*Gallery Home hero
+/*Model Gallery Home hero
 **************************/
-.gallery-home-hero{
+.model-gallery-home-hero{
 	background-image:
-	url(../Full_img/portfolio-07.png);
+	url(../Artworks/Squidman.png);
 	background-size: cover;
 	background-position: center;
 	background-attachment: fixed;
@@ -439,7 +439,26 @@ footer{
 }
 
 @media (min-width:60rem) {
-	.gallery-home-hero{
+	.model-gallery-home-hero{
+		height: 100vh;
+		padding-top: 35vh;
+	}
+}
+
+/*Art Gallery Home hero
+**************************/
+.art-gallery-home-hero{
+	background-image:
+	url(../Artworks/Meditation.jpg);
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+	padding:10em 0;
+	color: #FFF;
+}
+
+@media (min-width:60rem) {
+	.art-gallery-home-hero{
 		height: 100vh;
 		padding-top: 35vh;
 	}
@@ -448,7 +467,7 @@ footer{
 /*Horizontal scroll page links
 **************************/
 div.scrollmenu {
-  background-color: #FFF;
+  background-color: #333;
   overflow: auto;
   white-space: nowrap;
   
@@ -459,7 +478,7 @@ div.scrollmenu {
 
 div.scrollmenu a {
   display: inline-block;
-  color: black;
+  color: white;
   text-align: center;
   padding: 14px;
   text-decoration: none;
@@ -469,5 +488,5 @@ div.scrollmenu a {
 }
 
 div.scrollmenu a:hover {
-  background-color: #CCC;
+  background-color: green;
 }
