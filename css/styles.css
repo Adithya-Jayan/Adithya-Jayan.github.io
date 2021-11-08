@@ -5,10 +5,7 @@ url('https://fonts.googleapis.com/css?family=Raleway:300,400,700,900');
 *{
 	box-sizing: border-box;
 	transition: all ease-in-out 250ms;
-
 }
-
-
 
 body {
 	margin:0;
@@ -487,6 +484,10 @@ div.scrollmenu a {
   font-size: 2rem;
 }
 
-div.scrollmenu a:hover {
+div.scrollmenu a:hover{
   background-color: green;
+}
+
+div.scrollmenu a.current ,div.scrollmenu a.current:hover{
+background-color: purple;
 }
