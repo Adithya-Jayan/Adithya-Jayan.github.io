@@ -343,14 +343,16 @@ nav a:focus {
 
 .port-description{
 	position: absolute;
-	z-index: 100;
+	z-index: 4;
 	bottom: 0em;
 	left: 0em;
 	right: 0em;
 	color: white;
-	background: rgba(0,0,0,.6);
+	background: rgba(0,0,0,0.9);
 	padding: 1em;
 	padding-bottom: 2em;
+	height:13em;
+	font-size: 0.8em;
 }
 
 .port-description p{
@@ -371,10 +373,6 @@ nav a:focus {
 	}
 
 	.port-description{
-		transform: translateY(150%);
-	}
-
-	.port-item:hover .port-description{
 		transform: translateY(0%);
 	}
 }
@@ -403,6 +401,7 @@ footer{
 **************************/
 
 .ImageOverlap img{
+	pointer-events:none; /**Makes it transparent to clicks**/
 	z-index: 6;
 	position: absolute;
 	width: 20%;
