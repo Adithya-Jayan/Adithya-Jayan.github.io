@@ -240,7 +240,7 @@ nav a:focus {
 
 .home-hero{
 	background-image:
-	url(../images/Background.gif);  /*Ocean.gif ,hero-bg.png*/
+	url(../images/Background.webp);  /*Ocean.gif ,hero-bg.png*/
 	background-size: cover;
 	background-position: center;
 	background-attachment: fixed;
