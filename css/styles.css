@@ -243,7 +243,7 @@ nav a:focus {
 	url(../images/Background.webp);  /*Ocean.gif ,hero-bg.png*/
 	background-size: cover;
 	background-position: center;
-	background-attachment: fixed;
+	/*background-attachment: fixed;*/
 	padding:10em 0;
 	color: #FFF;
 }
@@ -448,7 +448,7 @@ footer{
 	url(../Artworks/Meditation.jpg);
 	background-size: cover;
 	background-position: center;
-	background-attachment: fixed;
+	/*background-attachment: fixed;*/
 	padding:10em 0;
 	color: #FFF;
 }
