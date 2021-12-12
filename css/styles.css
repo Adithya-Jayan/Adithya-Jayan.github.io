@@ -464,29 +464,47 @@ footer{
 **************************/
 div.scrollmenu {
   background-color: #333;
-  overflow: auto;
+  overflow-x: auto;
+  overflow-y: hidden;
   white-space: nowrap;
   
   border-width: 2px;
   border-top-style: solid;
-  border-bottom-style: solid ;
+  border-bottom-style: solid ;  
 }
 
-div.scrollmenu a {
+div.scrollmenu div.item {
   display: inline-block;
-  color: white;
-  text-align: center;
-  padding: 14px;
-  text-decoration: none;
   
+  padding: 2px;
   border-radius: 0.5rem;
-  font-size: 2rem;
+  width: 33.33%;  
+  position: relative;
+  text-align: center;
+  color: white;
 }
 
-div.scrollmenu a:hover{
+div.scrollmenu div.item a{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -75%);
+	font-size: 2vw;
+	color: black;
+}
+
+div.scrollmenu div.item img{
+	max-width: 100%;
+	height:auto;
+}
+
+div.scrollmenu div:hover{
   background-color: green;
 }
 
-div.scrollmenu a.current ,div.scrollmenu a.current:hover{
+div.scrollmenu div.current{
 background-color: purple;
+}
+div.scrollmenu div.current:hover{
+background-color: violet;
 }
