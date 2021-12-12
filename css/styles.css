@@ -382,7 +382,7 @@ nav a:focus {
 
 
 .cta{
-	background-color: #00cf3c;
+	background-color: #000000;
 	padding: 2em 0em 1em 0em;
 }
 
@@ -488,23 +488,24 @@ div.scrollmenu div.item a{
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	transform: translate(-50%, -75%);
-	font-size: 2vw;
-	color: black;
+	transform: translate(-50%, -50%);
+	font-size: 2.5vw;
+	font-weight: 900;
+	color: White;
+	z-index:15;
+	text-decoration: none;
 }
 
 div.scrollmenu div.item img{
 	max-width: 100%;
 	height:auto;
+	filter:brightness(20%);
 }
 
-div.scrollmenu div:hover{
-  background-color: green;
+div.scrollmenu div.item:hover img{
+	filter:brightness(100%);
 }
 
-div.scrollmenu div.current{
-background-color: purple;
-}
-div.scrollmenu div.current:hover{
-background-color: violet;
+div.scrollmenu div.current img{
+	filter:brightness(100%);
 }
