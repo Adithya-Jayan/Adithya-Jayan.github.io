@@ -144,7 +144,7 @@ p:last-of-type{
 .button{
 	display: inline-block;
 	font-size: 1.15em;
-	text-decoration: :none;
+	text-decoration:none;
 	text-transform: uppercase;
 	border-width: 2px;
 	border-style: solid;
@@ -218,7 +218,7 @@ nav a{
 
 nav a:hover,
 nav a:focus {
-	color  #DDD;
+	color:rgb(19, 128, 9);
 }
 
 .logo{
@@ -335,6 +335,7 @@ nav a:focus {
 .port-item{
 	margin: 0 ;
 	position: relative;
+	overflow: hidden;
 }
 
 .port-item img{
@@ -351,7 +352,7 @@ nav a:focus {
 	background: rgba(0,0,0,0.9);
 	padding: 1em;
 	padding-bottom: 2em;
-	height:13em;
+	height:10.3rem;
 	font-size: 0.8em;
 }
 
@@ -421,45 +422,6 @@ footer{
     height: 100%;
 }
 
-
-/*Model Gallery Home hero
-**************************/
-.model-gallery-home-hero{
-	background-image:
-	url(../Artworks/Squidman.png);
-	background-size: cover;
-	background-position: center;
-	/*background-attachment: fixed;*/
-	padding:10em 0;
-	color: #FFF;
-}
-
-@media (min-width:60rem) {
-	.model-gallery-home-hero{
-		height: 100vh;
-		padding-top: 35vh;
-	}
-}
-
-/*Art Gallery Home hero
-**************************/
-.art-gallery-home-hero{
-	background-image:
-	url(../Artworks/Meditation.jpg);
-	background-size: cover;
-	background-position: center;
-	/*background-attachment: fixed;*/
-	padding:10em 0;
-	color: #FFF;
-}
-
-@media (min-width:60rem) {
-	.art-gallery-home-hero{
-		height: 100vh;
-		padding-top: 35vh;
-	}
-}
-
 /*Horizontal scroll page links
 **************************/
 div.scrollmenu {
@@ -476,12 +438,28 @@ div.scrollmenu {
 div.scrollmenu div.item {
   display: inline-block;
   
-  padding: 2px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-left: 1px;
+  padding-right: 1px;
   border-radius: 0.5rem;
   width: 33.33%;  
   position: relative;
   text-align: center;
   color: white;
+}
+
+@media (max-width:60rem ){
+
+	div.scrollmenu div.item {
+		width: 50%;  
+	}
+}
+@media (max-width:25rem ){
+
+	div.scrollmenu div.item {
+		width: 100%;  
+	}
 }
 
 div.scrollmenu div.item a{
@@ -500,6 +478,7 @@ div.scrollmenu div.item img{
 	max-width: 100%;
 	height:auto;
 	filter:brightness(20%);
+	vertical-align: middle;
 }
 
 div.scrollmenu div.item:hover img{
@@ -509,3 +488,6 @@ div.scrollmenu div.item:hover img{
 div.scrollmenu div.current img{
 	filter:brightness(100%);
 }
+
+/*Colour themes
+**************************/
