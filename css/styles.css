@@ -456,8 +456,7 @@ div.scrollmenu div.item {
 	}
 }
 
-
-div.scrollmenu div.item a{
+div.scrollmenu div.item div{
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -467,8 +466,12 @@ div.scrollmenu div.item a{
 	color: White;
 	z-index:15;
 	text-decoration: none;
+	pointer-events: none;
 }
 
+div.scrollmenu div.current a{
+	pointer-events: none;
+}
 div.scrollmenu div.item img{
 	max-width: 100%;
 	height:auto;
