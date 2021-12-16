@@ -349,7 +349,7 @@ nav a:focus {
 	left: 0em;
 	right: 0em;
 	color: white;
-	background: rgba(0,0,0,0.9);
+	background: #111;
 	padding: 1em;
 	padding-bottom: 2em;
 	height:10.3rem;
@@ -452,15 +452,10 @@ div.scrollmenu div.item {
 @media (max-width:60rem ){
 
 	div.scrollmenu div.item {
-		width: 50%;  
+		width: 40%;  
 	}
 }
-@media (max-width:25rem ){
 
-	div.scrollmenu div.item {
-		width: 100%;  
-	}
-}
 
 div.scrollmenu div.item a{
 	position: absolute;
