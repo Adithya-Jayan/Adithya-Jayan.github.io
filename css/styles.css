@@ -337,6 +337,9 @@ nav a:focus {
 	margin: 0 ;
 	position: relative;
 	overflow: hidden;
+
+	width: 50%;
+	float: left;
 }
 
 .port-item img{
@@ -438,22 +441,28 @@ div.scrollmenu {
 
 div.scrollmenu div.item {
   display: inline-block;
-  
-  padding-top: 2px;
-  padding-bottom: 2px;
-  padding-left: 1px;
-  padding-right: 1px;
   border-radius: 0.5rem;
-  width: 33.33%;  
+  width: 33.33vw;  
   position: relative;
   text-align: center;
   color: white;
+  vertical-align: text-top;
+  height: 18.5vw;
 }
 
 @media (max-width:60rem ){
 
 	div.scrollmenu div.item {
-		width: 40%;  
+		width: 40vw; 
+		height: 22.22vw 
+	}
+}
+
+@media (max-width:30rem ){
+
+	div.scrollmenu div.item {
+		width: 60vw;  
+		height:33.3333vw;
 	}
 }
 
@@ -478,6 +487,8 @@ div.scrollmenu div.item img{
 	height:auto;
 	filter:brightness(20%);
 	vertical-align: middle;
+	width: 100%;
+
 }
 
 div.scrollmenu div.item:hover img{
