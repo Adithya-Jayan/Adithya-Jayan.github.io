@@ -337,9 +337,6 @@ nav a:focus {
 	margin: 0 ;
 	position: relative;
 	overflow: hidden;
-
-	width: 50%;
-	float: left;
 }
 
 .port-item img{
