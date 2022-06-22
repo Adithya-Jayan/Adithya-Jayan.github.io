@@ -144,12 +144,12 @@ p:last-of-type{
 
 .button{
 	display: inline-block;
-	font-size: 1.15em;
+	font-size: 1.15rem;
 	text-decoration:none;
 	text-transform: uppercase;
 	border-width: 2px;
 	border-style: solid;
-	padding: .5em 1.75em;
+	padding: .5rem 1.75rem;
 }
 
 @media(min-width:60rem) {
