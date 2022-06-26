@@ -11,7 +11,7 @@ body {
 	margin:0;
 	font-family: 'Raleway',sans-serif;
 	text-align:center;
-	background-image: linear-gradient(black,black);
+	background-image: linear-gradient(white,white);
 }
 
 img {
@@ -101,16 +101,16 @@ p:last-of-type{
 }
 
 .title{
-	font-size: 2.5em;
-	margin-bottom: 1.5em;
+	font-size: 2rem;
+	margin-bottom: 1.5rem;
 	font-weight: 900;
-	margin-top:1em;
+	margin-top:8rem;
 }
 
 .title span{
 	font-weight:300;
 	display: block;
-	font-size:0.9em;
+	font-size:2rem;
 }
 
 .title-cta{
@@ -133,7 +133,9 @@ p:last-of-type{
 
 	.title{
 		font-size:4rem;
+		margin-top:2rem;
 	}
+
 }
 
 
@@ -240,8 +242,6 @@ nav a:focus {
 /*home-hero *******************************/
 
 .home-hero{
-	background-image:
-	url(../images/Background.webp);  /*Ocean.gif ,hero-bg.png*/
 	background-size: cover;
 	background-position: center;
 	/*background-attachment: fixed;*/
@@ -261,11 +261,11 @@ nav a:focus {
 **************************************************/
 
 .home-about-textbox{
-	background-color: #232323;
+	background-color: #2f4111;
 	padding: 4em;
 	width: 100vw;
 	margin-left:  -2.5vw;
-	outline: 2px solid #00ff6c;
+	outline: 2px solid #beff0a;
 	outline-offset: -2.5em;
 	color: #FFF;
 	position: relative;
@@ -273,12 +273,12 @@ nav a:focus {
 
 
 .home-about-textbox h1 {
-	color: #00ff6c;
+	color: #beff0a;
 	position: absolute;
 	left: 50%;
 	transform: translate(-50%);
 	top: .75em;
-	background: #232323;
+	background: #2f4111;
 	padding:0 .1em;
 }
 
@@ -307,17 +307,18 @@ nav a:focus {
 		url(../images/Me.png);
 		background-repeat: no-repeat;
 		background-size: contain;
-		padding-bottom: 10em;
+		background-position: center;
+		padding-bottom: 0em;
 	}
 
 	.home-about-textbox{
-		width: 50%;
+		width: 40%;
 		padding: 7em;
 		outline-offset: -3.75em;
-		margin-left:  -2.5%;
-		top: -5em;
+		margin-left: 5%;
+		top: -5.5em;
 		text-align:left;
-		box-shadow: 0 0 4em 0 rgba(0,0,0,.3);
+		box-shadow: 0 0 4em 0 rgba(0, 0, 0, 0.532);
 	}
 
 	.home-about-textbox h1{
@@ -385,7 +386,7 @@ nav a:focus {
 
 
 .cta{
-	background-color: rgba(0.4, 0.4, 0.8, 0.4);
+	background-color: #010d27;
 	padding: 2em 0em 1em 0em;
 }
 
