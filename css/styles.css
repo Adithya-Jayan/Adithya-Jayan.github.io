@@ -7,6 +7,10 @@ url('https://fonts.googleapis.com/css?family=Raleway:300,400,700,900');
 	transition: all ease-in-out 250ms;
 }
 
+html {
+	scroll-behavior: smooth;
+}
+
 body {
 	margin:0;
 	font-family: 'Raleway',sans-serif;
