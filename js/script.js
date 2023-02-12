@@ -60,7 +60,7 @@ async function LoadGallery(){
 
 
           // Read CSV file and extract photo URLs
-          var csv = "artwork.csv"; // Read the CSV file
+          var csv = "../Art_Gallery/artwork.csv"; // Read the CSV file
 
           try {
             let response = await fetch(csv);
