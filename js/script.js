@@ -62,7 +62,7 @@ async function LoadGallery(){
           try {
             let response = await fetch(csv);
             let text = await response.text();
-            let rows = text.split("\r\n");
+            let rows = text.split("\n");
             newContent += addToGallery(rows);
 
 
