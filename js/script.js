@@ -34,24 +34,21 @@ async function LoadGallery(){
 
           function addToGallery (photoData) {
             let content = "";
-            for (var i = 0; i < photoData.length; i++) {
+            let headers = photoData[0].split(",");
+            for (var i = 1; i < photoData.length; i++) {
               var photoinfo = photoData[i].split(",");
               var newPhotoContainer = photoContainer.cloneNode(true);
               var newPhoto = photo.cloneNode(true);
             
-              newPhoto.alt = photoinfo[0];
-              newPhoto.src = photoinfo[1];
-              newPhoto.setAttribute("data-image",photoinfo[2]);
-              newPhoto.setAttribute("data-description",photoinfo[3]);
-              newPhoto.style="display:none";
-            
-              if (photoinfo.length > 4){
-                newPhoto.setAttribute("data-type","youtube");
-                newPhoto.setAttribute("data-videoid",photoinfo[4]);
+              for(var j = 0; j < headers.length; j++) {
+                if(photoinfo[j] != ""){
+                  newPhoto.setAttribute(headers[j],photoinfo[j]);
+                }
               }
-            
+
+              newPhoto.style="display:none";
+          
               newPhotoContainer.appendChild(newPhoto);
-              // gallery.appendChild(newPhotoContainer);
               content += newPhotoContainer.outerHTML;
 
             }
