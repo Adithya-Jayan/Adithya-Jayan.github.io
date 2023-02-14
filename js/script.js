@@ -1,24 +1,5 @@
 async function LoadGallery(){
  
-
-      // Check if the new content exists in local storage
-      var newContent = localStorage.getItem("newContent");
-
-      if (newContent) {
-          // If the new content exists in local storage, add it to the page
-          var gallery = document.getElementById("gallery");
-          gallery.innerHTML = newContent;
-
-          setTimeout(function() {
-            // Call the unitegallery function after the new HTML content has been added
-                jQuery("#gallery").unitegallery({
-                  tiles_max_columns: 10
-              });
-            },100);
-
-      } else {
-          // If the new content does not exist in local storage, generate it and store it in local storage
-
           // Your code to generate the new HTML content
           var newContent = "";
 
@@ -62,12 +43,8 @@ async function LoadGallery(){
           try {
             let response = await fetch(csv);
             let text = await response.text();
-            let rows = text.split("\n");
+            let rows = text.replace('\r','').split("\n");
             newContent += addToGallery(rows);
-
-
-            // Store the new content in local storage
-            localStorage.setItem("newContent", newContent);
 
             //Add to gallery
             var gallery = document.getElementById("gallery");
@@ -82,7 +59,7 @@ async function LoadGallery(){
         } catch (error) {
           console.log(error)
         }
-      }
+    
 };
 
 
