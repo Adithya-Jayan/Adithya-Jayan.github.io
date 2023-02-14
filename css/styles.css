@@ -336,7 +336,25 @@ nav a:focus {
 /* Portfolio
 ********************************** */
 .portfolio{
-	margin: 3em 0 0;
+	background: rgba(239, 255, 151, 0.1);
+	backdrop-filter: blur(0.15em);
+	padding: 0 0.2rem;
+}
+
+.portfolio h1{
+	padding: 1em 0;
+	font-weight: 600;
+	margin: 0;
+	color:#000;
+	text-decoration-line: overline;
+}
+
+.portfolio div.wrapper_3d div.sketchfab-embed-wrapper{ 
+	border: #000;
+	border-width: 0.2rem;
+	border-style: groove;
+	margin: 0.2rem;
+	position: relative;
 }
 
 .port-item{
