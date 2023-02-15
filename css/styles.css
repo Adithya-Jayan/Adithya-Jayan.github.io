@@ -357,6 +357,20 @@ nav a:focus {
 	position: relative;
 }
 
+.portfolio div.wrapper_3d div.sketchfab-embed-wrapper iframe{ 
+	display: block;
+}
+
+.portfolio div.wrapper_3d div.sketchfab-embed-wrapper .description_3d{
+	padding: .4em;
+	font-weight: 600;
+	border: #000;
+	border-width: 0.3rem 0 0 0;
+	border-style: groove;
+	color:#00190A;
+	background-color:#FFFFFF;
+}
+
 .port-item{
 	margin: 0 ;
 	position: relative;
