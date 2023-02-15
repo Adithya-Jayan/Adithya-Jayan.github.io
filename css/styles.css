@@ -389,7 +389,11 @@ div.wrapper_3d div.sketchfab-embed-wrapper .description_3d{
 
 	color: #000;
 	text-decoration: none;
+}
 
+.description_3d{
+	word-wrap: break-word;
+	line-height: 2;
 }
 
 .port-item{
