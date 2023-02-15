@@ -56,7 +56,9 @@
 		<script type='text/javascript' src='../js/unitegallery.min.js'></script>	
 		<link rel='stylesheet' href='../css/unite-gallery.css' type='text/css' />
 		<script type='text/javascript' src='../themes/ug-theme-tiles.js'></script>
-	
+
+		<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+
 	
 	</head>
 	
@@ -116,31 +118,33 @@
 			<h1>Flora Asset Library</h1>
 			<h4>(Work in progress - Download link above)</h4>
 					
-			<!-- Model item 1 -->
-			<div class="wrapper_3d port-item">
-				<div class="sketchfab-embed-wrapper"> 
-					<iframe title="White_Zinnia_Angustifolia" class="sketchfab" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/07a518bbd3c844d483a5494dacc123f6/embed?autospin=0.2&ui_hint=0"> </iframe>
-					<div class="description_3d">White_Zinnia_Angustifolia</div> 
+			<div class="grid">
+				<!-- Model item 1 -->
+				<div class="wrapper_3d grid-item">
+					<div class="sketchfab-embed-wrapper"> 
+						<iframe title="White_Zinnia_Angustifolia" class="sketchfab" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/07a518bbd3c844d483a5494dacc123f6/embed?autospin=0.2&ui_hint=0"> </iframe>
+						<div class="description_3d">White_Zinnia_Angustifolia</div> 
+					</div>
 				</div>
-			</div>
-			
-			<!-- Model item 2 -->
-			<div class="wrapper_3d port-item">
-				<div class="sketchfab-embed-wrapper"> 
-					<iframe title="White_Zinnia_Angustifolia" class="sketchfab" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/07a518bbd3c844d483a5494dacc123f6/embed?autospin=0.2&ui_hint=0"> </iframe> 
-					<div class="description_3d">White_Zinnia_Angustifolia</div> 
+				
+				<!-- Model item 2 -->
+				<div class="wrapper_3d grid-item">
+					<div class="sketchfab-embed-wrapper"> 
+						<iframe title="White_Zinnia_Angustifolia" class="sketchfab" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/07a518bbd3c844d483a5494dacc123f6/embed?autospin=0.2&ui_hint=0"> </iframe> 
+						<div class="description_3d">White_Zinnia_Angustifolia</div> 
+					</div>
+				</div>
+
+				<!-- Model item 3 -->
+				<div class="wrapper_3d grid-item">
+					<div class="sketchfab-embed-wrapper"> 
+						<iframe title="White_Zinnia_Angustifolia" class="sketchfab" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/07a518bbd3c844d483a5494dacc123f6/embed?autospin=0.2&ui_hint=0"> </iframe> 
+						<div class="description_3d">White_Zinnia_Angustifolia</div> 
+					</div>
 				</div>
 			</div>
 
-			<!-- Model item 3 -->
-			<div class="wrapper_3d port-item">
-				<div class="sketchfab-embed-wrapper"> 
-					<iframe title="White_Zinnia_Angustifolia" class="sketchfab" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/07a518bbd3c844d483a5494dacc123f6/embed?autospin=0.2&ui_hint=0"> </iframe> 
-					<div class="description_3d">White_Zinnia_Angustifolia</div> 
-				</div>
-			</div>
-
-			<div style="padding: 5em;">.</div>
+			<div style="padding: 2em;">.</div>
 
 		</section>
 		
@@ -177,4 +181,14 @@
 			</div>
 		</footer>
 	</body>
+
+	<script>
+		//Initialize isotope gallery
+		$('.grid').isotope({
+			// options
+			itemSelector: '.grid-item',
+			layoutMode: 'fitRows'
+		});
+	</script>
+
 </html>

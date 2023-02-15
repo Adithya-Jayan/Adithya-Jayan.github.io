@@ -6,11 +6,9 @@ async function LoadGallery(){
           // var gallery = document.getElementById("gallery");
 
           var photoContainer = document.createElement("a");
-          photoContainer.href = "https://adithya-jayan.github.io/";
-
           var photo = document.createElement("img");
-          photo.style = "display:none";
 
+          photoContainer.className = "photolink";
           photo.className = "photo";
 
           function addToGallery (photoData) {
@@ -21,13 +19,20 @@ async function LoadGallery(){
               var newPhotoContainer = photoContainer.cloneNode(true);
               var newPhoto = photo.cloneNode(true);
             
-              for(var j = 0; j < headers.length; j++) {
+              //Set source of inner image and alt value first
+              newPhoto.setAttribute(headers[0], photoinfo[0]); //Append attribute
+              newPhoto.setAttribute(headers[1], photoinfo[1]); //Append attribute
+
+              //Then set main image data
+              for(var j = 2; j < headers.length; j++) {
                 if(photoinfo[j] != ""){
-                  newPhoto.setAttribute(headers[j],photoinfo[j]);
+                  let final_attr = photoinfo[j];
+                  if( newPhotoContainer.getAttribute(headers[j]) != null) {
+                    final_attr =  newPhotoContainer.getAttribute(headers[j])+" "+photoinfo[j];
+                  }
+                  newPhotoContainer.setAttribute(headers[j],final_attr); //Append attribute
                 }
               }
-
-              newPhoto.style="display:none";
           
               newPhotoContainer.appendChild(newPhoto);
               content += newPhotoContainer.outerHTML;
@@ -38,7 +43,7 @@ async function LoadGallery(){
 
 
           // Read CSV file and extract photo URLs
-          var csv = "../Art_Gallery/artwork.csv"; // Read the CSV file
+          var csv = "/Art_Gallery/artwork.csv"; // Read the CSV file
 
           try {
             let response = await fetch(csv);
@@ -51,11 +56,23 @@ async function LoadGallery(){
             gallery.innerHTML = newContent;
 
             setTimeout(function() {
-              // Call the unitegallery function after the new HTML content has been added
-                  jQuery("#gallery").unitegallery({
-                    tiles_max_columns: 10
+                //Initialize isotope gallery
+                $('.grid').isotope({
+                  // options
+                  itemSelector: '.photo',
+                  percentPosition: true,
+                  layoutMode: 'masonry'
+                });
+              },50);
+
+              setTimeout(function() {
+                $('.portfolio .grid .photolink').magnificPopup({
+                  type: 'image',
+                  // other options
+                  gallery:{enabled:true}
                 });
               },100);
+
         } catch (error) {
           console.log(error)
         }
@@ -65,4 +82,7 @@ async function LoadGallery(){
 
 $(document).ready(function() {
   LoadGallery();
+  
+  
+  
 });

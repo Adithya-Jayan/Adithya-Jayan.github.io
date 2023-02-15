@@ -355,7 +355,7 @@ nav a:focus {
 	outline-width: 0.15rem;
 }
 
-.portfolio div.wrapper_3d div.sketchfab-embed-wrapper{ 
+div.wrapper_3d div.sketchfab-embed-wrapper{ 
 	border: #000;
 	border-width: 0.2rem;
 	border-style: groove;
@@ -363,11 +363,11 @@ nav a:focus {
 	position: relative;
 }
 
-.portfolio div.wrapper_3d div.sketchfab-embed-wrapper iframe{ 
+div.wrapper_3d div.sketchfab-embed-wrapper iframe{ 
 	display: block;
 }
 
-.portfolio div.wrapper_3d div.sketchfab-embed-wrapper .description_3d{
+div.wrapper_3d div.sketchfab-embed-wrapper .description_3d{
 	padding: .4em;
 	font-weight: 600;
 	border: #000;
@@ -421,6 +421,11 @@ nav a:focus {
 	.port-description{
 		transform: translateY(0%);
 	}
+}
+
+/* Portfolio - Isotope plugin */
+.grid-item { 
+	width: 25%; 
 }
 
 /*CTA
