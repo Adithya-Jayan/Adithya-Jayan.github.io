@@ -336,17 +336,23 @@ nav a:focus {
 /* Portfolio
 ********************************** */
 .portfolio{
-	background: rgba(239, 255, 151, 0.1);
-	backdrop-filter: blur(0.15em);
+	background: rgba(110, 44, 6, 0.2);
 	padding: 0 0.2rem;
 }
 
 .portfolio h1{
-	padding: 1em 0;
-	font-weight: 600;
-	margin: 0;
+	font-family:cursive;
+	font-variant: small-caps;
+	font-weight:600;
+	padding: 0.5em 0;
+	margin: 0.7em;
+
 	color:#000;
-	text-decoration-line: overline;
+	backdrop-filter:  blur(0.1em);
+	background-color:#00ff6c11;
+	outline-style: solid;
+	outline-color:#00190A;
+	outline-width: 0.15rem;
 }
 
 .portfolio div.wrapper_3d div.sketchfab-embed-wrapper{ 
