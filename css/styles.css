@@ -377,6 +377,21 @@ div.wrapper_3d div.sketchfab-embed-wrapper .description_3d{
 	background-color:#FFFFFF;
 }
 
+.description_3d a.buylink{
+	margin: 0.15rem 0 0.1rem 0.5rem;
+	padding: 0.05rem 0.4rem;
+	background-color: lightblue;
+
+	border-style:solid;
+	border-radius:0.4rem;
+	border-width: 0.2rem;
+	border-color: darkcyan;
+
+	color: #000;
+	text-decoration: none;
+
+}
+
 .port-item{
 	margin: 0 ;
 	position: relative;
@@ -425,7 +440,7 @@ div.wrapper_3d div.sketchfab-embed-wrapper .description_3d{
 
 /* Portfolio - Isotope plugin */
 .grid-item { 
-	width: 25%; 
+	width: 33%; 
 }
 
 /*CTA
