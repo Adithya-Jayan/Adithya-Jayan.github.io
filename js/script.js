@@ -8,6 +8,7 @@ async function LoadGallery(){
           var photoContainer = document.createElement("a");
           var photo = document.createElement("img");
 
+          photoContainer.id = "DynamicGallery";
           photoContainer.className = "photolink";
           photo.className = "photo";
 
@@ -63,24 +64,37 @@ async function LoadGallery(){
 
 async function Runinsequence(){
   await LoadGallery();
+}
 
-  //Initialize isotope gallery
-  $('.grid').isotope({
-    // options
-    itemSelector: '.photo',
-    percentPosition: true,
-    layoutMode: 'masonry'
-  });
-
-  $('.portfolio .grid .photolink').magnificPopup({
-    type: 'image',
-    // other options
-    gallery:{enabled:true}
-  });
+function waitForElement(elementPath, callBack){
+  window.setTimeout(function(){
+    if($(elementPath).length){
+      callBack(elementPath, $(elementPath));
+    }else{
+      waitForElement(elementPath, callBack);
+    }
+  },500)
 }
 
 $(document).ready(function() {
   
   Runinsequence();
+
+  waitForElement("#DynamicGallery",function(){
+    //Initialize isotope gallery
+    $('.grid').isotope({
+      // options
+      itemSelector: '.photo',
+      percentPosition: true,
+      layoutMode: 'masonry'
+    });
+    console.log("Isotope initialized");
+
+    $('.portfolio .grid .photolink').magnificPopup({
+      type: 'image',
+      // other options
+      gallery:{enabled:true}
+    });
+});
   
 });
