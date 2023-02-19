@@ -380,15 +380,16 @@ div.wrapper_3d div.sketchfab-embed-wrapper .description_3d{
 .description_3d a.buylink{
 	margin: 0.15rem 0 0.1rem 0.5rem;
 	padding: 0.05rem 0.4rem;
-	background-color: lightblue;
+	background-color:#2f4111;
 
 	border-style:solid;
 	border-radius:0.4rem;
 	border-width: 0.2rem;
-	border-color: darkcyan;
+	border-color: white;
 
-	color: #000;
+	color: white;
 	text-decoration: none;
+	font-weight: 400;
 }
 
 .description_3d{
