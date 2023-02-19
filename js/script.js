@@ -59,6 +59,7 @@ async function LoadGallery(){
         } catch (error) {
           console.log(error)
         }
+        console.log("Load Gallery complete");
     
 };
 
@@ -78,10 +79,12 @@ function waitForElement(elementPath, callBack){
 
 $(document).ready(function() {
   
+  console.log("Starting Load Gallery");
   Runinsequence();
 
   waitForElement("#DynamicGallery",function(){
     //Initialize isotope gallery
+    console.log("Starting Isotope");
     $('.grid').isotope({
       // options
       itemSelector: '.photo',
@@ -90,11 +93,13 @@ $(document).ready(function() {
     });
     console.log("Isotope initialized");
 
+    console.log("Starting magnific");
     $('.portfolio .grid .photolink').magnificPopup({
       type: 'image',
       // other options
       gallery:{enabled:true}
     });
+    console.log("Loaded magnific");
 });
   
 });
