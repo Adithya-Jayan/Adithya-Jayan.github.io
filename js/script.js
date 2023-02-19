@@ -55,34 +55,32 @@ async function LoadGallery(){
             var gallery = document.getElementById("gallery");
             gallery.innerHTML = newContent;
 
-            setTimeout(function() {
-                //Initialize isotope gallery
-                $('.grid').isotope({
-                  // options
-                  itemSelector: '.photo',
-                  percentPosition: true,
-                  layoutMode: 'masonry'
-                });
-              },50);
-
-              setTimeout(function() {
-                $('.portfolio .grid .photolink').magnificPopup({
-                  type: 'image',
-                  // other options
-                  gallery:{enabled:true}
-                });
-              },100);
-
         } catch (error) {
           console.log(error)
         }
     
 };
 
+async function Runinsequence(){
+  await LoadGallery();
+
+  //Initialize isotope gallery
+  $('.grid').isotope({
+    // options
+    itemSelector: '.photo',
+    percentPosition: true,
+    layoutMode: 'masonry'
+  });
+
+  $('.portfolio .grid .photolink').magnificPopup({
+    type: 'image',
+    // other options
+    gallery:{enabled:true}
+  });
+}
 
 $(document).ready(function() {
-  LoadGallery();
   
-  
+  Runinsequence();
   
 });
