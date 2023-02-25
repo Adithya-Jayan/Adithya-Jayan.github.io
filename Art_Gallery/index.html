@@ -114,7 +114,18 @@
 <a id="Mywork"></a>
 <section class="portfolio">
 		<h1>Some of my work</h1>
-		<h4 style="color: white;">Please reload if the gallary looks messed up :) - I'm still working on it XD</h4>
+		<div class="button-gal-group filters-button-group">
+			<button class="button button-gal-menu is-checked" data-filter="*">show all</button>
+			<button class="button button-gal-menu" data-filter=".Image">Image</button>
+			<button class="button button-gal-menu" data-filter=".Video">Video</button>
+			<button class="button button-gal-menu" data-filter=".Digital">Digital</button>
+			<button class="button button-gal-menu" data-filter=":not(.Digital)">Traditional</button>
+			<button class="button button-gal-menu" data-filter=".Tutorial">Tutorial Based</button>
+			<button class="button button-gal-menu" data-filter=".3D">3D</button>
+			<button class="button button-gal-menu" data-filter=".2D">2D</button>
+			<button class="button button-gal-menu" data-filter=".Competition">Contest submissions</button>
+		</div>
+		<h4 style="color: white;">Please reload if the gallery looks messed up :) - I'm still working on it XD</h4>
 		<div id="gallery" class="grid">
 		</div>
 		
