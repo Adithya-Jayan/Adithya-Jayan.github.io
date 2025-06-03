@@ -162,6 +162,12 @@ p:last-of-type{
 	padding: .5rem 1.75rem;
 }
 
+.button {
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
 @media(min-width:60rem) {
 	.button{
 		font-size: 1.5rem;
@@ -457,6 +463,16 @@ div.wrapper_3d div.sketchfab-embed-wrapper .description_3d{
 	transition: none;
 }
 
+.grid .photo {
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.grid .photo:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+}
+
 /*CTA
 **************************/
 
@@ -478,6 +494,14 @@ footer{
 	color: #fff;
 	text-align: left;
 	padding:2em 0;
+}
+
+footer .container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2em;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
 /*Image overlap

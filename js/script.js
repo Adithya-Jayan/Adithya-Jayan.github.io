@@ -18,6 +18,9 @@ async function LoadGallery(){
               var photoinfo = photoData[i].replace('\r','').split(",");
               var newPhotoContainer = photoContainer.cloneNode(true);
               var newPhoto = photo.cloneNode(true);
+
+              //Set attributes for the new photo container
+              newPhoto.setAttribute('loading', 'lazy');
             
               //Set source of inner image and alt value first
               newPhoto.setAttribute(headers[0], photoinfo[0]); //Append attribute
