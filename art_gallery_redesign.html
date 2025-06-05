@@ -119,7 +119,7 @@
         }
 
         /* Hero Section */
-        .hero {
+        /* .hero {
             min-height: 60vh;
             display: flex;
             align-items: center;
@@ -138,7 +138,7 @@
             bottom: 0;
             background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23e2e8f0" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
             opacity: 0.5;
-        }
+        } 
 
         .hero-container {
             max-width: 1400px;
@@ -168,7 +168,181 @@
             margin-left: auto;
             margin-right: auto;
             animation: fadeInUp 1s ease 0.2s both;
+        }  */
+
+        /* ==== Animated Hero secition start ==== */
+
+        .hero {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+            background: linear-gradient(135deg, #2d5016 0%, #4a7c59 50%, #87ceeb 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
+
+        /* Animated Clouds */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400"><defs><g id="cloud"><ellipse cx="60" cy="40" rx="40" ry="20" fill="%23ffffff" opacity="0.3"/><ellipse cx="30" cy="50" rx="30" ry="15" fill="%23ffffff" opacity="0.4"/><ellipse cx="90" cy="50" rx="35" ry="18" fill="%23ffffff" opacity="0.35"/></g></defs><use href="%23cloud" x="100" y="50"/><use href="%23cloud" x="400" y="80"/><use href="%23cloud" x="700" y="40"/><use href="%23cloud" x="1000" y="70"/></svg>') repeat-x;
+            animation: clouds 30s linear infinite;
+            z-index: 1;
+        }
+
+        /* Mountain Silhouettes */
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400"><path d="M0,400 L0,200 L200,150 L400,180 L600,120 L800,160 L1000,100 L1200,140 L1200,400 Z" fill="%231a3a0f" opacity="0.8"/><path d="M0,400 L0,250 L300,200 L500,230 L700,180 L900,210 L1200,170 L1200,400 Z" fill="%232d5016" opacity="0.6"/></svg>') repeat-x;
+            z-index: 2;
+        }
+
+        /* Tree Layer */
+        .forest-layer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 80%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><g><rect x="50" y="220" width="8" height="80" fill="%23654321"/><polygon points="54,220 30,180 78,180" fill="%23228b22"/><polygon points="54,200 35,170 73,170" fill="%2332cd32"/><polygon points="54,180 40,160 68,160" fill="%23228b22"/></g><g><rect x="150" y="200" width="10" height="100" fill="%238b4513"/><polygon points="155,200 125,150 185,150" fill="%23006400"/><polygon points="155,180 135,140 175,140" fill="%23228b22"/><polygon points="155,160 145,130 165,130" fill="%2332cd32"/></g><g><rect x="280" y="210" width="6" height="90" fill="%23654321"/><polygon points="283,210 265,180 301,180" fill="%23228b22"/><polygon points="283,190 270,170 296,170" fill="%2332cd32"/></g><g><rect x="320" y="230" width="12" height="70" fill="%238b4513"/><polygon points="326,230 300,180 352,180" fill="%23006400"/><polygon points="326,200 310,160 342,160" fill="%23228b22"/></g></svg>') repeat-x;
+            animation: sway 8s ease-in-out infinite;
+            z-index: 3;
+        }
+
+        /* Grass Layer */
+        .grass-layer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 30%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60"><g opacity="0.8"><path d="M10,60 Q12,40 14,60" stroke="%23228b22" stroke-width="2" fill="none"/><path d="M15,60 Q17,35 19,60" stroke="%2332cd32" stroke-width="1.5" fill="none"/><path d="M25,60 Q27,45 29,60" stroke="%23228b22" stroke-width="2" fill="none"/><path d="M35,60 Q37,30 39,60" stroke="%23006400" stroke-width="1.5" fill="none"/><path d="M45,60 Q47,40 49,60" stroke="%2332cd32" stroke-width="2" fill="none"/><path d="M55,60 Q57,35 59,60" stroke="%23228b22" stroke-width="1.5" fill="none"/><path d="M65,60 Q67,45 69,60" stroke="%23006400" stroke-width="2" fill="none"/><path d="M75,60 Q77,38 79,60" stroke="%2332cd32" stroke-width="1.5" fill="none"/><path d="M85,60 Q87,42 89,60" stroke="%23228b22" stroke-width="2" fill="none"/><path d="M95,60 Q97,36 99,60" stroke="%23006400" stroke-width="1.5" fill="none"/><path d="M105,60 Q107,44 109,60" stroke="%2332cd32" stroke-width="2" fill="none"/><path d="M115,60 Q117,39 119,60" stroke="%23228b22" stroke-width="1.5" fill="none"/><path d="M125,60 Q127,41 129,60" stroke="%23006400" stroke-width="2" fill="none"/><path d="M135,60 Q137,37 139,60" stroke="%2332cd32" stroke-width="1.5" fill="none"/><path d="M145,60 Q147,43 149,60" stroke="%23228b22" stroke-width="2" fill="none"/><path d="M155,60 Q157,38 159,60" stroke="%23006400" stroke-width="1.5" fill="none"/><path d="M165,60 Q167,42 169,60" stroke="%2332cd32" stroke-width="2" fill="none"/><path d="M175,60 Q177,40 179,60" stroke="%23228b22" stroke-width="1.5" fill="none"/><path d="M185,60 Q187,36 189,60" stroke="%23006400" stroke-width="2" fill="none"/></g></svg>') repeat-x;
+            animation: grassWave 6s ease-in-out infinite;
+            z-index: 4;
+        }
+
+        /* Water Layer */
+        .water-layer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 15%;
+            background: linear-gradient(180deg, rgba(135, 206, 235, 0.3) 0%, rgba(70, 130, 180, 0.5) 100%);
+            z-index: 5;
+        }
+
+        .water-layer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 40"><path d="M0,20 Q100,10 200,20 T400,20 V40 H0 V20 Z" fill="rgba(135,206,235,0.4)"/></svg>') repeat-x;
+            animation: water 4s ease-in-out infinite;
+        }
+
+        /* Animations */
+        @keyframes clouds {
+            0% { transform: translateX(-100px); }
+            100% { transform: translateX(100px); }
+        }
+
+        @keyframes sway {
+            0%, 100% { transform: translateX(0px) rotate(0deg); }
+            25% { transform: translateX(2px) rotate(0.5deg); }
+            50% { transform: translateX(0px) rotate(0deg); }
+            75% { transform: translateX(-2px) rotate(-0.5deg); }
+        }
+
+        @keyframes grassWave {
+            0%, 100% { transform: translateX(0px); }
+            25% { transform: translateX(3px); }
+            50% { transform: translateX(0px); }
+            75% { transform: translateX(-3px); }
+        }
+
+        @keyframes water {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-2px); }
+        }
+
+        /* Hero Content */
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            color: white;
+            padding: 2rem;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            animation: fadeInUp 2s ease-out;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            animation: fadeInUp 2s ease-out 0.5s both;
+        }
+
+        .hero-content .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: rgba(34, 139, 34, 0.8);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            text-shadow: none;
+            animation: fadeInUp 2s ease-out 1s both;
+        }
+
+        .hero-content .btn:hover {
+            background: rgba(34, 139, 34, 1);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content p {
+                font-size: 1rem;
+            }
+        }
+
+        /* ==== Animated Hero section End ==== */
 
         .gallery-stats {
             display: flex;
