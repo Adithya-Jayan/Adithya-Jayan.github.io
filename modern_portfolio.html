@@ -1,0 +1,1373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adithya Jayan - Digital Design Engineer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary-color: #f1f5f9;
+            --accent-color: #06b6d4;
+            --text-primary: #0f172a;
+            --text-secondary: #64748b;
+            --text-light: #94a3b8;
+            --background: #ffffff;
+            --surface: #f8fafc;
+            --border: #e2e8f0;
+            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--background);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: var(--text-primary);
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--surface) 0%, var(--background) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23e2e8f0" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.5;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-content h2 {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: white;
+            box-shadow: var(--shadow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background: var(--background);
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: fadeInRight 1s ease 0.8s both;
+        }
+
+        .profile-card {
+            background: var(--background);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: var(--shadow-lg);
+            text-align: center;
+            transform: rotate(3deg);
+            transition: all 0.3s ease;
+        }
+
+        .profile-card:hover {
+            transform: rotate(0deg) scale(1.05);
+        }
+
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 4rem;
+            color: white;
+        }
+
+        .profile-img-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            margin: 0 auto 1rem;
+            display: block;
+        }
+
+        /* Sections */
+        .section {
+            padding: 80px 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .section-title p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--surface);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .stat-card {
+            background: var(--background);
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .stat-label {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Experience Section */
+        .experience-card {
+            background: var(--background);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .experience-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .experience-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .experience-company {
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        .experience-date {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            background: var(--secondary-color);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+        }
+
+        /* Skills Section */
+        .skills {
+            background: var(--surface);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: var(--background);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+
+        .skill-category h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: var(--secondary-color);
+            color: var(--text-primary);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        /* Portfolio Section */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .portfolio-card {
+            background: var(--background);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .portfolio-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .portfolio-content {
+            padding: 1.5rem;
+        }
+
+        .portfolio-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .portfolio-description {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .portfolio-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.3rem;
+        }
+
+        .portfolio-tag {
+            background: var(--secondary-color);
+            color: var(--primary-color);
+            padding: 0.2rem 0.6rem;
+            border-radius: 10px;
+            font-size: 0.8rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--surface);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .contact-form {
+            background: var(--background);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-primary);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px);
+            background: var(--accent-color);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu {
+                display: flex;
+            }
+            
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .stats {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo">Adithya Jayan</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Hey, I'm Adithya! 👋</h1>
+                <h2>Digital Design Engineer & Creative Enthusiast</h2>
+                <p>Final year ECE student at NIT Karnataka and Digital Design Engineer at TI India. I blend technical expertise with creative passion, crafting innovative solutions in digital design while exploring the world of arts and crafts.</p>
+                <div class="cta-buttons">
+                    <a href="#portfolio" class="btn btn-primary">
+                        <i class="fas fa-eye"></i>
+                        View My Work
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <i class="fas fa-envelope"></i>
+                        Get In Touch
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="profile-card">
+                    <div class="profile-img">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <!-- <img src="path/to/your-photo.jpg" alt="Adithya Jayan" class="profile-img-photo"> -->
+                    <h3>Adithya Jayan</h3>
+                    <p>Digital Design Engineer</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+                <p>Get to know more about my journey, passion, and what drives me</p>
+            </div>
+            <div class="about-content">
+                <div class="stats">
+                    <div class="stat-card">
+                        <div class="stat-number">4+</div>
+                        <div class="stat-label">Years of Study</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">1+</div>
+                        <div class="stat-label">Years at TI</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">10+</div>
+                        <div class="stat-label">Art Projects</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">∞</div>
+                        <div class="stat-label">Curiosity Level</div>
+                    </div>
+                </div>
+                <div class="about-text">
+                    <h3>Bridging Technology & Creativity</h3>
+                    <p>I'm currently in my final year pursuing Electronics and Communication Engineering at NIT Karnataka, one of India's premier technical institutions. My academic journey has been complemented by hands-on industry experience as a Digital Design Engineer at Texas Instruments India.</p>
+                    <p>What sets me apart is my unique blend of technical prowess and creative passion. While I excel in digital design and engineering concepts, I'm equally passionate about arts and crafts. This combination allows me to approach problems with both analytical precision and creative thinking.</p>
+                    <p>I believe that the future belongs to those who can seamlessly integrate technology with human-centered design, and that's exactly what I strive to do in every project I undertake.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Experience</h2>
+                <p>My professional journey and key milestones</p>
+            </div>
+            <div class="experience-card">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">Digital Design Engineer</div>
+                        <div class="experience-company">Texas Instruments India</div>
+                    </div>
+                    <div class="experience-date">2023 - Present</div>
+                </div>
+                <p>Working on cutting-edge digital design projects, contributing to innovative semiconductor solutions. Involved in design verification, RTL development, and working with cross-functional teams to deliver high-quality products.</p>
+            </div>
+            <div class="experience-card">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">ECE Student</div>
+                        <div class="experience-company">NIT Karnataka</div>
+                    </div>
+                    <div class="experience-date">2021 - 2025</div>
+                </div>
+                <p>Pursuing Bachelor's in Electronics and Communication Engineering with focus on digital systems, signal processing, and communication technologies. Active in technical clubs and project work.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section skills">
+        <div class="container">
+            <div class="section-title">
+                <h2>Skills & Expertise</h2>
+                <p>Technical competencies and creative abilities</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3><i class="fas fa-microchip"></i> Digital Design</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Verilog</span>
+                        <span class="skill-tag">VHDL</span>
+                        <span class="skill-tag">RTL Design</span>
+                        <span class="skill-tag">FPGA</span>
+                        <span class="skill-tag">SystemVerilog</span>
+                        <span class="skill-tag">Digital Verification</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i> Programming</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">C/C++</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">MATLAB</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">Assembly</span>
+                        <span class="skill-tag">Shell Scripting</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-tools"></i> Tools & Technologies</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Cadence</span>
+                        <span class="skill-tag">Synopsys</span>
+                        <span class="skill-tag">ModelSim</span>
+                        <span class="skill-tag">Quartus</span>
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">Linux</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-palette"></i> Creative Skills</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Digital Art</span>
+                        <span class="skill-tag">Crafting</span>
+                        <span class="skill-tag">Design Thinking</span>
+                        <span class="skill-tag">Photography</span>
+                        <span class="skill-tag">UI/UX Basics</span>
+                        <span class="skill-tag">Creative Problem Solving</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Portfolio</h2>
+                <p>A showcase of my technical projects and creative works</p>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-card">
+                    <div class="portfolio-image">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">Digital Signal Processor Design</h3>
+                        <p class="portfolio-description">Custom DSP implementation using Verilog for real-time signal processing applications with optimized performance.</p>
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">Verilog</span>
+                            <span class="portfolio-tag">FPGA</span>
+                            <span class="portfolio-tag">DSP</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-card">
+                    <div class="portfolio-image">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">Embedded System Project</h3>
+                        <p class="portfolio-description">IoT-enabled embedded system for home automation with sensor integration and wireless communication.</p>
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">C++</span>
+                            <span class="portfolio-tag">Arduino</span>
+                            <span class="portfolio-tag">IoT</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-card">
+                    <div class="portfolio-image">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">Digital Art Collection</h3>
+                        <p class="portfolio-description">A series of digital artworks exploring the intersection of technology and creativity, featuring abstract and geometric designs.</p>
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">Digital Art</span>
+                            <span class="portfolio-tag">Creative</span>
+                            <span class="portfolio-tag">Design</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-card">
+                    <div class="portfolio-image">
+                        <i class="fas fa-wave-square"></i>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">Communication System Simulator</h3>
+                        <p class="portfolio-description">MATLAB-based simulator for various communication systems including modulation schemes and channel effects.</p>
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">MATLAB</span>
+                            <span class="portfolio-tag">Communication</span>
+                            <span class="portfolio-tag">Simulation</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-card">
+                    <div class="portfolio-image">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">Machine Learning Projects</h3>
+                        <p class="portfolio-description">Exploring AI/ML applications in signal processing and pattern recognition with practical implementations.</p>
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">Python</span>
+                            <span class="portfolio-tag">ML</span>
+                            <span class="portfolio-tag">Data Science</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Let's Connect</h2>
+                <p>Ready to collaborate or just want to say hello? I'd love to hear from you!</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <p>Whether you're interested in my technical work, creative projects, or just want to have a chat about technology and art, feel free to reach out!</p>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>adithya.jayan@example.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+91 XXXXX XXXXX</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Location</h4>
+                            <p>Karnataka, India</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-linkedin"></i>
+                        </div>
+                        <div>
+                            <h4>LinkedIn</h4>
+                            <p>linkedin.com/in/adithya-jayan</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>Send Message</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="social-links">
+                <a href="https://linkedin.com/in/adithya-jayan" class="social-link" target="_blank">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://github.com/Adithya-Jayan" class="social-link" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://instagram.com/adithya_jayan" class="social-link" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="mailto:adithya.jayan@example.com" class="social-link">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://twitter.com/adithya_jayan" class="social-link" target="_blank">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </div>
+            <p>&copy; 2024 Adithya Jayan. Made with ❤️ and lots of ☕</p>
+            <p>Digital Design Engineer | Creative Enthusiast | NIT Karnataka</p>
+        </div>
+    </footer>
+
+    <!-- Quirky Character -->
+    <div class="quirky-character">
+        <div class="character-body">
+            <div class="character-head"></div>
+            <div class="character-shirt"></div>
+            <div class="character-arms">
+                <div class="arm left-arm"></div>
+                <div class="arm right-arm"></div>
+            </div>
+            <div class="character-legs">
+                <div class="leg left-leg"></div>
+                <div class="leg right-leg"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript for smooth scrolling and interactions -->
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.boxShadow = 'none';
+            }
+        });
+
+        // Form submission
+        document.querySelector('.contact-form form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const name = formData.get('name');
+            
+            // Show success message
+            const successMessage = document.createElement('div');
+            successMessage.innerHTML = `
+                <div style="background: var(--primary-color); color: white; padding: 1rem; border-radius: 10px; margin-top: 1rem; text-align: center;">
+                    <i class="fas fa-check-circle"></i> Thanks ${name}! Your message has been sent. I'll get back to you soon!
+                </div>
+            `;
+            
+            this.appendChild(successMessage);
+            this.reset();
+            
+            // Remove success message after 5 seconds
+            setTimeout(() => {
+                successMessage.remove();
+            }, 5000);
+        });
+
+        // Quirky character interactions
+        document.addEventListener('DOMContentLoaded', function() {
+            const character = document.querySelector('.quirky-character');
+            
+            character.addEventListener('click', function() {
+                const messages = [
+                    "Thanks for clicking! 😄",
+                    "Keep exploring! 🚀", 
+                    "You're awesome! ⭐",
+                    "Nice to meet you! 👋",
+                    "Hope you like my work! 🎨",
+                    "Let's build something cool! 💻",
+                    "Art + Tech = Magic! ✨"
+                ];
+                
+                const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+                
+                const messageDiv = document.createElement('div');
+                messageDiv.textContent = randomMessage;
+                messageDiv.style.cssText = `
+                    position: fixed;
+                    bottom: 200px;
+                    right: 50px;
+                    background: var(--primary-color);
+                    color: white;
+                    padding: 10px 15px;
+                    border-radius: 20px;
+                    font-size: 14px;
+                    z-index: 1001;
+                    animation: popUp 3s ease forwards;
+                    pointer-events: none;
+                    box-shadow: var(--shadow);
+                `;
+                
+                document.body.appendChild(messageDiv);
+                
+                setTimeout(() => {
+                    messageDiv.remove();
+                }, 3000);
+            });
+        });
+
+        // Add some scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections for scroll animation
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'all 0.6s ease';
+            observer.observe(section);
+        });
+    </script>
+
+    <style>
+        /* Quirky Character Styles */
+        .quirky-character {
+            position: fixed;
+            bottom: -50px;
+            right: 20px;
+            z-index: 999;
+            pointer-events: none;
+            animation: jumpOut 8s infinite;
+        }
+
+        .character-body {
+            position: relative;
+            transform: scale(0.8);
+        }
+
+        .character-head {
+            width: 40px;
+            height: 40px;
+            background: #fdbcb4;
+            border-radius: 50%;
+            position: relative;
+            margin-bottom: 5px;
+            border: 2px solid #333;
+        }
+
+        .character-head::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 8px;
+            width: 4px;
+            height: 4px;
+            background: #333;
+            border-radius: 50%;
+            box-shadow: 15px 0 0 #333;
+        }
+
+        .character-head::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 15px;
+            width: 8px;
+            height: 4px;
+            background: #333;
+            border-radius: 0 0 10px 10px;
+        }
+
+        .character-shirt {
+            width: 50px;
+            height: 40px;
+            background: #e74c3c;
+            border-radius: 10px 10px 0 0;
+            position: relative;
+            border: 2px solid #333;
+        }
+
+        .character-arms {
+            position: absolute;
+            top: 45px;
+        }
+
+        .arm {
+            width: 20px;
+            height: 30px;
+            background: #fdbcb4;
+            border: 2px solid #333;
+            border-radius: 10px;
+            position: absolute;
+        }
+
+        .left-arm {
+            left: -15px;
+            transform: rotate(-20deg);
+            animation: waveArm 2s infinite alternate;
+        }
+
+        .right-arm {
+            right: -15px;
+            transform: rotate(20deg);
+            animation: waveArm 2s infinite alternate reverse;
+        }
+
+        .character-legs {
+            position: relative;
+            top: 35px;
+            display: flex;
+            gap: 5px;
+            justify-content: center;
+        }
+
+        .leg {
+            width: 15px;
+            height: 35px;
+            background: #3498db;
+            border: 2px solid #333;
+            border-radius: 0 0 10px 10px;
+        }
+
+        .leg::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: -5px;
+            width: 25px;
+            height: 15px;
+            background: #2c3e50;
+            border: 2px solid #333;
+            border-radius: 15px;
+        }
+
+        @keyframes jumpOut {
+            0%, 85% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+            86% {
+                opacity: 1;
+            }
+            90% {
+                transform: translateY(-200px) rotate(-10deg);
+            }
+            95% {
+                transform: translateY(-150px) rotate(5deg);
+            }
+            100% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes waveArm {
+            0% {
+                transform: rotate(-20deg);
+            }
+            100% {
+                transform: rotate(-40deg);
+            }
+        }
+
+        @keyframes popUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px) scale(0.8);
+            }
+            20%, 80% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-10px) scale(0.9);
+            }
+        }
+
+        .quirky-character:hover {
+            animation-duration: 2s;
+            pointer-events: auto;
+            cursor: pointer;
+        }
+
+        .quirky-character::before {
+            content: "Hey there! 👋";
+            position: absolute;
+            top: -40px;
+            left: -20px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+            opacity: 0;
+            animation: showText 8s infinite;
+            white-space: nowrap;
+        }
+
+        @keyframes showText {
+            0%, 85% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            88%, 97% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .quirky-character {
+                right: 10px;
+                transform: scale(0.8);
+            }
+        }
+    </style>
+
+</body>
