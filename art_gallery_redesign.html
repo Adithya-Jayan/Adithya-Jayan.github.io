@@ -176,7 +176,7 @@
             position: relative;
             height: 100vh;
             overflow: hidden;
-            background: linear-gradient(135deg, #2d5016 0%, #4a7c59 50%, #87ceeb 100%);
+            background: linear-gradient(135deg, #fffcc6 0%, #467352 50%, #87ceeb 100%);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -202,8 +202,10 @@
             bottom: 0;
             left: 0;
             right: 0;
-            height: 60%;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400"><path d="M0,400 L0,200 L200,150 L400,180 L600,120 L800,160 L1000,100 L1200,140 L1200,400 Z" fill="%231a3a0f" opacity="0.8"/><path d="M0,400 L0,250 L300,200 L500,230 L700,180 L900,210 L1200,170 L1200,400 Z" fill="%232d5016" opacity="0.6"/></svg>') repeat-x;
+            height: clamp(300px, 60vh, 500px);
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" preserveAspectRatio="none"><path d="M0,400 L0,200 L200,150 L400,180 L600,120 L800,160 L1000,100 L1200,140 L1200,400 Z" fill="%231a3a0f" opacity="0.8"/><path d="M0,400 L0,250 L300,200 L500,230 L700,180 L900,210 L1200,170 L1200,400 Z" fill="%232d5016" opacity="0.6"/></svg>') repeat-x;
+            background-size: cover;
+            background-position: bottom;
             z-index: 2;
         }
 
@@ -213,8 +215,10 @@
             bottom: 0;
             left: 0;
             right: 0;
-            height: 80%;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><g><rect x="50" y="220" width="8" height="80" fill="%23654321"/><polygon points="54,220 30,180 78,180" fill="%23228b22"/><polygon points="54,200 35,170 73,170" fill="%2332cd32"/><polygon points="54,180 40,160 68,160" fill="%23228b22"/></g><g><rect x="150" y="200" width="10" height="100" fill="%238b4513"/><polygon points="155,200 125,150 185,150" fill="%23006400"/><polygon points="155,180 135,140 175,140" fill="%23228b22"/><polygon points="155,160 145,130 165,130" fill="%2332cd32"/></g><g><rect x="280" y="210" width="6" height="90" fill="%23654321"/><polygon points="283,210 265,180 301,180" fill="%23228b22"/><polygon points="283,190 270,170 296,170" fill="%2332cd32"/></g><g><rect x="320" y="230" width="12" height="70" fill="%238b4513"/><polygon points="326,230 300,180 352,180" fill="%23006400"/><polygon points="326,200 310,160 342,160" fill="%23228b22"/></g></svg>') repeat-x;
+            height: clamp(200px, 80vh, 350px);
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300" preserveAspectRatio="xMidYMax meet"><g><rect x="50" y="150" width="25" height="150" fill="%23654321"/><polygon points="62,150 30,50 95,50" fill="%23228b22"/><polygon points="62,100 35,20 90,20" fill="%2332cd32"/><polygon points="62,70 40,0 85,0" fill="%23228b22"/></g><g><rect x="110" y="180" width="18" height="120" fill="%238b4513"/><polygon points="119,180 85,90 153,90" fill="%23006400"/><polygon points="119,140 95,70 143,70" fill="%23228b22"/><polygon points="119,110 100,50 138,50" fill="%2332cd32"/></g><g><rect x="200" y="200" width="12" height="100" fill="%23654321"/><polygon points="206,200 180,120 232,120" fill="%23228b22"/><polygon points="206,170 185,100 227,100" fill="%2332cd32"/></g><g><rect x="320" y="190" width="15" height="110" fill="%238b4513"/><polygon points="327,190 295,100 360,100" fill="%23006400"/><polygon points="327,150 305,80 350,80" fill="%23228b22"/></g><g><rect x="400" y="170" width="20" height="130" fill="%23654321"/><polygon points="410,170 370,80 450,80" fill="%23228b22"/><polygon points="410,130 380,60 440,60" fill="%2332cd32"/><polygon points="410,100 385,40 435,40" fill="%23228b22"/></g><g><rect x="525" y="150" width="25" height="150" fill="%238b4513"/><polygon points="537,150 505,50 570,50" fill="%23006400"/><polygon points="537,100 510,20 565,20" fill="%23228b22"/><polygon points="537,70 515,0 560,0" fill="%2332cd32"/></g></svg>') repeat-x;
+            background-size: auto 100%;
+            background-position: bottom;
             animation: sway 8s ease-in-out infinite;
             z-index: 3;
         }
@@ -225,8 +229,9 @@
             bottom: 0;
             left: 0;
             right: 0;
-            height: 30%;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60"><g opacity="0.8"><path d="M10,60 Q12,40 14,60" stroke="%23228b22" stroke-width="2" fill="none"/><path d="M15,60 Q17,35 19,60" stroke="%2332cd32" stroke-width="1.5" fill="none"/><path d="M25,60 Q27,45 29,60" stroke="%23228b22" stroke-width="2" fill="none"/><path d="M35,60 Q37,30 39,60" stroke="%23006400" stroke-width="1.5" fill="none"/><path d="M45,60 Q47,40 49,60" stroke="%2332cd32" stroke-width="2" fill="none"/><path d="M55,60 Q57,35 59,60" stroke="%23228b22" stroke-width="1.5" fill="none"/><path d="M65,60 Q67,45 69,60" stroke="%23006400" stroke-width="2" fill="none"/><path d="M75,60 Q77,38 79,60" stroke="%2332cd32" stroke-width="1.5" fill="none"/><path d="M85,60 Q87,42 89,60" stroke="%23228b22" stroke-width="2" fill="none"/><path d="M95,60 Q97,36 99,60" stroke="%23006400" stroke-width="1.5" fill="none"/><path d="M105,60 Q107,44 109,60" stroke="%2332cd32" stroke-width="2" fill="none"/><path d="M115,60 Q117,39 119,60" stroke="%23228b22" stroke-width="1.5" fill="none"/><path d="M125,60 Q127,41 129,60" stroke="%23006400" stroke-width="2" fill="none"/><path d="M135,60 Q137,37 139,60" stroke="%2332cd32" stroke-width="1.5" fill="none"/><path d="M145,60 Q147,43 149,60" stroke="%23228b22" stroke-width="2" fill="none"/><path d="M155,60 Q157,38 159,60" stroke="%23006400" stroke-width="1.5" fill="none"/><path d="M165,60 Q167,42 169,60" stroke="%2332cd32" stroke-width="2" fill="none"/><path d="M175,60 Q177,40 179,60" stroke="%23228b22" stroke-width="1.5" fill="none"/><path d="M185,60 Q187,36 189,60" stroke="%23006400" stroke-width="2" fill="none"/></g></svg>') repeat-x;
+            height: clamp(80px, 30vh, 200px);
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" preserveAspectRatio="xMidYMax slice"><g opacity="0.8"><path d="M10,60 Q12,40 14,60" stroke="%23228b22" stroke-width="2" fill="none"/><path d="M15,60 Q17,35 19,60" stroke="%2332cd32" stroke-width="1.5" fill="none"/><path d="M25,60 Q27,45 29,60" stroke="%23228b22" stroke-width="2" fill="none"/><path d="M35,60 Q37,30 39,60" stroke="%23006400" stroke-width="1.5" fill="none"/><path d="M45,60 Q47,40 49,60" stroke="%2332cd32" stroke-width="2" fill="none"/><path d="M55,60 Q57,35 59,60" stroke="%23228b22" stroke-width="1.5" fill="none"/><path d="M65,60 Q67,45 69,60" stroke="%23006400" stroke-width="2" fill="none"/><path d="M75,60 Q77,38 79,60" stroke="%2332cd32" stroke-width="1.5" fill="none"/><path d="M85,60 Q87,42 89,60" stroke="%23228b22" stroke-width="2" fill="none"/><path d="M95,60 Q97,36 99,60" stroke="%23006400" stroke-width="1.5" fill="none"/><path d="M105,60 Q107,44 109,60" stroke="%2332cd32" stroke-width="2" fill="none"/><path d="M115,60 Q117,39 119,60" stroke="%23228b22" stroke-width="1.5" fill="none"/><path d="M125,60 Q127,41 129,60" stroke="%23006400" stroke-width="2" fill="none"/><path d="M135,60 Q137,37 139,60" stroke="%2332cd32" stroke-width="1.5" fill="none"/><path d="M145,60 Q147,43 149,60" stroke="%23228b22" stroke-width="2" fill="none"/><path d="M155,60 Q157,38 159,60" stroke="%23006400" stroke-width="1.5" fill="none"/><path d="M165,60 Q167,42 169,60" stroke="%2332cd32" stroke-width="2" fill="none"/><path d="M175,60 Q177,40 179,60" stroke="%23228b22" stroke-width="1.5" fill="none"/><path d="M185,60 Q187,36 189,60" stroke="%23006400" stroke-width="2" fill="none"/></g></svg>') repeat-x bottom;
+            background-size: auto 100%;
             animation: grassWave 6s ease-in-out infinite;
             z-index: 4;
         }
@@ -237,7 +242,7 @@
             bottom: 0;
             left: 0;
             right: 0;
-            height: 15%;
+            height: clamp(60px, 15vh, 120px);
             background: linear-gradient(180deg, rgba(135, 206, 235, 0.3) 0%, rgba(70, 130, 180, 0.5) 100%);
             z-index: 5;
         }
@@ -340,6 +345,26 @@
             .hero-content p {
                 font-size: 1rem;
             }
+            
+            .hero::after {
+                background-size: 200% 100%;
+            }
+            
+            .forest-layer {
+                height: clamp(180px, 40vh, 300px);
+                background-size: 150% 100%;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero::after {
+                background-size: 300% 100%;
+            }
+            
+            .forest-layer {
+                height: clamp(150px, 35vh, 250px);
+                background-size: 200% 100%;
+            }
         }
 
         /* ==== Animated Hero section End ==== */
@@ -373,7 +398,15 @@
         /* Filter Controls */
         .filter-section {
             padding: 40px 0;
-            background: var(--surface);
+            background: linear-gradient(
+                to bottom, 
+                #C2A56F 10%,  /* Sandy light brown */
+                #9B6D42 20%,  /* Darker brown */
+                #6B4423 40%,  /* Grittier soil */
+                #543A1E 50%,  /* Organic matter */
+                #3D2A13 70%,  /* Darker soil */
+                #1E1206 90%   /* Black soil */
+            );
             border-bottom: 1px solid var(--border);
         }
 
