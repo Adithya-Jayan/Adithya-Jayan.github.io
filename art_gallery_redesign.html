@@ -219,7 +219,7 @@
             background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300" preserveAspectRatio="xMidYMax meet"><g><rect x="50" y="150" width="25" height="150" fill="%23654321"/><polygon points="62,150 30,50 95,50" fill="%23228b22"/><polygon points="62,100 35,20 90,20" fill="%2332cd32"/><polygon points="62,70 40,0 85,0" fill="%23228b22"/></g><g><rect x="110" y="180" width="18" height="120" fill="%238b4513"/><polygon points="119,180 85,90 153,90" fill="%23006400"/><polygon points="119,140 95,70 143,70" fill="%23228b22"/><polygon points="119,110 100,50 138,50" fill="%2332cd32"/></g><g><rect x="200" y="200" width="12" height="100" fill="%23654321"/><polygon points="206,200 180,120 232,120" fill="%23228b22"/><polygon points="206,170 185,100 227,100" fill="%2332cd32"/></g><g><rect x="320" y="190" width="15" height="110" fill="%238b4513"/><polygon points="327,190 295,100 360,100" fill="%23006400"/><polygon points="327,150 305,80 350,80" fill="%23228b22"/></g><g><rect x="400" y="170" width="20" height="130" fill="%23654321"/><polygon points="410,170 370,80 450,80" fill="%23228b22"/><polygon points="410,130 380,60 440,60" fill="%2332cd32"/><polygon points="410,100 385,40 435,40" fill="%23228b22"/></g><g><rect x="525" y="150" width="25" height="150" fill="%238b4513"/><polygon points="537,150 505,50 570,50" fill="%23006400"/><polygon points="537,100 510,20 565,20" fill="%23228b22"/><polygon points="537,70 515,0 560,0" fill="%2332cd32"/></g></svg>') repeat-x;
             background-size: auto 100%;
             background-position: bottom;
-            animation: sway 8s ease-in-out infinite;
+            animation: tree-sway 8s ease-in-out infinite;
             z-index: 3;
         }
 
@@ -260,11 +260,13 @@
 
         /* Animations */
         @keyframes clouds {
-            0% { transform: translateX(-100px); }
-            100% { transform: translateX(100px); }
+            0% { transform: translateX(-100px); opacity: 0;}
+            5% { opacity: 1;}
+            95% { opacity: 1;}
+            100% { transform: translateX(100px); opacity: 0;}
         }
 
-        @keyframes sway {
+        @keyframes tree-sway {
             0%, 100% { transform: translateX(0px) rotate(0deg); }
             25% { transform: translateX(2px) rotate(0.5deg); }
             50% { transform: translateX(0px) rotate(0deg); }
@@ -397,7 +399,7 @@
 
         /* Filter Controls */
         .filter-section {
-            padding: 40px 0;
+            padding: 60px 0 80px 0;
             background: linear-gradient(
                 to bottom, 
                 #C2A56F 10%,  /* Sandy light brown */
@@ -405,9 +407,63 @@
                 #6B4423 40%,  /* Grittier soil */
                 #543A1E 50%,  /* Organic matter */
                 #3D2A13 70%,  /* Darker soil */
-                #1E1206 90%   /* Black soil */
+                #1E1206 85%,   /* Black soil */
+                #C2A56F 95%, /* White waves */
+                #60cbef 98%
             );
-            border-bottom: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Wave animations */
+        .wave {
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            width: 120%;
+            opacity: 0.6;
+            height: 60px;
+            background: linear-gradient(to top, rgba(96, 203, 239, 0.8), rgba(135, 206, 235, 0.6));
+            border-radius: 80px 80px 0 0;
+            animation: wave-move 4s ease-in-out infinite;
+        }
+
+        .wave:before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: inherit;
+            border-radius: 100% 100% 0 0 / 60px 60px 0 0;
+        }
+
+        .wave:nth-child(1) {
+            height: 57px;
+            background: linear-gradient(to top, rgba(96, 203, 239, 0), rgba(255, 255, 255, 0.8));
+            animation: wave-move 10s ease-in-out infinite reverse;
+            opacity: 0.8;
+            animation-delay: -1s;
+        }
+
+        .wave:nth-child(2) {
+            height: 30px;
+            background: linear-gradient(to top, rgba(96, 203, 239, 0.6), rgba(135, 206, 235, 0.4));
+            animation: wave-move 4s ease-in-out infinite reverse;
+            animation-delay: -2s;
+        }
+
+        .wave:nth-child(3) {
+            height: 55px;
+            background: linear-gradient(to top, rgba(96, 203, 239, 0.9), rgba(135, 206, 235, 0.7));
+            animation: wave-move 5s ease-in-out infinite;
+            animation-delay: -3s;
+        }
+
+        @keyframes wave-move {
+            0%, 100% { transform: translateX(-50%) translateY(0px); }
+            50% { transform: translateX(-50%) translateY(-10px); }
         }
 
         .filter-container {
@@ -483,98 +539,22 @@
             width: 100%;
             background: linear-gradient(
                 to bottom,
-                #0D1E40 10%, /* Deep dark blue */
-                #1E3A66 30%, /* Darker flowing water */
+                #60cbef 10%, /* Foamy water */
+                #3F7EA8 30%, /* Lighter misty blue */
                 #2F5C8A 50%, /* Mid-water tone */
-                #3F7EA8 70%, /* Lighter misty blue */
-                #5AA1C8 90% /* Foamy water */
+                #1E3A66 70%, /* Darker flowing water */
+                #0D1E40 90% /* Deep dark blue */
             );
             position: relative;
             overflow: hidden;
             padding: 60px 0;
         }
 
-        @keyframes flow {
-            0% { transform: translateY(-80px); opacity: 0.8; }
-            100% { transform: translateY(-60px); opacity: 1; }
-        }
-
-        .waterfall {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: url('https://i.pinimg.com/originals/66/be/ec/66beec8a9b43f9333ab80eeed03ca206.jpg');
-            filter: opacity(0.1);
-            opacity: 0.6;
-            animation: flow 2s infinite linear alternate;
-        }
-
-        .fog-layer {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            height: 80px;
-            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 100%);
-            animation: mist 3s infinite ease-in-out alternate;
-        }
-
-        @keyframes mist {
-            0% { opacity: 0.7; transform: translateY(0px); }
-            100% { opacity: 0.5; transform: translateY(-10px); }
-        }
-
-        @keyframes smoke {
-            0% { opacity: 0.5; transform: translateY(0px) scale(1); }
-            100% { opacity: 0; transform: translateY(-20px) scale(1.5); }
-        }
-
-        .smoke {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            height: 50px;
-            background: radial-gradient(circle, rgba(255,255,255,0.6) 10%, rgba(255,255,255,0) 80%);
-            animation: smoke 4s infinite ease-out alternate;
-        }
-
-        @keyframes streamFlow {
-            0% { opacity: 0; transform: translateY(-150%); } /* Start way above */
-            50% { opacity: 0.8; } /* Stay visible after 50% travel */
-            100% { opacity: 0; transform: translateY(100%); } /* Travel all the way down and fade out */
-        }
-
-        .stream-overlay {
-            position: absolute;
-            top: -60px;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            overflow: hidden;
-        }
-
-        /* Stream layers with randomized width, height, opacity, and staggered animation */
-        .stream-layer {
-            position: absolute;
-            height: calc(100vh * 1.2); /* Randomized height up to 1.5 screen height */
-            background: linear-gradient(to bottom,rgba(255,255,255,0) 0%, rgba(255,255,255,0.5) 10%, rgba(255,255,255,0) 80%);
-            animation: streamFlow 8s infinite linear; /* Increased duration */
-        }
-
-        /* Random placement, opacity, thickness, and staggered animation delays */
-        .stream-layer:nth-child(1) { left: 3%; width: 3%; opacity: 0.6; animation-delay: 0s; }
-        .stream-layer:nth-child(2) { left: 10%; width: 4%; opacity: 0.4; animation-delay: 2s; }
-        .stream-layer:nth-child(3) { left: 18%; width: 5%; opacity: 0.5; animation-delay: 4s; }
-        .stream-layer:nth-child(4) { left: 25%; width: 6%; opacity: 0.7; animation-delay: 3s; }
-        .stream-layer:nth-child(5) { left: 35%; width: 3.6%; opacity: 0.5; animation-delay: 5.6s; }
-        .stream-layer:nth-child(6) { left: 50%; width: 4.4%; opacity: 0.6; animation-delay: 1s; }
-        .stream-layer:nth-child(7) { left: 65%; width: 7%; opacity: 0.4; animation-delay: 7s; }
-        .stream-layer:nth-child(8) { left: 80%; width: 4%; opacity: 0.6; animation-delay: 2s; }
-        .stream-layer:nth-child(9) { left: 95%; width: 5.6%; opacity: 0.5; animation-delay: 4.4s; }
-
         .gallery-container {
             max-width: 1400px;
             margin: 0 auto;
             padding: 0 2rem;
+            z-index: 10;
         }
 
         .gallery-grid {
@@ -592,12 +572,226 @@
             transition: all 0.4s ease;
             position: relative;
             cursor: pointer;
+            backdrop-filter: blur(10px);
+            /* background-color: rgba(255, 255, 255, 0.5); */
+            mix-blend-mode: luminosity;
         }
 
         .gallery-item:hover {
             transform: translateY(-10px);
             box-shadow: var(--shadow-xl);
         }
+
+        /* Fish animations */
+        .fish {
+            position: absolute;
+            width: 40px;
+            height: 20px;
+            background: linear-gradient(45deg, #ffd700, #ffb347);
+            border-radius: 50% 10px 50% 10px;
+            animation: swim 15s linear infinite;
+        }
+
+        .fish:before {
+            content: '';
+            position: absolute;
+            right: -15px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-left: 15px solid #ffd700;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+        }
+
+        .fish:nth-child(even) {
+            background: linear-gradient(45deg, #ff6b6b, #ff8e53);
+            animation-duration: 12s;
+            animation-delay: -3s;
+        }
+
+        .fish:nth-child(3n) {
+            background: linear-gradient(45deg, #4ecdc4, #44a08d);
+            animation-duration: 18s;
+            animation-delay: -6s;
+        }
+
+        @keyframes swim {
+            0% { 
+                transform: translateX(-100px) translateY(0px);
+                opacity: 0;
+            }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { 
+                transform: translateX(calc(100vw + 100px)) translateY(-50px);
+                opacity: 0;
+            }
+        }
+
+
+        /* Generate multiple fish at different depths */
+        .fish:nth-child(1) { top: 60%; }
+        .fish:nth-child(2) { top: 70%; animation-delay: -5s; }
+        .fish:nth-child(3) { top: 75%; animation-delay: -8s; }
+        .fish:nth-child(4) { top: 80%; animation-delay: -2s; }
+        .fish:nth-child(5) { top: 85%; animation-delay: -10s; }
+        .fish:nth-child(6) { top: 90%; animation-delay: -7s; }
+        .fish:nth-child(7) { top: 65%; animation-delay: -4s; }
+        .fish:nth-child(8) { top: 55%; animation-delay: -3s; }
+        .fish:nth-child(9) { top: 50%; animation-delay: -1s; }
+        .fish:nth-child(10) { top: 40%; animation-delay: -9s; }
+        .fish:nth-child(11) { top: 30%; animation-delay: -6s; }
+        .fish:nth-child(12) { top: 20%; animation-delay: -12s; }
+
+        /* Seaweed */
+        .seaweed {
+            position: absolute;
+            bottom: 0;
+            width: 15px;
+            background: linear-gradient(to top, #228b22, #32cd32);
+            border-radius: 50px 50px 0 0;
+            animation: seaweed-sway 4s ease-in-out infinite;
+            transform-origin: bottom center;
+        }
+
+        .seaweed:nth-child(odd) {
+            animation-delay: -2s;
+            background: linear-gradient(to top, #006400, #228b22);
+        }
+
+        @keyframes seaweed-sway {
+            0%, 100% { transform: rotate(-5deg); }
+            50% { transform: rotate(5deg); }
+        }
+
+        /* Position seaweed */
+        .seaweed:nth-child(13) { left: 10%; height: 120px; }
+        .seaweed:nth-child(14) { left: 25%; height: 150px; animation-delay: -1s; }
+        .seaweed:nth-child(15) { left: 40%; height: 100px; }
+        .seaweed:nth-child(16) { left: 60%; height: 180px; animation-delay: -3s; }
+        .seaweed:nth-child(17) { left: 75%; height: 130px; }
+        .seaweed:nth-child(18) { left: 96%; height: 160px; animation-delay: -1.5s; }
+        .seaweed:nth-child(19) { left: 58%; height: 140px; animation-delay: -2.5s; }
+        .seaweed:nth-child(20) { left: 80%; height: 110px; animation-delay: -4s; }
+        .seaweed:nth-child(21) { left: 3%; height: 170px; animation-delay: -5s; }
+        .seaweed:nth-child(22) { left: 3%; height: 150px; animation-delay: -6s; }
+        .seaweed:nth-child(23) { left: 65%; height: 130px; animation-delay: -3.5s; }
+        .seaweed:nth-child(24) { left: 55%; height: 160px; animation-delay: -4.5s; }
+        
+
+        /* Water bubbles */
+        .bubble {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: bubble-rise 8s linear infinite;
+        }
+
+        @keyframes bubble-rise {
+            0% {
+                transform: translateY(100vh) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) scale(1);
+                opacity: 0;
+            }
+        }
+
+        .bubble:nth-child(25) { left: 5%; width: 10px; height: 10px; animation-delay: -2s; }
+        .bubble:nth-child(26) { left: 15%; width: 15px; height: 15px; animation-delay: -4s; }
+        .bubble:nth-child(27) { left: 25%; width: 8px; height: 8px; animation-delay: -6s; }
+        .bubble:nth-child(28) { left: 75%; width: 12px; height: 12px; animation-delay: -1s; }
+        .bubble:nth-child(29) { left: 85%; width: 6px; height: 6px; animation-delay: -3s; }
+        .bubble:nth-child(30) { left: 95%; width: 20px; height: 20px; animation-delay: -5s; }
+        .bubble:nth-child(31) { left: 12%; width: 14px; height: 14px; animation-delay: -7s; }
+        .bubble:nth-child(32) { left: 45%; width: 18px; height: 18px; animation-delay: -8s; }
+        .bubble:nth-child(33) { left: 65%; width: 10px; height: 10px; animation-delay: -9s; }
+
+        /* Turtle SVG styles */
+        .turtle {
+            position: absolute;
+            width: 160px;
+            height: 120px;
+            top: 25%;
+            transform: translateY(-50%);
+            animation: turtle-swim 20s linear infinite;
+            animation-delay: 120s; /* Appears after 20 seconds */
+            opacity: 0;
+        }
+
+        .baby-turtle {
+            position: absolute;
+            width: 80px;
+            height: 60px;
+            top: 27%;
+            transform: translateY(-50%);
+            animation: baby-swim 20s linear infinite;
+            animation-delay: 360s; /* Appears after 20 seconds */
+            opacity: 0;
+        }
+
+        @keyframes turtle-swim {
+            0% {
+                left: 100%;
+                opacity: 0;
+            }
+            5% {
+                opacity: 1;
+            }
+            95% {
+                opacity: 1;
+            }
+            100% {
+                left: -100px;
+                opacity: 0;
+            }
+        }
+
+        @keyframes baby-swim {
+            0% {
+                left: 120%;
+                opacity: 0;
+            }
+            5% {
+                opacity: 1;
+            }
+            95% {
+                opacity: 1;
+            }
+            100% {
+                left: -80px;
+                opacity: 0;
+            }
+        }
+
+        /* Floating animation for gentle up/down movement */
+        .turtle svg, .baby-turtle svg {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .baby-turtle svg {
+            animation: float 3s ease-in-out infinite;
+            animation-delay: 1s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) rotate(-2deg);
+            }
+            50% {
+                transform: translateY(-8px) rotate(2deg);
+            }
+        }
+
 
         .gallery-item.hidden {
             display: none;
@@ -732,10 +926,19 @@
             margin: 2% auto;
             width: 90%;
             max-width: 1000px;
+            max-height: 90vh;
             background: var(--background);
             border-radius: 20px;
             overflow: hidden;
             animation: modalFadeIn 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .modal-body {
+            padding: 2rem;
+            overflow-y: auto;
+            flex: 1;
         }
 
         .modal-header {
@@ -921,6 +1124,7 @@
             .modal-content {
                 width: 95%;
                 margin: 5% auto;
+                max-height: 95vh;
             }
             
             .modal-details {
@@ -1000,6 +1204,12 @@
 
     <!-- Filter Section -->
     <section class="filter-section">
+
+        <!-- Animated waves -->
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+
         <div class="filter-container">
             <div class="filter-buttons">
                 <button class="filter-btn active" data-filter="all">All Works</button>
@@ -1019,21 +1229,96 @@
     <!-- Gallery Section -->
     <section class="gallery-section">
 
-        <div class="waterfall"></div>  <!-- Flowing water animation -->
-        <div class="fog-layer"></div>  <!-- Fog effect -->
-        <div class="smoke"></div>  <!-- Smoke effect at the bottom -->
+        <!-- Animated sea life -->
+        <div class="fish"></div>
+        <div class="fish"></div>
+        <div class="fish"></div>
+        <div class="fish"></div>
+        <div class="fish"></div>
+        <div class="fish"></div>
+        <div class="fish"></div>
+        <div class="fish"></div>
+        <div class="fish"></div>
+        <div class="fish"></div>
+        <div class="fish"></div>
+        <div class="fish"></div>
 
-        <!-- Falling Water Streams -->
-        <div class="stream-overlay">
-            <div class="stream-layer"></div>
-            <div class="stream-layer"></div>
-            <div class="stream-layer"></div>
-            <div class="stream-layer"></div>
-            <div class="stream-layer"></div>
-            <div class="stream-layer"></div>
-            <div class="stream-layer"></div>
-            <div class="stream-layer"></div>
-            <div class="stream-layer"></div>
+        <!-- Seaweed -->
+        <div class="seaweed"></div>
+        <div class="seaweed"></div>
+        <div class="seaweed"></div>
+        <div class="seaweed"></div>
+        <div class="seaweed"></div>
+        <div class="seaweed"></div>
+        <div class="seaweed"></div>
+        <div class="seaweed"></div>
+        <div class="seaweed"></div>
+        <div class="seaweed"></div>
+        <div class="seaweed"></div>
+        <div class="seaweed"></div>
+
+        <!-- Bubbles -->
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+
+        <!-- Adult turtle -->
+        <div class="turtle">
+            <svg viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg">
+                <!-- Turtle shell (side view) -->
+                <ellipse cx="60" cy="30" rx="45" ry="20" fill="#2D5016" stroke="#1A3009" stroke-width="2"/>
+                <!-- Shell segments -->
+                <ellipse cx="60" cy="30" rx="40" ry="16" fill="#4A7C59"/>
+                <rect x="25" y="20" width="15" height="20" fill="#2D5016" rx="3"/>
+                <rect x="45" y="18" width="15" height="24" fill="#2D5016" rx="3"/>
+                <rect x="65" y="18" width="15" height="24" fill="#2D5016" rx="3"/>
+                <rect x="85" y="20" width="15" height="20" fill="#2D5016" rx="3"/>
+                <!-- Head (pointing left) -->
+                <ellipse cx="15" cy="28" rx="12" ry="8" fill="#4A7C59" stroke="#2D5016" stroke-width="1"/>
+                <circle cx="8" cy="25" r="2" fill="#000"/>
+                <ellipse cx="6" cy="30" rx="2" ry="1" fill="#2D5016"/>
+                <!-- Front flippers -->
+                <ellipse cx="35" cy="45" rx="12" ry="6" fill="#4A7C59" transform="rotate(20 35 45)"/>
+                <ellipse cx="30" cy="15" rx="12" ry="6" fill="#4A7C59" transform="rotate(-20 30 15)"/>
+                <!-- Back flippers -->
+                <ellipse cx="85" cy="45" rx="12" ry="6" fill="#4A7C59" transform="rotate(-10 85 45)"/>
+                <ellipse cx="90" cy="15" rx="12" ry="6" fill="#4A7C59" transform="rotate(10 90 15)"/>
+                <!-- Tail -->
+                <ellipse cx="110" cy="30" rx="6" ry="4" fill="#4A7C59"/>
+            </svg>
+        </div>
+        
+        <!-- Baby turtle (appears after 20 seconds) -->
+        <div class="baby-turtle">
+            <svg viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg">
+                <!-- Baby turtle shell (side view, lighter colors) -->
+                <ellipse cx="60" cy="30" rx="45" ry="20" fill="#5D7C47" stroke="#3A4D2A" stroke-width="2"/>
+                <!-- Shell segments -->
+                <ellipse cx="60" cy="30" rx="40" ry="16" fill="#7FA96A"/>
+                <rect x="25" y="20" width="15" height="20" fill="#5D7C47" rx="3"/>
+                <rect x="45" y="18" width="15" height="24" fill="#5D7C47" rx="3"/>
+                <rect x="65" y="18" width="15" height="24" fill="#5D7C47" rx="3"/>
+                <rect x="85" y="20" width="15" height="20" fill="#5D7C47" rx="3"/>
+                <!-- Head (pointing left) -->
+                <ellipse cx="15" cy="28" rx="12" ry="8" fill="#7FA96A" stroke="#5D7C47" stroke-width="1"/>
+                <circle cx="8" cy="25" r="2" fill="#000"/>
+                <ellipse cx="6" cy="30" rx="2" ry="1" fill="#5D7C47"/>
+                <!-- Front flippers -->
+                <ellipse cx="35" cy="45" rx="12" ry="6" fill="#7FA96A" transform="rotate(20 35 45)"/>
+                <ellipse cx="30" cy="15" rx="12" ry="6" fill="#7FA96A" transform="rotate(-20 30 15)"/>
+                <!-- Back flippers -->
+                <ellipse cx="85" cy="45" rx="12" ry="6" fill="#7FA96A" transform="rotate(-10 85 45)"/>
+                <ellipse cx="90" cy="15" rx="12" ry="6" fill="#7FA96A" transform="rotate(10 90 15)"/>
+                <!-- Tail -->
+                <ellipse cx="110" cy="30" rx="6" ry="4" fill="#7FA96A"/>
+            </svg>
         </div>
 
         <div class="gallery-container">
@@ -1880,13 +2165,13 @@
         function addScrollEffects() {
             // Show/hide FAB based on scroll position
             window.addEventListener('scroll', function() {
-                const fab = document.querySelector('.float_action_btn');
+                const fa_button = document.querySelector('.float_action_btn');
                 if (window.scrollY > 300) {
-                    float_action_btn.style.opacity = '1';
-                    float_action_btn.style.transform = 'scale(1)';
+                    fa_button.style.opacity = '1';
+                    fa_button.style.transform = 'scale(1)';
                 } else {
-                    float_action_btn.style.opacity = '0';
-                    float_action_btn.style.transform = 'scale(0.8)';
+                    fa_button.style.opacity = '0';
+                    fa_button.style.transform = 'scale(0.8)';
                 }
             });
         }
