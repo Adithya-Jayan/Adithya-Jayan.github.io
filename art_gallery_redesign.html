@@ -1152,6 +1152,220 @@
                 height: 250px;
             }
         }
+
+        /* Beach Footer Styles */
+        footer {
+            background: linear-gradient(
+                to bottom,
+                #F4E4BC 0%,   /* Light sand */
+                #E6D3A3 30%,  /* Medium sand */
+                #D4C19C 60%,  /* Darker sand */
+                #C2A56F 100%  /* Deep sand */
+            ) !important;
+            padding: 4rem 0 2rem 0 !important;
+            border-top: none !important;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Sand texture overlay */
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(255,255,255,0.3) 1px, transparent 1px),
+                radial-gradient(circle at 80% 70%, rgba(255,255,255,0.2) 2px, transparent 2px),
+                radial-gradient(circle at 40% 90%, rgba(139,115,85,0.3) 1px, transparent 1px),
+                radial-gradient(circle at 60% 20%, rgba(205,175,149,0.2) 1px, transparent 1px);
+            background-size: 50px 50px, 80px 80px, 30px 30px, 60px 60px;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Sandcastle */
+        .sandcastle {
+            position: absolute;
+            left: 5%;
+            top: 20px;
+            width: 120px;
+            height: 100px;
+            z-index: 5;
+        }
+
+        .sandcastle svg {
+            filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.3));
+        }
+
+        /* Moving Crab */
+        .beach-crab {
+            position: absolute;
+            right: 5%;
+            top: 30px;
+            width: 60px;
+            height: 40px;
+            z-index: 5;
+            animation: crab-walk 15s linear infinite;
+        }
+
+        @keyframes crab-walk {
+            0% {
+                right: 5%;
+                transform: scaleX(1);
+            }
+            45% {
+                right: 80%;
+                transform: scaleX(1);
+            }
+            50% {
+                right: 80%;
+                transform: scaleX(-1);
+            }
+            95% {
+                right: 5%;
+                transform: scaleX(-1);
+            }
+            100% {
+                right: 5%;
+                transform: scaleX(1);
+            }
+        }
+
+        .beach-crab svg {
+            animation: crab-scuttle 0.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes crab-scuttle {
+            0% { transform: translateY(0px) rotate(-1deg); }
+            100% { transform: translateY(-2px) rotate(1deg); }
+        }
+
+        /* Seashells */
+        .seashell {
+            position: absolute;
+            z-index: 3;
+            opacity: 0.8;
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.2));
+        }
+
+        .seashell-1 {
+            top: 40px;
+            left: 25%;
+            width: 25px;
+            height: 20px;
+            transform: rotate(15deg);
+        }
+
+        .seashell-2 {
+            top: 80px;
+            right: 30%;
+            width: 20px;
+            height: 16px;
+            transform: rotate(-25deg);
+        }
+
+        .seashell-3 {
+            top: 45px;
+            left: 60%;
+            width: 18px;
+            height: 15px;
+            transform: rotate(45deg);
+        }
+
+        .seashell-4 {
+            top: 25px;
+            right: 45%;
+            width: 22px;
+            height: 18px;
+            transform: rotate(-10deg);
+        }
+
+        .seashell-5 {
+            top: 70px;
+            left: 40%;
+            width: 16px;
+            height: 14px;
+            transform: rotate(30deg);
+        }
+
+        /* Footer content positioning */
+        .footer-content {
+            position: relative;
+            z-index: 10;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        /* Social links styling for beach theme */
+        .footer-content a {
+            color: #8B4513 !important;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
+        }
+
+        .footer-content a:hover {
+            color: #A0522D !important;
+            transform: scale(1.1);
+        }
+
+        /* Copyright text styling */
+        .footer-content p {
+            color: #8B4513 !important;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.3);
+            font-weight: 500;
+        }
+
+        /* Wave footprints in sand */
+        .footprints {
+            position: absolute;
+            top: 15px;
+            left: 15%;
+            right: 15%;
+            height: 8px;
+            background: 
+                radial-gradient(ellipse 8px 4px at 20px 4px, rgba(139,115,85,0.4) 40%, transparent 50%),
+                radial-gradient(ellipse 8px 4px at 60px 4px, rgba(139,115,85,0.4) 40%, transparent 50%),
+                radial-gradient(ellipse 8px 4px at 100px 4px, rgba(139,115,85,0.4) 40%, transparent 50%),
+                radial-gradient(ellipse 8px 4px at 140px 4px, rgba(139,115,85,0.4) 40%, transparent 50%);
+            background-size: 180px 8px;
+            background-repeat: repeat-x;
+            z-index: 2;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .sandcastle {
+                left: 2%;
+                width: 80px;
+                height: 70px;
+            }
+            
+            .beach-crab {
+                right: 2%;
+                width: 40px;
+                height: 30px;
+            }
+            
+            .seashell {
+                transform: scale(0.8);
+            }
+            
+            .footprints {
+                left: 5%;
+                right: 5%;
+            }
+        }
+
+
+
+
+
     </style>
 </head>
 <body>
@@ -1876,23 +2090,114 @@
     </div>
 
     <!-- Footer -->
-    <footer style="background: var(--surface); padding: 3rem 0; border-top: 1px solid var(--border); margin-top: 4rem;">
-        <div style="max-width: 1400px; margin: 0 auto; padding: 0 2rem; text-align: center;">
+    <footer>
+        <!-- Sandcastle -->
+        <div class="sandcastle">
+            <svg viewBox="0 0 120 100" xmlns="http://www.w3.org/2000/svg">
+                <!-- Base castle -->
+                <rect x="20" y="60" width="80" height="40" fill="#D4C19C" stroke="#B8A082" stroke-width="1"/>
+                <!-- Main tower -->
+                <rect x="40" y="30" width="40" height="70" fill="#E6D3A3" stroke="#D4C19C" stroke-width="1"/>
+                <!-- Side towers -->
+                <rect x="15" y="45" width="25" height="55" fill="#D4C19C" stroke="#B8A082" stroke-width="1"/>
+                <rect x="80" y="45" width="25" height="55" fill="#D4C19C" stroke="#B8A082" stroke-width="1"/>
+                <!-- Tower tops -->
+                <polygon points="40,30 50,20 70,20 80,30" fill="#F4E4BC" stroke="#E6D3A3" stroke-width="1"/>
+                <polygon points="15,45 22,35 33,35 40,45" fill="#E6D3A3" stroke="#D4C19C" stroke-width="1"/>
+                <polygon points="80,45 87,35 98,35 105,45" fill="#E6D3A3" stroke="#D4C19C" stroke-width="1"/>
+                <!-- Windows and door -->
+                <rect x="55" y="50" width="10" height="15" fill="#8B7355"/>
+                <rect x="20" y="55" width="8" height="8" fill="#8B7355"/>
+                <rect x="92" y="55" width="8" height="8" fill="#8B7355"/>
+                <rect x="55" y="80" width="10" height="20" fill="#8B7355"/>
+                <!-- Flag -->
+                <line x1="60" y1="20" x2="60" y2="5" stroke="#8B4513" stroke-width="2"/>
+                <polygon points="60,5 75,8 60,15" fill="#FF6B6B"/>
+            </svg>
+        </div>
+        
+        <!-- Moving Crab -->
+        <div class="beach-crab">
+            <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+                <!-- Crab body -->
+                <ellipse cx="30" cy="25" rx="18" ry="12" fill="#E74C3C" stroke="#C0392B" stroke-width="1"/>
+                <!-- Crab shell pattern -->
+                <ellipse cx="30" cy="25" rx="15" ry="10" fill="#FF6B6B"/>
+                <ellipse cx="30" cy="25" rx="12" ry="8" fill="#E74C3C"/>
+                <!-- Eyes -->
+                <circle cx="25" cy="18" r="3" fill="#2C3E50"/>
+                <circle cx="35" cy="18" r="3" fill="#2C3E50"/>
+                <circle cx="25" cy="17" r="1" fill="#ECF0F1"/>
+                <circle cx="35" cy="17" r="1" fill="#ECF0F1"/>
+                <!-- Claws -->
+                <ellipse cx="15" cy="20" rx="6" ry="4" fill="#E74C3C" transform="rotate(-30 15 20)"/>
+                <ellipse cx="45" cy="20" rx="6" ry="4" fill="#E74C3C" transform="rotate(30 45 20)"/>
+                <!-- Legs -->
+                <ellipse cx="20" cy="35" rx="3" ry="2" fill="#C0392B"/>
+                <ellipse cx="25" cy="37" rx="3" ry="2" fill="#C0392B"/>
+                <ellipse cx="35" cy="37" rx="3" ry="2" fill="#C0392B"/>
+                <ellipse cx="40" cy="35" rx="3" ry="2" fill="#C0392B"/>
+            </svg>
+        </div>
+        
+        <!-- Scattered Seashells -->
+        <div class="seashell seashell-1">
+            <svg viewBox="0 0 25 20" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12.5 2 L20 18 L5 18 Z" fill="#F8C471" stroke="#E67E22" stroke-width="1"/>
+                <line x1="12.5" y1="6" x2="12.5" y2="16" stroke="#E67E22"/>
+                <line x1="8" y1="12" x2="17" y2="12" stroke="#E67E22"/>
+            </svg>
+        </div>
+        
+        <div class="seashell seashell-2">
+            <svg viewBox="0 0 20 16" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="10" cy="12" rx="8" ry="4" fill="#F7DC6F" stroke="#F4D03F" stroke-width="1"/>
+                <path d="M10 4 Q6 8 10 12 Q14 8 10 4" fill="#F8C471" stroke="#E67E22" stroke-width="1"/>
+            </svg>
+        </div>
+        
+        <div class="seashell seashell-3">
+            <svg viewBox="0 0 18 15" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="9" cy="10" r="6" fill="#AED6F1" stroke="#5DADE2" stroke-width="1"/>
+                <circle cx="9" cy="10" r="4" fill="#D6EAF8"/>
+                <circle cx="9" cy="10" r="2" fill="#EBF5FB"/>
+            </svg>
+        </div>
+        
+        <div class="seashell seashell-4">
+            <svg viewBox="0 0 22 18" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11 2 L18 16 L4 16 Z" fill="#E8DAEF" stroke="#BB8FCE" stroke-width="1"/>
+                <path d="M11 6 L15 14 L7 14 Z" fill="#F4ECF7"/>
+            </svg>
+        </div>
+        
+        <div class="seashell seashell-5">
+            <svg viewBox="0 0 16 14" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="8" cy="10" rx="6" ry="3" fill="#FADBD8" stroke="#F1948A" stroke-width="1"/>
+                <ellipse cx="8" cy="8" rx="4" ry="2" fill="#FDEDEC"/>
+            </svg>
+        </div>
+        
+        <!-- Footprints in sand -->
+        <div class="footprints"></div>
+        
+        <!-- Footer content -->
+        <div class="footer-content">
             <div style="display: flex; justify-content: center; gap: 2rem; margin-bottom: 2rem; flex-wrap: wrap;">
-                <a href="https://instagram.com/adithya_jayan_" style="color: var(--text-secondary); font-size: 1.5rem; transition: all 0.3s ease;" title="Instagram" onmouseover="this.style.color='var(--primary-color)'" onmouseout="this.style.color='var(--text-secondary)'">
+                <a href="https://instagram.com/adithya_jayan_" title="Instagram">
                     <i class="fab fa-instagram"></i>
                 </a>
-                <a href="https://linkedin.com/in/adithya-jayan" style="color: var(--text-secondary); font-size: 1.5rem; transition: all 0.3s ease;" title="LinkedIn" onmouseover="this.style.color='var(--primary-color)'" onmouseout="this.style.color='var(--text-secondary)'">
+                <a href="https://linkedin.com/in/adithya-jayan" title="LinkedIn">
                     <i class="fab fa-linkedin"></i>
                 </a>
-                <a href="https://github.com/Adithya-Jayan" style="color: var(--text-secondary); font-size: 1.5rem; transition: all 0.3s ease;" title="GitHub" onmouseover="this.style.color='var(--primary-color)'" onmouseout="this.style.color='var(--text-secondary)'">
+                <a href="https://github.com/Adithya-Jayan" title="GitHub">
                     <i class="fab fa-github"></i>
                 </a>
-                <a href="mailto:adithyajayan2025@gmail.com" style="color: var(--text-secondary); font-size: 1.5rem; transition: all 0.3s ease;" title="Email" onmouseover="this.style.color='var(--primary-color)'" onmouseout="this.style.color='var(--text-secondary)'">
+                <a href="mailto:adithyajayan2025@gmail.com" title="Email">
                     <i class="fas fa-envelope"></i>
                 </a>
             </div>
-            <div style="color: var(--text-light); font-size: 0.9rem;">
+            <div style="font-size: 0.9rem;">
                 <p style="margin-bottom: 0.5rem;">© 2024 Adithya Jayan. All rights reserved.</p>
                 <p>Crafted with ❤️ and lots of ☕</p>
             </div>
