@@ -8,16 +8,16 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #2563eb;
-            --primary-dark: #1d4ed8;
-            --secondary-color: #f1f5f9;
-            --accent-color: #06b6d4;
-            --text-primary: #0f172a;
-            --text-secondary: #64748b;
-            --text-light: #94a3b8;
+            --primary-color: #059669; /* Emerald green to match the trees */
+            --primary-dark: #047857;
+            --secondary-color: #f0fdf4; /* Very light green tint */
+            --accent-color: #0891b2; /* Softer cyan */
+            --text-primary: #064e3b; /* Dark forest green */
+            --text-secondary: #6b7280;
+            --text-light: #9ca3af;
             --background: #ffffff;
-            --surface: #f8fafc;
-            --border: #e2e8f0;
+            --surface: #f9fafb;
+            --border: #d1d5db;
             --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
             --shadow-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
             --shadow-xl: 0 35px 60px -15px rgba(0, 0, 0, 0.3);
@@ -185,6 +185,17 @@
             z-index: 4;
         }
 
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.594); /* Adjust opacity as needed */
+            backdrop-filter: blur(4px);
+            z-index: 4;
+        }
+
         /* Animations */
         @keyframes clouds {
             0% { transform: translateX(-100px); opacity: 0;}
@@ -220,7 +231,7 @@
             color: white;
             padding: 2rem;
             
-            /* background: rgba(255, 255, 255, 0.25);
+            /* background: rgba(0, 0, 0, 0.7);
             backdrop-filter: blur(10px);
             border-radius: 12px;
             padding: 2rem; */
@@ -239,24 +250,6 @@
             margin: 0 auto 2rem;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
             animation: fadeInUp 2s ease-out 0.5s both;
-        }
-
-        .hero-content .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background: rgba(34, 139, 34, 0.8);
-            color: white;
-            text-decoration: none;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-            text-shadow: none;
-            animation: fadeInUp 2s ease-out 1s both;
-        }
-
-        .hero-content .btn:hover {
-            background: rgb(0, 0, 0);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
 
         @keyframes fadeInUp {
@@ -1334,24 +1327,11 @@
     <section class="hero">
         <div class="forest-layer"></div>
         <div class="grass-layer"></div>
+        <div class="hero-overlay"></div>
         <div class="hero-container">
             <div class="hero-content">
                 <h1>Art Gallery 🎨</h1>
                 <p>Where technology meets creativity. Explore my collection of digital designs, artwork, and creative projects that blend engineering precision with artistic expression.</p>
-                <div class="gallery-stats">
-                    <div class="stat-item">
-                        <span class="stat-number">25+</span>
-                        <span class="stat-label">Artworks</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">5</span>
-                        <span class="stat-label">Categories</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">∞</span>
-                        <span class="stat-label">Inspiration</span>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
