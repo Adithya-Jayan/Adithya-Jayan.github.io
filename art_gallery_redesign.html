@@ -176,7 +176,7 @@
             position: relative;
             height: 100vh;
             overflow: hidden;
-            background: linear-gradient(135deg, #fffcc6 0%, #467352 50%, #87ceeb 100%);
+            background: linear-gradient(135deg, #fffcc6 0%, #a5c9e9 50%, #87ceeb 100%);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -322,7 +322,7 @@
         }
 
         .hero-content .btn:hover {
-            background: rgba(34, 139, 34, 1);
+            background: rgb(0, 0, 0);
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
@@ -416,7 +416,7 @@
         /* Wave animations */
         .wave {
             position: absolute;
-            bottom: -10px;
+            bottom: -30px;
             left: 50%;
             width: 120%;
             opacity: 0.6;
@@ -438,7 +438,7 @@
         }
 
         .wave:nth-child(1) {
-            height: 57px;
+            height: 77px;
             background: linear-gradient(to top, rgba(96, 203, 239, 0), rgba(255, 255, 255, 0.8));
             animation: wave-move 10s ease-in-out infinite reverse;
             opacity: 0.8;
@@ -446,23 +446,34 @@
         }
 
         .wave:nth-child(2) {
-            height: 30px;
+            height: 50px;
             background: linear-gradient(to top, rgba(96, 203, 239, 0.6), rgba(135, 206, 235, 0.4));
             animation: wave-move 4s ease-in-out infinite reverse;
             animation-delay: -2s;
         }
 
         .wave:nth-child(3) {
-            height: 55px;
+            height: 75px;
             background: linear-gradient(to top, rgba(96, 203, 239, 0.9), rgba(135, 206, 235, 0.7));
             animation: wave-move 5s ease-in-out infinite;
             animation-delay: -3s;
         }
 
         @keyframes wave-move {
-            0%, 100% { transform: translateX(-50%) translateY(0px); }
-            50% { transform: translateX(-50%) translateY(-10px); }
+            0%, 100% { 
+                transform: translateX(-50%) translateY(0px) rotate(0deg); 
+            }
+            25% { 
+                transform: translateX(-48%) translateY(-15px) rotate(1deg); 
+            }
+            50% { 
+                transform: translateX(-52%) translateY(-25px) rotate(-1deg); 
+            }
+            75% { 
+                transform: translateX(-49%) translateY(-20px) rotate(0.5deg); 
+            }
         }
+
 
         .filter-container {
             max-width: 1400px;
@@ -665,8 +676,8 @@
         }
 
         /* Position seaweed */
-        .seaweed:nth-child(13) { left: 10%; height: 120px; }
-        .seaweed:nth-child(14) { left: 25%; height: 150px; animation-delay: -1s; }
+        .seaweed:nth-child(13) { left: 10%; height: 240px; }
+        .seaweed:nth-child(14) { left: 25%; height: 300px; animation-delay: -1s; }
         .seaweed:nth-child(15) { left: 40%; height: 100px; }
         .seaweed:nth-child(16) { left: 60%; height: 180px; animation-delay: -3s; }
         .seaweed:nth-child(17) { left: 75%; height: 130px; }
