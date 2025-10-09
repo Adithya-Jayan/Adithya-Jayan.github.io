@@ -683,6 +683,18 @@ div.wrapper_3d div.sketchfab-embed-wrapper .description_3d{
 	padding: 15px;
 }
 
+@media (max-width: 960px) {
+	.grid-item {
+		width: 50%;
+	}
+}
+
+@media (max-width: 560px) {
+	.grid-item {
+		width: 100%;
+	}
+}
+
 /* To prevent wobbly isotope gallery  */
 #gallery * {
 	transition: none;
