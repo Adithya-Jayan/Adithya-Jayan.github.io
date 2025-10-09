@@ -652,6 +652,22 @@ div.wrapper_3d div.sketchfab-embed-wrapper .description_3d{
 	transform: translateY(-2px);
 }
 
+.description_3d a.buylink.disabled {
+    background-color: #555;
+    border-color: #555;
+    color: #999;
+    text-decoration: line-through;
+    pointer-events: none;
+    cursor: not-allowed;
+}
+
+.description_3d a.buylink.disabled:hover {
+    background-color: #555;
+    border-color: #555;
+    color: #999;
+    transform: none;
+}
+
 .description_3d{
 	word-wrap: break-word;
 	line-height: 2;
