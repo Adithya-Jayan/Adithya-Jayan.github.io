@@ -696,7 +696,6 @@ footer{
 footer .container {
   display: flex;
   flex-wrap: wrap;
-  gap: 2em;
   justify-content: space-between;
   align-items: flex-start;
 }
