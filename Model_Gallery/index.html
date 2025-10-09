@@ -210,13 +210,40 @@
 		// Parallax scroll for PageLinkContainer
 		const pageLinkContainer = document.querySelector('.PageLinkContainer');
 		if (pageLinkContainer) {
+			let userTookControl = false;
+			let currentScroll = 0;
+			let targetScroll = 0;
+			const lerpFactor = 0.08;
+
+			function onUserInteraction() {
+				userTookControl = true;
+				pageLinkContainer.removeEventListener('wheel', onUserInteraction);
+				pageLinkContainer.removeEventListener('touchstart', onUserInteraction);
+			}
+			pageLinkContainer.addEventListener('wheel', onUserInteraction);
+			pageLinkContainer.addEventListener('touchstart', onUserInteraction);
+
+			function smoothScroll() {
+				if (userTookControl) return;
+				currentScroll = lerp(currentScroll, targetScroll, lerpFactor);
+				pageLinkContainer.scrollLeft = currentScroll;
+				requestAnimationFrame(smoothScroll);
+			}
+
+			function lerp(start, end, t) {
+				return start * (1 - t) + end * t;
+			}
+
 			window.addEventListener('scroll', function() {
+				if (userTookControl) return;
 				const scrollTop = window.scrollY;
 				const docHeight = document.documentElement.scrollHeight - window.innerHeight;
 				const scrollPercent = scrollTop / docHeight;
 				const maxScrollLeft = pageLinkContainer.scrollWidth - pageLinkContainer.clientWidth;
-				pageLinkContainer.scrollLeft = scrollPercent * maxScrollLeft;
+				targetScroll = scrollPercent * maxScrollLeft;
 			});
+
+			smoothScroll();
 		}
 	</script>
 
