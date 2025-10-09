@@ -264,6 +264,9 @@ header{
 	z-index: 1000;
 	box-shadow: 0 2px 20px rgba(0,0,0,0.5);
 	border-bottom: 1px solid rgba(79, 157, 105, 0.3);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
 
 /* Mobile menu toggle button */
@@ -375,13 +378,7 @@ body {
 }
 
 @media (min-width: 60rem) {
-	.logo{
-		float: left;
-	}
 
-	nav{
-		float: right;
-	}
 }
 
 
@@ -487,7 +484,7 @@ body {
 
 	.home-about-textbox{
 		width: 40%;
-		padding: 4em;
+		padding: 7em;
 		outline-offset: -3.75em;
 		margin-left: 5%;
 		top: -5.5em;
