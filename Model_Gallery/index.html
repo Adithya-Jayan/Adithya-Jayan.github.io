@@ -66,7 +66,12 @@
 		<header>
 			<img src="https://i.ibb.co/58wx7GH/logo.png" alt="my logo" class="logo">
 				<nav>
-					<ul>
+				<button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+					<span></span>
+					<span></span>
+					<span></span>
+				</button>
+				<ul class="nav-menu">
 						<li><a href="../">Home</a></li>
 						<li><a href="../#About">About</a></li>
 						<li><a href="../#Contact">Contact</a></li>
@@ -179,6 +184,19 @@
 			itemSelector: '.grid-item',
 			layoutMode: 'fitRows'
 		});
+
+		// Mobile menu toggle
+		const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+		const navMenu = document.querySelector('.nav-menu');
+		
+		if (mobileMenuToggle) {
+			mobileMenuToggle.addEventListener('click', function() {
+				navMenu.classList.toggle('active');
+				const isExpanded = navMenu.classList.contains('active');
+				mobileMenuToggle.setAttribute('aria-expanded', isExpanded);
+				mobileMenuToggle.classList.toggle('active');
+			});
+		}
 
 		// Sticky nav links
 		const pageMenu = document.getElementById('PageMenu');

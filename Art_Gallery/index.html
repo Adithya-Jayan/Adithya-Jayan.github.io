@@ -56,15 +56,20 @@
 
 		<header>
 			<img src="https://i.ibb.co/58wx7GH/logo.png" alt="my logo" class="logo">
-							<nav>
-								<ul>
-									<li><a href="../">Home</a></li>
-									<li><a href="../#About">About</a></li>
-									<li><a href="../#Contact">Contact</a></li>
-									<li class="page-link-header-item"><a href="../Art_Gallery">Art Gallery</a></li>
-									<li class="page-link-header-item"><a href="../Model_Gallery">3D Model Library</a></li>
-								</ul>
-							</nav>		</header>
+										<nav>
+											<button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+												<span></span>
+												<span></span>
+												<span></span>
+											</button>
+											<ul class="nav-menu">
+													<li><a href="../">Home</a></li>
+													<li><a href="../#About">About</a></li>
+													<li><a href="../#Contact">Contact</a></li>
+													<li class="page-link-header-item"><a href="../Art_Gallery">Art Gallery</a></li>
+													<li class="page-link-header-item"><a href="../Model_Gallery">3D Model Library</a></li>
+												</ul>
+											</nav>		</header>
 
 		<section class="home-hero" style="background-image:url(https://i.ibb.co/BVNr3m8/Meditation.jpg);">
 			<div class="container">
@@ -214,6 +219,19 @@
 		<script src="/js/script.js"></script>
 
 		<script>
+			// Mobile menu toggle
+			const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+			const navMenu = document.querySelector('.nav-menu');
+			
+			if (mobileMenuToggle) {
+				mobileMenuToggle.addEventListener('click', function() {
+					navMenu.classList.toggle('active');
+					const isExpanded = navMenu.classList.contains('active');
+					mobileMenuToggle.setAttribute('aria-expanded', isExpanded);
+					mobileMenuToggle.classList.toggle('active');
+				});
+			}
+
 			// Sticky nav links
 			const pageMenu = document.getElementById('PageMenu');
 			const body = document.body;
