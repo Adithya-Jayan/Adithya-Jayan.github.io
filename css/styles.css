@@ -103,6 +103,20 @@ h1{
 	color: #f5f9f7;
 }
 
+@media (max-width: 40rem) {
+	h1 {
+		font-size: 1.5rem;
+	}
+
+	.home-about-textbox {
+		padding: 3em 1em;
+	}
+
+	.home-about-textbox h1 {
+		top: .75em;
+	}
+}
+
 h2 {
 	font-weight: 400;
 	font-size: 1.5rem;
@@ -409,6 +423,13 @@ body {
 /*home-about
 **************************************************/
 
+@media (max-width: 60rem) {
+	.home-about-textbox{
+		width: auto;
+		margin: 0;
+	}
+}
+
 .home-about-textbox{
 	background: linear-gradient(135deg, #1a4d2e 0%, #0d3321 100%);
 	padding: 4em;
@@ -433,17 +454,19 @@ body {
 	padding:0 .1em;
 }
 
+
+
 @media (min-width: 25rem) {
 	h1{
-		font-size: 2rem;
+		font-size: 1.8rem;
 	}
 
 	.home-about-textbox{
-		padding: 5.5em;
+		padding: 4em 2em;
 	}
 
 	.home-about-textbox h1{
-		top: .6em;
+		top: .4em;
 		padding: 0 .325em;
 	}
 }
@@ -464,7 +487,7 @@ body {
 
 	.home-about-textbox{
 		width: 40%;
-		padding: 7em;
+		padding: 4em;
 		outline-offset: -3.75em;
 		margin-left: 5%;
 		top: -5.5em;
