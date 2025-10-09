@@ -1,6 +1,6 @@
 <!-- Home Page -->
 <!doctype html>
-<html>
+<html lang="en">
 	<head>
 	
 		<!-- Global site tag (gtag.js) - Google Analytics -->
@@ -14,10 +14,10 @@
 		</script>
 		
 		<meta charset="UTF-8">
-		<meta name="title" property="og:title" content="Adithya Jayan" />
-		<meta name="description" property="og:description" content="This is my Portfolio. I post my art and other creations here. Click here to check it out!">
+		<meta name="title" property="og:title" content="Adithya Jayan - Digital Design Engineer & Artist" />
+		<meta name="description" property="og:description" content="Portfolio of Adithya Jayan - Digital Design Engineer at TI India. Explore my art gallery, 3D models, and creative projects.">
 		<meta name="author" content="Adithya Jayan">
-		<meta name="keywords" content="Adithya Jayan,NITK,art,Blender,Student,Adithya Jayan,AJ,A.J,Adi,NIT,Kannan,Portfolio,Poklayil,Keepanasseri">
+		<meta name="keywords" content="Adithya Jayan,NITK,art,Blender,Digital Design Engineer,TI India,3D Models,Portfolio,Artist">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta property="og:url" content="https://adithya-jayan.github.io/" />
 		<meta property="og:type" content="website" />
@@ -43,7 +43,7 @@
 		<meta name="theme-color" content="#ffffff">
 		
 		
-		<title>Adithya Jayan</title>
+		<title>Adithya Jayan - Portfolio</title>
 		<link href="css/styles.css" rel="stylesheet" type="text/css">
 		
 		<!-- Lightbox stuff -->
@@ -62,17 +62,22 @@
 	<body style="background-image:url(../images/wood.jfif); background-size: 10em;" >
 
 		<header>
-			<img src="https://i.ibb.co/58wx7GH/logo.png" alt="my logo" class="logo">
+			<img src="https://i.ibb.co/58wx7GH/logo.png" alt="Adithya Jayan Logo" class="logo" width="240" height="auto">
 			<nav>
-				<ul>
-					<li><a href="">Home</a></li>
-					<li><a href="#About">About</a></li>
-					<li><a href="#Contact">Contact</a></li>
+				<button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+					<span></span>
+					<span></span>
+					<span></span>
+				</button>
+				<ul class="nav-menu">
+					<li><a href="#home" aria-label="Go to home section">Home</a></li>
+					<li><a href="#About" aria-label="Go to about section">About</a></li>
+					<li><a href="#Contact" aria-label="Go to contact section">Contact</a></li>
 				</ul>
 			</nav>
 		</header>
 
-		<section class="home-hero" style="background-image:linear-gradient(
+		<section id="home" class="home-hero" style="background-image:linear-gradient(
 			rgba(0, 0, 0, 0), 
 			rgba(0, 0, 0, 0.5)
 		  ),linear-gradient( to right,
@@ -84,120 +89,155 @@
 				<h1 class="title">Welcome to my
 					<span>Personal Website</span>
 				</h1>
-				<a href="#PageMenu" class="button button-accent">"Explore!!"</a>
+				<a href="#PageMenu" class="button button-accent" aria-label="Explore portfolio sections">Explore!!</a>
 			</div>
 		</section>
-		
-		<!--
-		
-		<hr>
-		<marquee><h2>***** NOTICE : Some links may not work , Site still under development******</h2></marquee>
-		<hr>
-		
-		-->
-		
+
 <a id="About">
 	<div class="container">
 			<section class="home-about">
 				<div class="home-about-textbox">
-					<h1>A quick Intro</h1>
-					<p> Heyy guys AJ here :) How's it goin! This webpage is a work in progress.</p>
-					<p>I am <strong>Adithya Jayan</strong>, currently a <del> final year ECE student at NIT Karnataka.</del> Digital Design Engineer at TI India.
-					I love and enjoy Art and crafts and this is my portfolio. Do check it out!</p>
+					<h1>A Quick Intro</h1>
+					<p>Hey there! I'm <strong>Adithya Jayan</strong>, currently working as a Digital Design Engineer at TI India. I'm a graduate from NIT Karnataka with a degree in ECE.</p>
+					<p>I love art and crafts, and this portfolio showcases my creative journey. Feel free to explore my work!</p>
 				</div>
 	</div>
 </a>
+
 <a id="PageMenu">
 	<div class="PageLinkContainer">
 		<div class="current item">
-			<a href="">
-			<img alt="Home Thumbnail" 
+			<a href="" aria-label="Home page">
+			<img alt="Home - Forest landscape" 
 			src="https://i.ibb.co/BtL22m3/Forest.jpg"
-			alt ="Image">
+			width="400" height="225" loading="lazy">
 			</a>
 			<div style="color:lime">Home</div>
 		</div><!--
 		--><div class="item">
-			<a href="Art_Gallery">
-			<img alt="Art Gallery Thumbnail" 
+			<a href="Art_Gallery" aria-label="View art gallery">
+			<img alt="Art Gallery - Bob Ross style painting" 
 			src="https://i.ibb.co/7b7sBdC/Bon-Ross-Painting.jpg"
-			alt ="Image">
+			width="400" height="225" loading="lazy">
 			</a>
-			<div  style="color:white" >Art Gallery</div>
+			<div style="color:white">Art Gallery</div>
 		</div><!--
 		--><div class="item">
-			<a href="Model_Gallery">
-			<img alt="3D Model Library Thumbnail" 
+			<a href="Model_Gallery" aria-label="View 3D model library">
+			<img alt="3D Model Library - Doll render" 
 			src="https://i.ibb.co/y0ddQz0/Doll.png"
-			alt ="Image">
+			width="400" height="225" loading="lazy">
 			</a>
 			<div style="color:yellow">3D Model Library</div>
 		</div>
 	</div>
 </a> 
+
 <a id="Contact">
 	<section class="cta">
 		<div class="container">
-			<h1 class="title-cta">Feedback / Suggestions / anything else ?</h1>
-			<h2 class="title-cta"> 👉
-			<a href="https://docs.google.com/forms/d/e/1FAIpQLSeD6Boo_Rb04NCZB_E3BYl9k7TB55n37yyd9mtFo7a4E0uZTQ/viewform?usp=sf_link" target="_blank" class="button button-accent">Contact Me!</a>
-			👈 </h2>
+			<h2 class="title-cta">Feedback / Suggestions / Collaboration?</h2>
+			<p class="title-cta">
+			<a href="https://docs.google.com/forms/d/e/1FAIpQLSeD6Boo_Rb04NCZB_E3BYl9k7TB55n37yyd9mtFo7a4E0uZTQ/viewform?usp=sf_link" 
+			   target="_blank" 
+			   rel="noopener noreferrer"
+			   class="button button-accent"
+			   aria-label="Open contact form in new window">Contact Me!</a>
+			</p>
 		</div>
 	</section>
-	</a>
+</a>
 	
-	<div class="ImageOverlap">
-		<img alt="Dude climbing over gap [dot] png" src="https://i.ibb.co/3SF4KZm/Wall-climber-boy-1.png">
+	<div class="ImageOverlap" aria-hidden="true">
+		<img alt="" src="https://i.ibb.co/3SF4KZm/Wall-climber-boy-1.png" width="200" height="auto" loading="lazy">
 	</div>
 	
+	<!-- Back to Top Button -->
+	<button id="backToTop" class="back-to-top" aria-label="Back to top" title="Back to top">
+		<span>↑</span>
+	</button>
 
 		<footer>
 			<div class="container">
 				<div class="col-3">
-					<p>This website is still a work in progress. checkout my other social media pages for more. Feel free to contact me for anything!</p>
-					</div>
-
-					<div class="col-1">
-					<ul class="unstyled-list">
-						<li><strong>Follow me</strong></li>
-						<li><a href="https://www.instagram.com/the_happy_little_bird/?utm_source=ig_embed" class="footerLink">Instagram</a></li>
-						<li><a href="https://www.linkedin.com/in/adithya-jayan-6437821a5/" class="footerLink">linkedin</a></li>
-					</ul>
-					</div>
-					
-					<div class="col-1">
-					<ul class="unstyled-list">
-						<li><strong>Checkout</strong></li>
-						<li><a href="https://www.youtube.com/channel/UC9kpozgixsqtsqarPnOg77g" class="footerLink">Youtube</a></li>
-						
-					</ul>
-					</div>
-
-					<div class="col-1">
-						<ul class="unstyled-list">
-							<li><strong>Other links</strong></li>
-							<li><a href="Anirudh" class="footerLink">My bro's portfolio</a></li>
-						</ul>
-					</div>
-				
+					<p>This website showcases my creative work and professional journey. Feel free to explore and connect with me on social media!</p>
 				</div>
+
+				<div class="col-1">
+					<ul class="unstyled-list">
+						<li><strong>Follow Me</strong></li>
+						<li><a href="https://www.instagram.com/the_happy_little_bird/?utm_source=ig_embed" class="footerLink" target="_blank" rel="noopener noreferrer" aria-label="Visit my Instagram profile">Instagram</a></li>
+						<li><a href="https://www.linkedin.com/in/adithya-jayan-6437821a5/" class="footerLink" target="_blank" rel="noopener noreferrer" aria-label="Visit my LinkedIn profile">LinkedIn</a></li>
+					</ul>
+				</div>
+				
+				<div class="col-1">
+					<ul class="unstyled-list">
+						<li><strong>Check Out</strong></li>
+						<li><a href="https://www.youtube.com/channel/UC9kpozgixsqtsqarPnOg77g" class="footerLink" target="_blank" rel="noopener noreferrer" aria-label="Visit my YouTube channel">YouTube</a></li>
+					</ul>
+				</div>
+
+				<div class="col-1">
+					<ul class="unstyled-list">
+						<li><strong>Other Links</strong></li>
+						<li><a href="Anirudh" class="footerLink" aria-label="Visit my brother's portfolio">Brother's Portfolio</a></li>
+					</ul>
+				</div>
+			</div>
+			
+			<div class="container footer-bottom">
+				<p>&copy; 2025 Adithya Jayan. All rights reserved.</p>
 			</div>
 		</footer>
 
-
-
 	<script type="text/javascript">
-
+		// Gallery initialization
 		jQuery(document).ready(function(){
-
 			jQuery("#gallery").unitegallery({
-			tiles_max_columns: 4
+				tiles_max_columns: 4
 			});
-
 		});
 		
+		// Mobile menu toggle
+		const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+		const navMenu = document.querySelector('.nav-menu');
+		
+		if (mobileMenuToggle) {
+			mobileMenuToggle.addEventListener('click', function() {
+				navMenu.classList.toggle('active');
+				const isExpanded = navMenu.classList.contains('active');
+				mobileMenuToggle.setAttribute('aria-expanded', isExpanded);
+				mobileMenuToggle.classList.toggle('active');
+			});
+		}
+		
+		// Close mobile menu when clicking on a link
+		document.querySelectorAll('.nav-menu a').forEach(link => {
+			link.addEventListener('click', () => {
+				navMenu.classList.remove('active');
+				mobileMenuToggle.classList.remove('active');
+				mobileMenuToggle.setAttribute('aria-expanded', 'false');
+			});
+		});
+		
+		// Back to top button
+		const backToTopButton = document.getElementById('backToTop');
+		
+		window.addEventListener('scroll', function() {
+			if (window.pageYOffset > 300) {
+				backToTopButton.classList.add('visible');
+			} else {
+				backToTopButton.classList.remove('visible');
+			}
+		});
+		
+		backToTopButton.addEventListener('click', function() {
+			window.scrollTo({
+				top: 0,
+				behavior: 'smooth'
+			});
+		});
 	</script>
-		</body>
-
-
-		</html>
+	</body>
+</html>
