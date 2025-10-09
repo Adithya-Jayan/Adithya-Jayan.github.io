@@ -389,7 +389,10 @@ nav a:focus {
 
 .project-links {
   margin-top: 1em;
-  text-align: right;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.5em;
 }
 
 
