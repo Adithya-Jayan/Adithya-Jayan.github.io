@@ -504,7 +504,7 @@ body {
 ********************************** */
 .portfolio{
 	background: linear-gradient(135deg, rgba(26, 77, 46, 0.3) 0%, rgba(13, 31, 23, 0.3) 100%);
-	padding: 0 0.2rem;
+	padding: 0 0.2rem 3em;
 }
 
 .portfolio h1{
@@ -549,8 +549,8 @@ div.wrapper_3d div.sketchfab-embed-wrapper .description_3d{
 }
 
 .description_3d a.buylink{
-	margin: 0.15rem 0 0.1rem 0.5rem;
-	padding: 0.05rem 0.4rem;
+	margin: 0.5rem 0 0.5rem 0.5rem;
+	padding: 0.5rem 1rem;
 	background-color:#8fd14f;
 
 	border-style:solid;
@@ -562,6 +562,8 @@ div.wrapper_3d div.sketchfab-embed-wrapper .description_3d{
 	text-decoration: none;
 	font-weight: 700;
 	transition: background-color 0.3s ease, transform 0.2s ease;
+	display: inline-block;
+	font-size: 1rem;
 }
 
 .description_3d a.buylink:hover,
@@ -624,13 +626,13 @@ div.wrapper_3d div.sketchfab-embed-wrapper .description_3d{
 }
 
 /* Portfolio - Flexbox layout */
-.grid {
+#gallery.grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-.grid-item { 
+#gallery .grid-item { 
 	width: 100%;
 	max-width: 2in;
 	margin: 15px;
@@ -646,6 +648,11 @@ div.wrapper_3d div.sketchfab-embed-wrapper .description_3d{
 	.grid-item {
 		width: 100%;
 	}
+}
+
+.grid-item { 
+	width: 33.333%; 
+	padding: 15px;
 }
 
 /* To prevent wobbly isotope gallery  */
@@ -769,13 +776,11 @@ footer .footer-bottom {
 
 /*Sketchfab Iframe
 **************************/
-.sketchfab-embed-wrapper{
- 	aspect-ratio: 16/9
-}
 
 .sketchfab{
     width:100%; 
-    height: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
 }
 
 /*Horizontal scroll page links
