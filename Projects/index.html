@@ -117,5 +117,48 @@
 			</div>
 		</footer>
 
+		<script>
+			// Mobile menu toggle
+			const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+			const navMenu = document.querySelector('.nav-menu');
+			
+			if (mobileMenuToggle) {
+				mobileMenuToggle.addEventListener('click', function() {
+					navMenu.classList.toggle('active');
+					const isExpanded = navMenu.classList.contains('active');
+					mobileMenuToggle.setAttribute('aria-expanded', isExpanded);
+					mobileMenuToggle.classList.toggle('active');
+				});
+			}
+
+			// Sticky nav links
+			const pageMenu = document.getElementById('PageMenu');
+			const body = document.body;
+
+			if (pageMenu) {
+				const triggerPosition = pageMenu.offsetTop;
+
+				window.addEventListener('scroll', function() {
+					if (window.scrollY > triggerPosition) {
+						body.classList.add('scrolled-past-menu');
+					} else {
+						body.classList.remove('scrolled-past-menu');
+					}
+				});
+			}
+
+			// Parallax scroll for PageLinkContainer
+			const pageLinkContainer = document.querySelector('.PageLinkContainer');
+			if (pageLinkContainer) {
+				window.addEventListener('scroll', function() {
+					const scrollTop = window.scrollY;
+					const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+					const scrollPercent = scrollTop / docHeight;
+					const maxScrollLeft = pageLinkContainer.scrollWidth - pageLinkContainer.clientWidth;
+					pageLinkContainer.scrollLeft = scrollPercent * maxScrollLeft;
+				});
+			}
+		</script>
+
 	</body>
 </html>

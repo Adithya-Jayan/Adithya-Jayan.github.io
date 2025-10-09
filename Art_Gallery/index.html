@@ -239,6 +239,18 @@
 					}
 				});
 			}
+
+			// Parallax scroll for PageLinkContainer
+			const pageLinkContainer = document.querySelector('.PageLinkContainer');
+			if (pageLinkContainer) {
+				window.addEventListener('scroll', function() {
+					const scrollTop = window.scrollY;
+					const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+					const scrollPercent = scrollTop / docHeight;
+					const maxScrollLeft = pageLinkContainer.scrollWidth - pageLinkContainer.clientWidth;
+					pageLinkContainer.scrollLeft = scrollPercent * maxScrollLeft;
+				});
+			}
 		</script>
 
 		</body>
