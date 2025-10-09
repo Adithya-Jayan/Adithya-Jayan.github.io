@@ -56,14 +56,15 @@
 
 		<header>
 			<img src="https://i.ibb.co/58wx7GH/logo.png" alt="my logo" class="logo">
-			<nav>
-				<ul>
-					<li><a href="../">Home</a></li>
-					<li><a href="../#About">About</a></li>
-					<li><a href="../#Contact">Contact</a></li>
-				</ul>
-			</nav>
-		</header>
+							<nav>
+								<ul>
+									<li><a href="../">Home</a></li>
+									<li><a href="../#About">About</a></li>
+									<li><a href="../#Contact">Contact</a></li>
+									<li class="page-link-header-item"><a href="../Art_Gallery">Art Gallery</a></li>
+									<li class="page-link-header-item"><a href="../Model_Gallery">3D Model Library</a></li>
+								</ul>
+							</nav>		</header>
 
 		<section class="home-hero" style="background-image:url(https://i.ibb.co/BVNr3m8/Meditation.jpg);">
 			<div class="container">
@@ -211,6 +212,24 @@
 
 		<!-- Custom js file -->
 		<script src="/js/script.js"></script>
+
+		<script>
+			// Sticky nav links
+			const pageMenu = document.getElementById('PageMenu');
+			const body = document.body;
+
+			if (pageMenu) {
+				const triggerPosition = pageMenu.offsetTop;
+
+				window.addEventListener('scroll', function() {
+					if (window.scrollY > triggerPosition) {
+						body.classList.add('scrolled-past-menu');
+					} else {
+						body.classList.remove('scrolled-past-menu');
+					}
+				});
+			}
+		</script>
 
 		</body>
 

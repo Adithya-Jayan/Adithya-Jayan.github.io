@@ -330,6 +330,34 @@ nav a:focus {
 	outline: none;
 }
 
+.page-link-header-item {
+  opacity: 0;
+  transform: translateY(-15px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  display: none;
+}
+
+.scrolled-past-menu .page-link-header-item {
+  display: inline-block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.page-link-header-item a {
+    background-color: #4f9d69;
+    color: #f5f9f7;
+    border-radius: 15px;
+    padding: 0.5em 1.2em;
+    border: 1px solid rgba(143, 209, 79, 0.5);
+}
+
+.page-link-header-item a:hover,
+.page-link-header-item a:focus {
+    background-color: #8fd14f;
+    color: #0d1f17;
+    border-color: #8fd14f;
+}
+
 .logo{
 	width: 6em;
 	max-width: 200px;
