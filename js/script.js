@@ -8,7 +8,7 @@ async function LoadGallery(){
           var photoContainer = document.createElement("a");
           var photo = document.createElement("img");
 
-          photoContainer.className = "photolink";
+          photoContainer.className = "photolink grid-item";
           photo.className = "photo";
 
           function addToGallery (photoData) {
@@ -20,7 +20,6 @@ async function LoadGallery(){
               var newPhoto = photo.cloneNode(true);
 
               //Set attributes for the new photo container
-              newPhoto.setAttribute('loading', 'lazy');
             
               //Set source of inner image and alt value first
               newPhoto.setAttribute(headers[0], photoinfo[0]); //Append attribute
@@ -85,31 +84,8 @@ async function Runinsequence(){
   await LoadGallery();
 
   waitForElement("#gallery",function(){
-    //Initialize isotope gallery
-    console.log("Starting Isotope");
-    $('.grid').isotope({
-      // options
-      itemSelector: '.photo',
-      percentPosition: true,
-      layoutMode: 'masonry'
-    });
+    // Isotope and filtering removed as per user request for a flexbox layout.
 
-    // bind filter button click
-    $('.filters-button-group').on( 'click', 'button', function() {
-      var filterValue = $( this ).attr('data-filter');
-      // use filterFn if matches value
-      $('.grid').isotope({ filter: filterValue });
-    });
-
-    // change is-checked class on buttons
-    $('.button-gal-group').each( function( i, buttonGroup ) {
-      var $buttonGroup = $( buttonGroup );
-      $buttonGroup.on( 'click', 'button', function() {
-        $buttonGroup.find('.is-checked').removeClass('is-checked');
-        $( this ).addClass('is-checked');
-      });
-    });
-    console.log("Isotope initialized");
 
     console.log("Starting magnific");
     $('.portfolio .grid .photolink').magnificPopup({
