@@ -1,0 +1,161 @@
+# Image Links to Update
+
+This is a list of all the images used in the project that need to be migrated to a new hosting service.
+
+## Hosted Images
+
+- [ ] `https://i.ibb.co/wpS7yDM/Anvil.png` (from Art_Gallery/artwork.csv)
+- [ ] `https://i.ibb.co/YfcX2vp/Anvil.png` (from Art_Gallery/artwork.csv)
+- [ ] `https://i.ibb.co/HPW8tFM/Ducks.png` (from Art_Gallery/artwork.csv)
+- [ ] `https://i.ibb.co/0JwJ5Zz/Snowy-Road.png` (from Art_Gallery/artwork.csv)
+- [ ] `https://i.ibb.co/9YMYP2d/Snowy-Road.png` (from Art_Gallery/artwork.csv)
+- [ ] `https://i.ibb.co/FK64493/Forest.jpg` (from Art_Gallery/artwork.csv)
+- [ ] `https://i.ibb.co/47WRRct/Forest.jpg` (from Art_Gallery/artwork.csv)
+- [ ] `https://i.ibb.co/7vjj13v/Doll.png` (from Art_Gallery/artwork.csv)
+- [ ] `https://i.ibb.co/tBQQJ0B/Doll.png` (from Art_Gallery/artwork.csv)
+- [ ] `https://i.ibb.co/VgXYSDF/Library.png` (from Art_Gallery/artwork.csv)
+- [ ] `https://i.ibb.co/WkSvyFr/Library.png` (from Art_Gallery/artwork.csv)
+- [ ] `https://i.ibb.co/Y0qQrjk/Canyon.png` (from Art_Gallery/artwork.csv)
+- [ ] `https://i.ibb.co/g4B9ngT/Canyon.png` (from Art_Gallery/artwork.csv)
+- [ ] `https://i.ibb.co/wYD58Fg/Bon-Ross-Painting.jpg` (from Art_Gallery/artwork.csv)
+- [ ] `https://i.ibb.co/t3yVnTK/Bon-Ross-Painting.jpg` (from Art_Gallery/artwork.csv)
+- [ ] `https://i.ibb.co/FHcQpJZ/Paul-Octopus.jpg` (from Art_Gallery/artwork.csv)
+- [ ] `https://i.ibb.co/HhRcZYw/Paul-Octopus.jpg` (from Art_Gallery/artwork.csv)
+- [ ] `https://i.ibb.co/3pRWb20/Fracal-Crossroads.jpg` (from Art_Gallery/artwork.csv)
+- [ ] `https://i.ibb.co/ZB2Kr5h/Fracal-Crossroads.jpg` (from Art_Gallery/artwork.csv)
+- [ ] `https://i.ibb.co/h9grNKY/Fractal-Jewel.jpg` (from Art_Gallery/artwork.csv)
+- [ ] `https://i.ibb.co/LR0ByCN/Fractal-Jewel.jpg` (from Art_Gallery/artwork.csv)
+- [ ] `https://i.ibb.co/pLgKDdb/Microverse.png` (from Art_Gallery/artwork.csv)
+- [ ] `https://i.ibb.co/tJS2fDQ/Microverse.png` (from Art_Gallery/artwork.csv)
+- [ ] `https://i.ibb.co/58wx7GH/logo.png` (from Art_Gallery/index.html)
+- [ ] `https://i.ibb.co/BVNr3m8/Meditation.jpg` (from Art_Gallery/index.html)
+- [ ] `https://i.ibb.co/BtL22m3/Forest.jpg` (from Art_Gallery/index.html)
+- [ ] `https://i.ibb.co/ZB2Kr5h/Fracal-Crossroads.jpg` (from Art_Gallery/index.html)
+- [ ] `https://i.ibb.co/7b7sBdC/Bon-Ross-Painting.jpg` (from Art_Gallery/index.html)
+- [ ] `https://i.ibb.co/y0ddQz0/Doll.png` (from Art_Gallery/index.html)
+- [ ] `https://i.ibb.co/58wx7GH/logo.png` (from Model_Gallery/index.html)
+- [ ] `https://i.ibb.co/gwFRkr0/Squidman.png` (from Model_Gallery/index.html)
+- [ ] `https://i.ibb.co/BtL22m3/Forest.jpg` (from Model_Gallery/index.html)
+- [ ] `https://i.ibb.co/ZB2Kr5h/Fracal-Crossroads.jpg` (from Model_Gallery/index.html)
+- [ ] `https://i.ibb.co/7b7sBdC/Bon-Ross-Painting.jpg` (from Model_Gallery/index.html)
+- [ ] `https://i.ibb.co/y0ddQz0/Doll.png` (from Model_Gallery/index.html)
+- [ ] `https://i.ibb.co/58wx7GH/logo.png` (from Projects/index.html)
+- [ ] `https://i.ibb.co/ZB2Kr5h/Fracal-Crossroads.jpg` (from Projects/index.html)
+- [ ] `https://i.ibb.co/BtL22m3/Forest.jpg` (from Projects/index.html)
+- [ ] `https://i.ibb.co/ZB2Kr5h/Fracal-Crossroads.jpg` (from Projects/index.html)
+- [ ] `https://i.ibb.co/7b7sBdC/Bon-Ross-Painting.jpg` (from Projects/index.html)
+- [ ] `https://i.ibb.co/y0ddQz0/Doll.png` (from Projects/index.html)
+- [ ] `https://github.com/Adithya-Jayan/MyRepertoirApp/blob/main/fastlane/metadata/android/en-US/images/icon.png?raw=true` (from Projects/index.html)
+- [ ] `https://i.ibb.co/wpS7yDM/Anvil.png` (from Test_site/art_gallery_redesign.html)
+- [ ] `https://i.ibb.co/58wx7GH/logo.png` (from index.html)
+- [ ] `https://i.ibb.co/47WRRct/Forest.jpg` (from index.html)
+- [ ] `https://i.ibb.co/BtL22m3/Forest.jpg` (from index.html)
+- [ ] `https://i.ibb.co/ZB2Kr5h/Fracal-Crossroads.jpg` (from index.html)
+- [ ] `https://i.ibb.co/7b7sBdC/Bon-Ross-Painting.jpg` (from index.html)
+- [ ] `https://i.ibb.co/y0ddQz0/Doll.png` (from index.html)
+- [ ] `https://i.ibb.co/3SF4KZm/Wall-climber-boy-1.png` (from index.html)
+
+## Local Images
+
+- [ ] `Anirudh/art/competition/movingCastle.png`
+- [ ] `Anirudh/art/competition/mushroomHouse.png`
+- [ ] `Anirudh/art/competition/UndergroundCity.png`
+- [ ] `Anirudh/art/myself/cottage.png`
+- [ ] `Anirudh/art/myself/lake.png`
+- [ ] `Anirudh/art/myself/plant.png`
+- [ ] `Anirudh/art/myself/table.png`
+- [ ] `Anirudh/art/myself/treasureChest.png`
+- [ ] `Anirudh/art/tutorial/AbstractObject.png`
+- [ ] `Anirudh/art/tutorial/apple.png`
+- [ ] `Anirudh/art/tutorial/Bear.png`
+- [ ] `Anirudh/art/tutorial/BlackHole.png`
+- [ ] `Anirudh/art/tutorial/Car.png`
+- [ ] `Anirudh/art/tutorial/hard_surface_landscape.png`
+- [ ] `Anirudh/art/tutorial/hardSurfaceLandscapeOrange.png`
+- [ ] `Anirudh/art/tutorial/planet.png`
+- [ ] `Anirudh/art/tutorial/well.png`
+- [ ] `Anirudh/images/Background.jpeg`
+- [ ] `Anirudh/logo/a/apple-touch-icon-114x114.png`
+- [ ] `Anirudh/logo/a/apple-touch-icon-120x120.png`
+- [ ] `Anirudh/logo/a/apple-touch-icon-144x144.png`
+- [ ] `Anirudh/logo/a/apple-touch-icon-152x152.png`
+- [ ] `Anirudh/logo/a/apple-touch-icon-57x57.png`
+- [ ] `Anirudh/logo/a/apple-touch-icon-60x60.png`
+- [ ] `Anirudh/logo/a/apple-touch-icon-72x72.png`
+- [ ] `Anirudh/logo/a/apple-touch-icon-76x76.png`
+- [ ] `Anirudh/logo/a/favicon-128.png`
+- [ ] `Anirudh/logo/a/favicon-16x16.png`
+- [ ] `Anirudh/logo/a/favicon-196x196.png`
+- [ ] `Anirudh/logo/a/favicon-32x32.png`
+- [ ] `Anirudh/logo/a/favicon-96x96.png`
+- [ ] `Anirudh/logo/a/mstile-144x144.png`
+- [ ] `Anirudh/logo/a/mstile-150x150.png`
+- [ ] `Anirudh/logo/a/mstile-310x150.png`
+- [ ] `Anirudh/logo/a/mstile-310x310.png`
+- [ ] `Anirudh/logo/a/mstile-70x70.png`
+- [ ] `Anirudh/people/myself1.jpg`
+- [ ] `Fracal-Crossroads.jpg`
+- [ ] `Icon/android-icon-144x144.png`
+- [ ] `Icon/android-icon-192x192.png`
+- [ ] `Icon/android-icon-36x36.png`
+- [ ] `Icon/android-icon-48x48.png`
+- [ ] `Icon/android-icon-72x72.png`
+- [ ] `Icon/android-icon-96x96.png`
+- [ ] `Icon/apple-icon-114x114.png`
+- [ ] `Icon/apple-icon-120x120.png`
+- [ ] `Icon/apple-icon-144x144.png`
+- [ ] `Icon/apple-icon-152x152.png`
+- [ ] `Icon/apple-icon-180x180.png`
+- [ ] `Icon/apple-icon-57x57.png`
+- [ ] `Icon/apple-icon-60x60.png`
+- [ ] `Icon/apple-icon-72x72.png`
+- [ ] `Icon/apple-icon-76x76.png`
+- [ ] `Icon/apple-icon-precomposed.png`
+- [ ] `Icon/apple-icon.png`
+- [ ] `Icon/favicon-16x16.png`
+- [ ] `Icon/favicon-32x32.png`
+- [ ] `Icon/favicon-96x96.png`
+- [ ] `Icon/ms-icon-144x144.png`
+- [ ] `Icon/ms-icon-150x150.png`
+- [ ] `Icon/ms-icon-310x310.png`
+- [ ] `Icon/ms-icon-70x70.png`
+- [ ] `images/Background.gif`
+- [ ] `images/button-close.png`
+- [ ] `images/close.png`
+- [ ] `images/cover-grid.png`
+- [ ] `images/icon-link32.png`
+- [ ] `images/icon-play32.png`
+- [ ] `images/icon-zoom32.png`
+- [ ] `images/lightbox-arrow-left.png`
+- [ ] `images/lightbox-arrow-right.png`
+- [ ] `images/lightbox-icon-close-compact.png`
+- [ ] `images/lightbox-icon-close-compact2.png`
+- [ ] `images/lightbox-icon-close.png`
+- [ ] `images/loader_bright.gif`
+- [ ] `images/loader_skype_trans.gif`
+- [ ] `images/loader-black1.gif`
+- [ ] `images/loader-black2.gif`
+- [ ] `images/loader-black3.gif`
+- [ ] `images/loader-black4.gif`
+- [ ] `images/loader-black5.gif`
+- [ ] `images/loader-black6.gif`
+- [ ] `images/loader-black7.gif`
+- [ ] `images/loader-white1.gif`
+- [ ] `images/loader-white2.gif`
+- [ ] `images/loader-white3.gif`
+- [ ] `images/loader-white4.gif`
+- [ ] `images/loader-white5.gif`
+- [ ] `images/loader-white6.gif`
+- [ ] `images/loader-white7.gif`
+- [ ] `images/loader.gif`
+- [ ] `images/loading.gif`
+- [ ] `images/Me.png`
+- [ ] `images/next.png`
+- [ ] `images/not_loaded.png`
+- [ ] `images/play-button-round.png`
+- [ ] `images/play-button-square.png`
+- [ ] `images/prev.png`
+- [ ] `images/Snowman.png`
+- [ ] `images/thumbnail.jpg`
+- [ ] `images/transparent.png`
+- [ ] `images/wood.jfif`
