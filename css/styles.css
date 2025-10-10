@@ -630,7 +630,7 @@ div.wrapper_3d div.sketchfab-embed-wrapper .description_3d{
 }
 
 .description_3d a.buylink{
-	margin: 0.5rem 0 0.5rem 0.5rem;
+	margin: 0.5rem 0;
 	padding: 0.5rem 1rem;
 	background-color:#8fd14f;
 
@@ -643,7 +643,7 @@ div.wrapper_3d div.sketchfab-embed-wrapper .description_3d{
 	text-decoration: none;
 	font-weight: 700;
 	transition: background-color 0.3s ease, transform 0.2s ease;
-	display: inline-block;
+	display: block;
 	font-size: 1rem;
 }
 
