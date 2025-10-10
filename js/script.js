@@ -25,12 +25,12 @@ async function LoadGallery(){
               newPhoto.setAttribute(headers[0], photoinfo[0]); //Append attribute
               newPhoto.setAttribute(headers[1], photoinfo[1]); //Append attribute
               
-              //Append tags to the photo class name
+              //Append tags to the photo container class name
               let final_attr = photoinfo[headers.length - 1];
-              if( newPhoto.getAttribute(headers[headers.length - 1]) != null) {
-                final_attr =  newPhoto.getAttribute(headers[headers.length - 1])+" "+photoinfo[headers.length - 1];
+              if( newPhotoContainer.getAttribute(headers[headers.length - 1]) != null) {
+                final_attr =  newPhotoContainer.getAttribute(headers[headers.length - 1])+" "+photoinfo[headers.length - 1];
               }
-              newPhoto.setAttribute(headers[headers.length - 1],final_attr); 
+              newPhotoContainer.setAttribute(headers[headers.length - 1],final_attr); 
 
               //Then set main image data
               for(var j = 2; j < headers.length - 1; j++) {
@@ -84,8 +84,42 @@ async function Runinsequence(){
   await LoadGallery();
 
   waitForElement("#gallery",function(){
-    // Isotope and filtering removed as per user request for a flexbox layout.
+    // init Isotope
+    var $grid = $('.grid').isotope({
+      itemSelector: '.grid-item',
+      layoutMode: 'fitRows'
+    });
 
+    // filter functions
+    var filterFns = {
+      // show if number is greater than 50
+      numberGreaterThan50: function() {
+        var number = $(this).find('.number').text();
+        return parseInt( number, 10 ) > 50;
+      },
+      // show if name ends with -ium
+      ium: function() {
+        var name = $(this).find('.name').text();
+        return name.match( /ium$/ );
+      }
+    };
+
+    // bind filter button click
+    $('.filters-button-group').on( 'click', 'button', function() {
+      var filterValue = $( this ).attr('data-filter');
+      // use filterFn if matches value
+      filterValue = filterFns[ filterValue ] || filterValue;
+      $grid.isotope({ filter: filterValue });
+    });
+
+    // change is-checked class on buttons
+    $('.button-gal-group').each( function( i, buttonGroup ) {
+      var $buttonGroup = $( buttonGroup );
+      $buttonGroup.on( 'click', 'button', function() {
+        $buttonGroup.find('.is-checked').removeClass('is-checked');
+        $( this ).addClass('is-checked');
+      });
+    });
 
     console.log("Starting magnific");
     $('.portfolio .grid .photolink').magnificPopup({
