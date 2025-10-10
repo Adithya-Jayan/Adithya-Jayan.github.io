@@ -586,6 +586,7 @@ body {
 .portfolio{
 	background: linear-gradient(135deg, rgba(26, 77, 46, 0.3) 0%, rgba(13, 31, 23, 0.3) 100%);
 	padding: 0 0.2rem 3em;
+	text-align: center;
 }
 
 .portfolio h1{
@@ -703,23 +704,16 @@ div.wrapper_3d div.sketchfab-embed-wrapper .description_3d{
 	font-size: 0.8em;
 }
 
+.instagram-media {
+    min-width: 0 !important;
+    width: 100% !important;
+}
+
 .port-description p{
 	margin: 1em;
 }
 
-@media (min-width: 35rem) {
-	.port-item{
-		width: 50%;
-		float: left;
-	}
-}
-
 @media (min-width: 60rem) {
-	.port-item{
-		width: 33.3333334%;
-		overflow: hidden;
-	}
-
 	.port-description{
 		transform: translateY(0%);
 	}
