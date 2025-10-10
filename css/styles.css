@@ -676,10 +676,13 @@ div.wrapper_3d div.sketchfab-embed-wrapper .description_3d{
 	line-height: 2;
 }
 
+
 .port-item{
-	margin: 0 ;
+	max-width: 540px;
+	margin: 1em;
 	position: relative;
 	overflow: hidden;
+	display: inline-block;
 }
 
 .port-item img{
@@ -693,7 +696,7 @@ div.wrapper_3d div.sketchfab-embed-wrapper .description_3d{
 	left: 0em;
 	right: 0em;
 	color: #f5f9f7;
-	background: linear-gradient(to top, rgba(13, 31, 23, 0.95), rgba(13, 31, 23, 0.85));
+	background: rgb(13, 31, 23);
 	padding: 1em;
 	padding-bottom: 2em;
 	height:10.3rem;
@@ -727,12 +730,25 @@ div.wrapper_3d div.sketchfab-embed-wrapper .description_3d{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin: 0 auto;
 }
 
 #gallery .grid-item { 
 	width: 100%;
-	max-width: 2in;
+	max-width: 18rem; /* ~288px */
 	margin: 15px;
+}
+
+@media (max-width: 960px) {
+	#gallery .grid-item {
+		max-width: 15rem; /* ~240px */
+	}
+}
+
+@media (max-width: 560px) {
+	#gallery .grid-item {
+		max-width: 9.5rem; /* ~152px */
+	}
 }
 
 @media (max-width: 960px) {

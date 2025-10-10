@@ -87,7 +87,10 @@ async function Runinsequence(){
     // init Isotope
     var $grid = $('.grid').isotope({
       itemSelector: '.grid-item',
-      layoutMode: 'fitRows'
+      layoutMode: 'masonry',
+      masonry: {
+        isFitWidth: true
+      }
     });
 
     // filter functions
