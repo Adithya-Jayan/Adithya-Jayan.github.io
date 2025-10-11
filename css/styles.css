@@ -310,6 +310,7 @@ nav ul{
 nav li{
 	display: inline-block;
 	margin: 0 1.5em;
+	vertical-align: middle;
 }
 
 nav a{
@@ -336,8 +337,8 @@ li.dropdown {
 }
 
 li.explore-dropdown {
-    display: inline-flex; /* or flex */
-    align-items: center;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 .page-link-header-item {
@@ -531,6 +532,13 @@ body {
 		display: block;
 		margin: 1em 0;
 	}
+
+    li.explore-dropdown {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+    }
 	
 	.logo {
 		width: 10em;

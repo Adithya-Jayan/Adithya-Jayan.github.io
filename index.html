@@ -74,7 +74,7 @@
 					    <li class="explore-dropdown">
 					        <a href="#PageMenu">Explore</a>
 					        <div class="dropdown">
-					            <a href="javascript:void(0);" class="dropbtn"><span class="arrow-down"></span></a>
+					            <a href="javascript:void(0);" id="dropdown-trigger" class="dropbtn"><span class="arrow-down"></span></a>
 					            <div id="myDropdown" class="dropdown-content">
 					                <a href="#home">Home</a>
 					                <a href="Projects">Projects</a>
@@ -216,10 +216,12 @@
 		
 		// Close mobile menu when clicking on a link
 		document.querySelectorAll('.nav-menu a').forEach(link => {
-			link.addEventListener('click', () => {
-				navMenu.classList.remove('active');
-				mobileMenuToggle.classList.remove('active');
-				mobileMenuToggle.setAttribute('aria-expanded', 'false');
+			link.addEventListener('click', (event) => {
+				if (event.currentTarget.id !== 'dropdown-trigger') {
+					navMenu.classList.remove('active');
+					mobileMenuToggle.classList.remove('active');
+					mobileMenuToggle.setAttribute('aria-expanded', 'false');
+				}
 			});
 		});
 		
