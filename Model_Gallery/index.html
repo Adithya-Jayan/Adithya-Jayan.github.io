@@ -72,12 +72,18 @@
 					<span></span>
 				</button>
 				<ul class="nav-menu">
-						<li><a href="#PageMenu">Explore</a></li>
-						<li class="page-link-header-item"><a href="../">Home</a></li>
-						<li class="page-link-header-item"><a href="../Projects">Projects</a></li>
-						<li class="page-link-header-item"><a href="../Art_Gallery">Art Gallery</a></li>
-						<li class="page-link-header-item current-page"><a href="../Model_Gallery">3D Model Library</a></li>
-						<li><a href="#ModelGallery">Models</a></li>
+						    <li class="explore-dropdown">
+						        <a href="#PageMenu">Explore</a>
+						        <div class="dropdown">
+						            <a href="javascript:void(0);" class="dropbtn"><span class="arrow-down"></span></a>
+						            <div id="myDropdown" class="dropdown-content">
+						                <a href="../">Home</a>
+						                <a href="../Projects">Projects</a>
+						                <a href="../Art_Gallery">Art Gallery</a>
+						                <a href="../Model_Gallery">3D Model Library</a>
+						            </div>
+						        </div>
+						    </li>						<li><a href="#ModelGallery">Models</a></li>
 					</ul>
 				</nav>
 		</header>
@@ -169,6 +175,27 @@
 				<p>&copy; 2025 Adithya Jayan. All rights reserved.</p>
 			</div>
 		</footer>
+		<script>
+		/* When the user clicks on the arrow,
+		toggle between hiding and showing the dropdown content */
+		document.querySelector('.dropbtn').addEventListener('click', function(event) {
+			event.stopPropagation();
+			document.getElementById("myDropdown").classList.toggle("show");
+			document.querySelector(".arrow-down").classList.toggle("arrow-up");
+		});
+
+		// Close the dropdown if the user clicks outside of it
+		window.addEventListener('click', function(event) {
+			var dropdown = document.getElementById('myDropdown');
+			if (dropdown.classList.contains('show') && !event.target.closest('.dropdown')) {
+				dropdown.classList.remove('show');
+				var arrow = document.querySelector(".arrow-down");
+				if (arrow.classList.contains("arrow-up")) {
+					arrow.classList.remove("arrow-up");
+				}
+			}
+		});
+	</script>
 	</body>
 
 	<script>
