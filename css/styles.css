@@ -1090,27 +1090,27 @@ div.PageLinkContainer div.current a{
 div.PageLinkContainer div.item img{
 	max-width: 100%;
 	height:auto;
-	filter: brightness(50%) contrast(110%);
+	filter: brightness(100%) sepia(0%); /* Make default bright */
 	vertical-align: middle;
 	width: 100%;
 	transition: filter 0.3s ease;
 }
 
 div.PageLinkContainer div.item:hover img{
-	filter: brightness(70%) contrast(110%);
+	filter: brightness(80%) sepia(20%); /* Hover for non-current */
 }
 
 div.PageLinkContainer div.current img{
-	filter: brightness(100%) sepia(0%);
+	filter: grayscale(100%) blur(5px); /* Make it monochrome and blurred */
 }
 
 div.PageLinkContainer div.current:hover img{
-	filter: brightness(80%) sepia(20%);
+	filter: grayscale(100%) blur(5px); /* Keep it monochrome and blurred on hover */
 }
 
 div.PageLinkContainer div.current div {
-	background: rgba(143, 209, 79, 0.9);
-	color: #0d1f17;
+	background: rgba(13, 31, 23, 0.8);
+	color: #f5f9f7;
 }
 
 /* Focus states for accessibility */
