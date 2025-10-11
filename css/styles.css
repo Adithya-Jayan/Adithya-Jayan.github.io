@@ -1205,3 +1205,9 @@ button:focus {
   
   .button-gal-group .button-gal-menu:first-child { border-radius: 0.5em 0 0 0.5em; }
   .button-gal-group .button-gal-menu:last-child { border-radius: 0 0.5em 0.5em 0; }
+
+.dropdown-content a.current-page {
+    background-color: #8fd14f;
+    color: #0d1f17;
+    pointer-events: none; /* To prevent clicking on the current page link */
+}
