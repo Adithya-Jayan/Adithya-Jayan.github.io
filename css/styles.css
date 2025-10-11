@@ -1042,6 +1042,11 @@ div.PageLinkContainer div.item:hover {
 	box-shadow: 0 6px 24px rgba(143, 209, 79, 0.4);
 }
 
+div.PageLinkContainer div.current:hover {
+	transform: none;
+	box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+}
+
 div.PageLinkContainer div.item:focus-within {
 	outline: 3px solid #8fd14f;
 	outline-offset: 3px;
