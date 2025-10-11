@@ -70,12 +70,13 @@
 					<span></span>
 				</button>
 				<ul class="nav-menu">
-					<li><a href="#home" aria-label="Go to home section">Home</a></li>
 					<li><a href="#About" aria-label="Go to about section">About</a></li>
-					<li><a href="#Contact" aria-label="Go to contact section">Contact</a></li>
+					<li><a href="#PageMenu">Explore</a></li>
+					<li class="page-link-header-item current-page"><a href="#home" aria-label="Go to home section">Home</a></li>
 					<li class="page-link-header-item"><a href="Projects">Projects</a></li>
 					<li class="page-link-header-item"><a href="Art_Gallery">Art Gallery</a></li>
 					<li class="page-link-header-item"><a href="Model_Gallery">3D Model Library</a></li>
+					<li><a href="#Contact" aria-label="Go to contact section">Contact</a></li>
 				</ul>
 			</nav>
 		</header>
@@ -235,20 +236,8 @@
 		});
 
 		// Sticky nav links
-		const pageMenu = document.getElementById('PageMenu');
 		const body = document.body;
-
-		if (pageMenu) {
-			const triggerPosition = pageMenu.offsetTop;
-
-			window.addEventListener('scroll', function() {
-				if (window.scrollY > triggerPosition) {
-					body.classList.add('scrolled-past-menu');
-				} else {
-					body.classList.remove('scrolled-past-menu');
-				}
-			});
-		}
+		body.classList.add('scrolled-past-menu');
 
 		// Parallax scroll for PageLinkContainer
 		const pageLinkContainer = document.querySelector('.PageLinkContainer');

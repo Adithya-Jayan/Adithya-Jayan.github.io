@@ -343,6 +343,13 @@ nav a:focus {
   transform: translateY(0);
 }
 
+.page-link-header-item.current-page a {
+    background-color: #8fd14f;
+    color: #0d1f17;
+    border-color: #8fd14f;
+    pointer-events: none; /* To prevent clicking on the current page link */
+}
+
 /* Project Gallery */
 .project-gallery {
   display: flex;
