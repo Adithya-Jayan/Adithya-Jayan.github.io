@@ -241,8 +241,16 @@
 				let currentScroll = 0;
 				let targetScroll = 0;
 				const lerpFactor = 0.08;
+				let isWheeling = false;
 
 				function smoothScroll() {
+					if (userTookControl && !isWheeling) {
+						const scrollLeft = pageLinkContainer.scrollLeft;
+						if (Math.abs(scrollLeft - currentScroll) > 1) {
+							targetScroll = scrollLeft;
+						}
+					}
+
 					currentScroll = lerp(currentScroll, targetScroll, lerpFactor);
 					pageLinkContainer.scrollLeft = currentScroll;
 					requestAnimationFrame(smoothScroll);
@@ -261,8 +269,13 @@
 					targetScroll = scrollPercent * maxScrollLeft;
 				});
 
+				let wheelTimeout;
 				pageLinkContainer.addEventListener('wheel', (evt) => {
 					userTookControl = true;
+					isWheeling = true;
+					clearTimeout(wheelTimeout);
+					wheelTimeout = setTimeout(() => { isWheeling = false; }, 100);
+
 					evt.preventDefault();
 					targetScroll += evt.deltaY;
 					const maxScrollLeft = pageLinkContainer.scrollWidth - pageLinkContainer.clientWidth;
@@ -271,6 +284,7 @@
 
 				pageLinkContainer.addEventListener('touchstart', () => {
 					userTookControl = true;
+					isWheeling = false;
 				});
 
 				smoothScroll();
