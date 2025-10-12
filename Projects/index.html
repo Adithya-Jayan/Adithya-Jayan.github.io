@@ -240,9 +240,22 @@
 					targetScroll = Math.max(0, Math.min(targetScroll, maxScrollLeft));
 				});
 
-				pageLinkContainer.addEventListener('touchstart', () => {
+				let touchStartX = 0;
+				let scrollLeftStart = 0;
+
+				pageLinkContainer.addEventListener('touchstart', (e) => {
 					userTookControl = true;
 					isWheeling = false;
+					touchStartX = e.touches[0].pageX - pageLinkContainer.offsetLeft;
+					scrollLeftStart = pageLinkContainer.scrollLeft;
+				});
+
+				pageLinkContainer.addEventListener('touchmove', (e) => {
+					if (!userTookControl) return;
+					e.preventDefault();
+					const x = e.touches[0].pageX - pageLinkContainer.offsetLeft;
+					const walk = (x - touchStartX) * 2; //scroll-fast
+					pageLinkContainer.scrollLeft = scrollLeftStart - walk;
 				});
 
 				smoothScroll();
