@@ -192,75 +192,171 @@
 			const body = document.body;
 			body.classList.add('scrolled-past-menu');
 
-			// Parallax scroll for PageLinkContainer
-			const pageLinkContainer = document.querySelector('.PageLinkContainer');
-			if (pageLinkContainer) {
-				let userTookControl = false;
-				let currentScroll = 0;
-				let targetScroll = 0;
-				const lerpFactor = 0.08;
-				let isWheeling = false;
+											// Parallax scroll for PageLinkContainer
 
-				function smoothScroll() {
-					if (userTookControl && !isWheeling) {
-						const scrollLeft = pageLinkContainer.scrollLeft;
-						if (Math.abs(scrollLeft - currentScroll) > 1) {
-							targetScroll = scrollLeft;
-						}
-					}
+											const pageLinkContainer = document.querySelector('.PageLinkContainer');
 
-					currentScroll = lerp(currentScroll, targetScroll, lerpFactor);
-					pageLinkContainer.scrollLeft = currentScroll;
-					requestAnimationFrame(smoothScroll);
-				}
+											if (pageLinkContainer) {
 
-				function lerp(start, end, t) {
-					return start * (1 - t) + end * t;
-				}
+												let userTookControl = false;
 
-				window.addEventListener('scroll', function() {
-					if (userTookControl) return;
-					const scrollTop = window.scrollY;
-					const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-					const scrollPercent = scrollTop / docHeight;
-					const maxScrollLeft = pageLinkContainer.scrollWidth - pageLinkContainer.clientWidth;
-					targetScroll = scrollPercent * maxScrollLeft;
-				});
+												let currentScroll = 0;
 
-				let wheelTimeout;
-				pageLinkContainer.addEventListener('wheel', (evt) => {
-					userTookControl = true;
-					isWheeling = true;
-					clearTimeout(wheelTimeout);
-					wheelTimeout = setTimeout(() => { isWheeling = false; }, 100);
+												let targetScroll = 0;
 
-					evt.preventDefault();
-					targetScroll += evt.deltaY;
-					const maxScrollLeft = pageLinkContainer.scrollWidth - pageLinkContainer.clientWidth;
-					targetScroll = Math.max(0, Math.min(targetScroll, maxScrollLeft));
-				});
+												const lerpFactor = 0.08;
 
-				let touchStartX = 0;
-				let scrollLeftStart = 0;
+												let isWheeling = false;
 
-				pageLinkContainer.addEventListener('touchstart', (e) => {
-					userTookControl = true;
-					isWheeling = false;
-					touchStartX = e.touches[0].pageX - pageLinkContainer.offsetLeft;
-					scrollLeftStart = pageLinkContainer.scrollLeft;
-				});
+												let isDragging = false;
 
-				pageLinkContainer.addEventListener('touchmove', (e) => {
-					if (!userTookControl) return;
-					e.preventDefault();
-					const x = e.touches[0].pageX - pageLinkContainer.offsetLeft;
-					const walk = (x - touchStartX) * 2; //scroll-fast
-					pageLinkContainer.scrollLeft = scrollLeftStart - walk;
-				});
+												let isScrollbar = false;
 
-				smoothScroll();
-			}
-		</script>
+									
+
+												function smoothScroll() {
+
+													if (!isDragging && !isScrollbar) {
+
+														currentScroll = lerp(currentScroll, targetScroll, lerpFactor);
+
+														pageLinkContainer.scrollLeft = currentScroll;
+
+													}
+
+													requestAnimationFrame(smoothScroll);
+
+												}
+
+									
+
+												function lerp(start, end, t) {
+
+													return start * (1 - t) + end * t;
+
+												}
+
+									
+
+												window.addEventListener('scroll', function() {
+
+													if (userTookControl) return;
+
+													const scrollTop = window.scrollY;
+
+													const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+
+													const scrollPercent = scrollTop / docHeight;
+
+													const maxScrollLeft = pageLinkContainer.scrollWidth - pageLinkContainer.clientWidth;
+
+													targetScroll = scrollPercent * maxScrollLeft;
+
+												});
+
+									
+
+												let wheelTimeout;
+
+												pageLinkContainer.addEventListener('wheel', (evt) => {
+
+													userTookControl = true;
+
+													isWheeling = true;
+
+													clearTimeout(wheelTimeout);
+
+													wheelTimeout = setTimeout(() => { isWheeling = false; }, 150);
+
+									
+
+													evt.preventDefault();
+
+													targetScroll += evt.deltaY;
+
+													const maxScrollLeft = pageLinkContainer.scrollWidth - pageLinkContainer.clientWidth;
+
+													targetScroll = Math.max(0, Math.min(targetScroll, maxScrollLeft));
+
+												});
+
+									
+
+												let touchStartX = 0;
+
+												let scrollLeftStart = 0;
+
+									
+
+												pageLinkContainer.addEventListener('touchstart', (e) => {
+
+													userTookControl = true;
+
+													isDragging = true;
+
+													touchStartX = e.touches[0].pageX - pageLinkContainer.offsetLeft;
+
+													scrollLeftStart = pageLinkContainer.scrollLeft;
+
+												});
+
+									
+
+												pageLinkContainer.addEventListener('touchmove', (e) => {
+
+													if (!userTookControl) return;
+
+													e.preventDefault();
+
+													const x = e.touches[0].pageX - pageLinkContainer.offsetLeft;
+
+													const walk = (x - touchStartX) * 2; //scroll-fast
+
+													pageLinkContainer.scrollLeft = scrollLeftStart - walk;
+
+												});
+
+									
+
+												pageLinkContainer.addEventListener('touchend', (e) => {
+
+													isDragging = false;
+
+													currentScroll = pageLinkContainer.scrollLeft;
+
+													targetScroll = pageLinkContainer.scrollLeft;
+
+												});
+
+									
+
+												let scrollTimeout;
+
+												pageLinkContainer.addEventListener('scroll', () => {
+
+													if (!userTookControl || isWheeling || isDragging) return;
+
+													isScrollbar = true;
+
+													clearTimeout(scrollTimeout);
+
+													scrollTimeout = setTimeout(() => {
+
+														isScrollbar = false;
+
+														currentScroll = pageLinkContainer.scrollLeft;
+
+														targetScroll = pageLinkContainer.scrollLeft;
+
+													}, 150);
+
+												});
+
+									
+
+												smoothScroll();
+
+											}		</script>
 
 		<script>
 		/* When the user clicks on the arrow,
