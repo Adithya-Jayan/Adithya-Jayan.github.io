@@ -270,17 +270,14 @@
 			let targetScroll = 0;
 			const lerpFactor = 0.08;
 			let isWheeling = false;
+			let isDragging = false;
+			let isScrollbar = false;
 
 			function smoothScroll() {
-				if (userTookControl && !isWheeling) {
-					const scrollLeft = pageLinkContainer.scrollLeft;
-					if (Math.abs(scrollLeft - currentScroll) > 1) {
-						targetScroll = scrollLeft;
-					}
+				if (!isDragging && !isScrollbar) {
+					currentScroll = lerp(currentScroll, targetScroll, lerpFactor);
+					pageLinkContainer.scrollLeft = currentScroll;
 				}
-
-				currentScroll = lerp(currentScroll, targetScroll, lerpFactor);
-				pageLinkContainer.scrollLeft = currentScroll;
 				requestAnimationFrame(smoothScroll);
 			}
 
@@ -302,7 +299,7 @@
 				userTookControl = true;
 				isWheeling = true;
 				clearTimeout(wheelTimeout);
-				wheelTimeout = setTimeout(() => { isWheeling = false; }, 100);
+				wheelTimeout = setTimeout(() => { isWheeling = false; }, 150);
 
 				evt.preventDefault();
 				targetScroll += evt.deltaY;
@@ -315,7 +312,7 @@
 
 			pageLinkContainer.addEventListener('touchstart', (e) => {
 				userTookControl = true;
-				isWheeling = false;
+				isDragging = true;
 				touchStartX = e.touches[0].pageX - pageLinkContainer.offsetLeft;
 				scrollLeftStart = pageLinkContainer.scrollLeft;
 			});
@@ -326,6 +323,24 @@
 				const x = e.touches[0].pageX - pageLinkContainer.offsetLeft;
 				const walk = (x - touchStartX) * 2; //scroll-fast
 				pageLinkContainer.scrollLeft = scrollLeftStart - walk;
+			});
+
+			pageLinkContainer.addEventListener('touchend', (e) => {
+				isDragging = false;
+				currentScroll = pageLinkContainer.scrollLeft;
+				targetScroll = pageLinkContainer.scrollLeft;
+			});
+
+			let scrollTimeout;
+			pageLinkContainer.addEventListener('scroll', () => {
+				if (!userTookControl || isWheeling || isDragging) return;
+				isScrollbar = true;
+				clearTimeout(scrollTimeout);
+				scrollTimeout = setTimeout(() => {
+					isScrollbar = false;
+					currentScroll = pageLinkContainer.scrollLeft;
+					targetScroll = pageLinkContainer.scrollLeft;
+				}, 150);
 			});
 
 			smoothScroll();
