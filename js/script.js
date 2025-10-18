@@ -11,11 +11,36 @@ async function LoadGallery(){
           photoContainer.className = "photolink grid-item";
           photo.className = "photo";
 
+          function parseCsvRow(row) {
+            const result = [];
+            let currentField = '';
+            let inQuotedField = false;
+
+            for (let i = 0; i < row.length; i++) {
+              const char = row[i];
+
+              if (char === '"' && i + 1 < row.length && row[i + 1] === '"') {
+                // Escaped quote
+                currentField += '"';
+                i++; // Skip next quote
+              } else if (char === '"') {
+                inQuotedField = !inQuotedField;
+              } else if (char === ',' && !inQuotedField) {
+                result.push(currentField);
+                currentField = '';
+              } else {
+                currentField += char;
+              }
+            }
+            result.push(currentField);
+            return result;
+          }
+
           function addToGallery (photoData) {
             let content = "";
-            let headers = photoData[0].split(",");
+            let headers = parseCsvRow(photoData[0]);
             for (var i = 1; i < photoData.length; i++) {
-              var photoinfo = photoData[i].replace('\r','').split(",");
+              var photoinfo = parseCsvRow(photoData[i].replace('\r',''));
               var newPhotoContainer = photoContainer.cloneNode(true);
               var newPhoto = photo.cloneNode(true);
 
