@@ -118,6 +118,9 @@ async function Runinsequence(){
       }
     });
 
+    // Force a relayout
+    $grid.isotope('layout');
+
     // filter functions
     var filterFns = {
       // show if number is greater than 50
