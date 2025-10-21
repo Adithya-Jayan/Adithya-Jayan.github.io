@@ -56,7 +56,10 @@
 	<body>
 
 		<header>
-			<a href="../"><img src="https://res.cloudinary.com/dtml8icqh/image/upload/v1760783581/logo_gtb8la.png" alt="my logo" class="logo"></a>
+			<div class="logo-area">
+				<a href="../"><img src="https://res.cloudinary.com/dtml8icqh/image/upload/v1760783581/logo_gtb8la.png" alt="my logo" class="logo"></a>
+				<div class="breadcrumbs" id="breadcrumbs"></div>
+			</div>
 										<nav>
 											<button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
 												<span></span>
@@ -130,7 +133,7 @@
 			<button class="button button-gal-menu" data-filter=".2D">2D</button>
 			<button class="button button-gal-menu" data-filter=".Competition">Contest submissions</button>
 		</div>
-		<h4 style="color: white;">Please reload if the gallery looks messed up :) - I'm still working on it XD</h4>
+		<!-- <h4 style="color: white;">Please reload if the gallery looks messed up :) - I'm still working on it XD</h4> -->
 		<div id="gallery" class="grid">
 		</div>
 		
@@ -214,9 +217,8 @@
 		<!-- magnific popup script file -->
 		<script src="/vendor/Magnific-Popup/dist/jquery.magnific-popup.min.js"></script>
 
-		<!-- Custom js file -->
-		<script src="/js/script.js"></script>
-		<script type="application/ld+json">
+		        <!-- Custom js file -->
+				<script src="../js/script.js"></script>		<script type="application/ld+json">
 		{
 		  "@context": "https://schema.org",
 		  "@type": "CollectionPage",

@@ -48,373 +48,377 @@
 		
 		<!-- Lightbox stuff -->
 		<link href="../css/lightbox.min.css" rel="stylesheet" type="text/css">
-		<script src="../js/lightbox-plus-jquery.min.js"></script>
-
-		<!-- Gallery template stuff -->
-		<script type='text/javascript' src='../js/jquery-11.0.min.js'></script>	
-		<script type='text/javascript' src='../js/unitegallery.min.js'></script>	
-		<link rel='stylesheet' href='../css/unite-gallery.css' type='text/css' />
-		<script type='text/javascript' src='../themes/ug-theme-tiles.js'></script>
-	</head>
-	<body>
-	<header>
-			<a href="../"><img src="https://res.cloudinary.com/dtml8icqh/image/upload/v1760783581/logo_gtb8la.png" alt="my logo" class="logo"></a>
-				<nav>
-				<button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
-					<span></span>
-					<span></span>
-					<span></span>
-				</button>
-				<ul class="nav-menu">
-						    <li class="explore-dropdown">
-						        <a href="#PageMenu">Explore</a>
-						        <div class="dropdown">
-						            <a href="javascript:void(0);" id="dropdown-trigger" class="dropbtn"><span class="arrow-down"></span></a>
-						            <div id="myDropdown" class="dropdown-content">
-						                <a href="../">Home</a>
-						                					                <a href="./" class="current-page">Projects</a>
-						                					                <a href="../Art_Gallery">Art Gallery</a>
-						                					                <a href="../Model_Gallery">3D Model Library</a>						            </div>
-						        </div>
-						    </li>
-						    <li><a href="#MyRepertoireApp">Projects</a></li>
-					</ul>
-				</nav>
-		</header>
-
-		<section class="home-hero" style="background-image:url(https://res.cloudinary.com/dtml8icqh/image/upload/v1760783580/Fracal-Crossroads_ksobmu.jpg);">
-			<div class="container">
-				<h1 class="title"><span>My Creative & Technical</span>
-				Projects
-				</h1>
-				<a href="#MyRepertoireApp" class="button button-accent">Explore</a>
-			</div>
-		</section>
-
-		<a id="PageMenu">
-			<div class="PageLinkContainer">
-				<div class="item">
-					<a href="../"><img alt="Home - Serene forest landscape with a winding path" src="https://res.cloudinary.com/dtml8icqh/image/upload/v1760783579/Forest_uzlhwu.jpg"></a>
-					<div style="color:lime">Home</div>
-				</div><!--
-				--><div class="current item">
-					<a href="../Projects"><img alt="Projects - Abstract fractal art with vibrant colors" src="https://res.cloudinary.com/dtml8icqh/image/upload/v1760783580/Fractal-Jewel_dhffpp.jpg"></a>
-					<div style="color:cyan">Projects</div>
-				</div><!--
-				-->
-								<div class="item">
-									<a href="../Art_Gallery"><img alt="Art Gallery - Tranquil Bob Ross-style painting of a lake and mountains" src="https://res.cloudinary.com/dtml8icqh/image/upload/v1760783578/Bon-Ross-Painting_oshtgw.jpg"></a>
-									<div style="color:white">Art Gallery</div>
-								</div>
-				--><div class="item">
-					<a href="../Model_Gallery"><img alt="3D Model Library - Expressive 3D render of a stylized doll" src="https://res.cloudinary.com/dtml8icqh/image/upload/v1760783580/Doll_wiezrc.png"></a>
-					<div style="color:yellow">3D Model Library</div>
-				</div>
-			</div>
-		</a>
-
-		<a id="MyRepertoireApp"></a>
-		<section class="portfolio">
-			<div class="grid project-gallery">
-				<!-- Project 1: MyRepertoireApp -->
-				<div class="grid-item project-item">
-					<img src="https://github.com/Adithya-Jayan/MyRepertoirApp/blob/main/fastlane/metadata/android/en-US/images/icon.png?raw=true" alt="MyRepertoireApp Screenshot" class="project-image">
-					<div class="project-description">
-						<h3>MyRepertoireApp</h3>
-						<p>An open-source app for performers to manage their repertoire, track practice, and organize media.</p>
-						<h4>Key Features:</h4>
-						<ul>
-							<li><strong>Repertoire Library:</strong> View collections in list or grid format.</li>
-							<li><strong>Media Attachments:</strong> Attach PDFs, Markdown notes, images, audio files, and video links.</li>
-							<li><strong>Practice Tracking:</strong> Log practice sessions and track history.</li>
-							<li><strong>Organization:</strong> Powerful search, filter, and sorting capabilities.</li>
-							<li><strong>Backup & Restore:</strong> Manual and automatic backup options.</li>
-						</ul>
-						<div class="project-links">
-							<a href="https://adithyajayan.in/MyRepertoirApp/" target="_blank" rel="noopener noreferrer" class="button button-small button-accent">Website</a>
-							<a href="https://github.com/Adithya-Jayan/MyRepertoirApp" target="_blank" rel="noopener noreferrer" class="button button-small button-light">GitHub</a>
+				<script src="../js/lightbox-plus-jquery.min.js"></script>
+		
+				<!-- Gallery template stuff -->
+				<script type='text/javascript' src='../js/jquery-11.0.min.js'></script>	
+				<script type='text/javascript' src='../js/unitegallery.min.js'></script>	
+				<link rel='stylesheet' href='../css/unite-gallery.css' type='text/css' />
+				<script type='text/javascript' src='../themes/ug-theme-tiles.js'></script>
+			</head>
+			<body>
+			<header>
+					<div class="logo-area">
+						<a href="../"><img src="https://res.cloudinary.com/dtml8icqh/image/upload/v1760783581/logo_gtb8la.png" alt="my logo" class="logo"></a>
+						<div class="breadcrumbs" id="breadcrumbs"></div>
+					</div>
+						<nav>
+						<button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+							<span></span>
+							<span></span>
+							<span></span>
+						</button>
+						<ul class="nav-menu">
+								    <li class="explore-dropdown">
+								        <a href="#PageMenu">Explore</a>
+								        <div class="dropdown">
+								            <a href="javascript:void(0);" id="dropdown-trigger" class="dropbtn"><span class="arrow-down"></span></a>
+								            <div id="myDropdown" class="dropdown-content">
+								                <a href="../">Home</a>
+								                					                <a href="./" class="current-page">Projects</a>
+								                					                <a href="../Art_Gallery">Art Gallery</a>
+								                					                <a href="../Model_Gallery">3D Model Library</a>						            </div>
+								        </div>
+								    </li>
+								    <li><a href="#MyRepertoireApp">Projects</a></li>
+							</ul>
+						</nav>
+				</header>
+		
+				<section class="home-hero" style="background-image:url(https://res.cloudinary.com/dtml8icqh/image/upload/v1760783580/Fracal-Crossroads_ksobmu.jpg);">
+					<div class="container">
+						<h1 class="title"><span>My Creative & Technical</span>
+						Projects
+						</h1>
+						<a href="#MyRepertoireApp" class="button button-accent">Explore</a>
+					</div>
+				</section>
+		
+				<a id="PageMenu">
+					<div class="PageLinkContainer">
+						<div class="item">
+							<a href="../"><img alt="Home - Serene forest landscape with a winding path" src="https://res.cloudinary.com/dtml8icqh/image/upload/v1760783579/Forest_uzlhwu.jpg"></a>
+							<div style="color:lime">Home</div>
+						</div><!--
+						--><div class="current item">
+							<a href="../Projects"><img alt="Projects - Abstract fractal art with vibrant colors" src="https://res.cloudinary.com/dtml8icqh/image/upload/v1760783580/Fractal-Jewel_dhffpp.jpg"></a>
+							<div style="color:cyan">Projects</div>
+						</div><!--
+						-->
+										<div class="item">
+											<a href="../Art_Gallery"><img alt="Art Gallery - Tranquil Bob Ross-style painting of a lake and mountains" src="https://res.cloudinary.com/dtml8icqh/image/upload/v1760783578/Bon-Ross-Painting_oshtgw.jpg"></a>
+											<div style="color:white">Art Gallery</div>
+										</div>
+						--><div class="item">
+							<a href="../Model_Gallery"><img alt="3D Model Library - Expressive 3D render of a stylized doll" src="https://res.cloudinary.com/dtml8icqh/image/upload/v1760783580/Doll_wiezrc.png"></a>
+							<div style="color:yellow">3D Model Library</div>
 						</div>
 					</div>
-				</div>
-				<!-- Add more project-item divs here in the future -->
-			</div>
-		</section>
-
-		<footer>
-			<div class="container">
-				<div class="col-3">
-					<p>This website showcases my creative work and professional journey. Feel free to explore and connect with me on social media!</p>
-				</div>
-
-				<div class="col-1">
-					<ul class="unstyled-list">
-						<li><strong>Follow Me</strong></li>
-						<li><a href="https://www.instagram.com/the_happy_little_bird/?utm_source=ig_embed" class="footerLink" target="_blank" rel="noopener noreferrer" aria-label="Visit my Instagram profile">Instagram</a></li>
-						<li><a href="https://www.linkedin.com/in/adithya-jayan-6437821a5/" class="footerLink" target="_blank" rel="noopener noreferrer" aria-label="Visit my LinkedIn profile">LinkedIn</a></li>
-					</ul>
-				</div>
-				
-				<div class="col-1">
-					<ul class="unstyled-list">
-						<li><strong>Check Out</strong></li>
-						<li><a href="https://www.youtube.com/channel/UC9kpozgixsqtsqarPnOg77g" class="footerLink" target="_blank" rel="noopener noreferrer" aria-label="Visit my YouTube channel">YouTube</a></li>
-					</ul>
-				</div>
-
-				<div class="col-1">
-					<ul class="unstyled-list">
-						<li><strong>Other Links</strong></li>
-						<li><a href="../Anirudh" class="footerLink" aria-label="Visit my brother's portfolio">Brother's Portfolio</a></li>
-					</ul>
-				</div>
-			</div>
-			
-			<div class="container footer-bottom">
-				<p>&copy; 2025 Adithya Jayan. All rights reserved.</p>
-			</div>
-		</footer>
-
-		<script>
-			// Mobile menu toggle
-			const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-			const navMenu = document.querySelector('.nav-menu');
-			
-			if (mobileMenuToggle) {
-				mobileMenuToggle.addEventListener('click', function() {
-					navMenu.classList.toggle('active');
-					const isExpanded = navMenu.classList.contains('active');
-					mobileMenuToggle.setAttribute('aria-expanded', isExpanded);
-					mobileMenuToggle.classList.toggle('active');
-				});
-			}
-
-			// Sticky nav links
-			const body = document.body;
-			body.classList.add('scrolled-past-menu');
-
-											// Parallax scroll for PageLinkContainer
-
-											const pageLinkContainer = document.querySelector('.PageLinkContainer');
-
-											if (pageLinkContainer) {
-
-												let userTookControl = false;
-
-												let currentScroll = 0;
-
-												let targetScroll = 0;
-
-												const lerpFactor = 0.08;
-
-												let isWheeling = false;
-
-												let isDragging = false;
-
-												let isScrollbar = false;
-
-									
-
-												function smoothScroll() {
-
-													if (!isDragging && !isScrollbar) {
-
-														currentScroll = lerp(currentScroll, targetScroll, lerpFactor);
-
-														pageLinkContainer.scrollLeft = currentScroll;
-
-													}
-
-													requestAnimationFrame(smoothScroll);
-
-												}
-
-									
-
-												function lerp(start, end, t) {
-
-													return start * (1 - t) + end * t;
-
-												}
-
-									
-
-												window.addEventListener('scroll', function() {
-
-													if (userTookControl) return;
-
-													const scrollTop = window.scrollY;
-
-													const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-
-													const scrollPercent = scrollTop / docHeight;
-
-													const maxScrollLeft = pageLinkContainer.scrollWidth - pageLinkContainer.clientWidth;
-
-													targetScroll = scrollPercent * maxScrollLeft;
-
-												});
-
-									
-
-												let wheelTimeout;
-
-												pageLinkContainer.addEventListener('wheel', (evt) => {
-
-													userTookControl = true;
-
-													isWheeling = true;
-
-													clearTimeout(wheelTimeout);
-
-													wheelTimeout = setTimeout(() => { isWheeling = false; }, 150);
-
-									
-
-													evt.preventDefault();
-
-													targetScroll += evt.deltaY;
-
-													const maxScrollLeft = pageLinkContainer.scrollWidth - pageLinkContainer.clientWidth;
-
-													targetScroll = Math.max(0, Math.min(targetScroll, maxScrollLeft));
-
-												});
-
-									
-
-												let touchStartX = 0;
-
-												let scrollLeftStart = 0;
-
-									
-
-												pageLinkContainer.addEventListener('touchstart', (e) => {
-
-													userTookControl = true;
-
-													isDragging = true;
-
-													touchStartX = e.touches[0].pageX - pageLinkContainer.offsetLeft;
-
-													scrollLeftStart = pageLinkContainer.scrollLeft;
-
-												});
-
-									
-
-												pageLinkContainer.addEventListener('touchmove', (e) => {
-
-													if (!userTookControl) return;
-
-													e.preventDefault();
-
-													const x = e.touches[0].pageX - pageLinkContainer.offsetLeft;
-
-													const walk = (x - touchStartX) * 2; //scroll-fast
-
-													pageLinkContainer.scrollLeft = scrollLeftStart - walk;
-
-												});
-
-									
-
-												pageLinkContainer.addEventListener('touchend', (e) => {
-
-													isDragging = false;
-
-													currentScroll = pageLinkContainer.scrollLeft;
-
-													targetScroll = pageLinkContainer.scrollLeft;
-
-												});
-
-									
-
-												let scrollTimeout;
-
-												pageLinkContainer.addEventListener('scroll', () => {
-
-													if (!userTookControl || isWheeling || isDragging) return;
-
-													isScrollbar = true;
-
-													clearTimeout(scrollTimeout);
-
-													scrollTimeout = setTimeout(() => {
-
-														isScrollbar = false;
-
-														currentScroll = pageLinkContainer.scrollLeft;
-
-														targetScroll = pageLinkContainer.scrollLeft;
-
-													}, 150);
-
-												});
-
-									
-
-												smoothScroll();
-
-											}		</script>
-
-		<script>
-		/* When the user clicks on the arrow,
-		toggle between hiding and showing the dropdown content */
-		document.querySelector('.dropbtn').addEventListener('click', function(event) {
-			event.stopPropagation();
-			document.getElementById("myDropdown").classList.toggle("show");
-			document.querySelector(".arrow-down").classList.toggle("arrow-up");
-		});
-
-				// Close the dropdown if the user clicks outside of it
-				window.addEventListener('click', function(event) {
-				    // Close dropdown
-				    var dropdown = document.getElementById('myDropdown');
-				    if (dropdown.classList.contains('show') && !event.target.closest('.dropdown')) {
-				        dropdown.classList.remove('show');
-				        var arrow = document.querySelector(".arrow-down");
-				        if (arrow.classList.contains("arrow-up")) {
-				            arrow.classList.remove("arrow-up");
-				        }
-				    }
+				</a>
 		
-				    // Close mobile menu
-				    const navMenu = document.querySelector('.nav-menu');
-				    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-				    if (navMenu.classList.contains('active') && 
-				        !navMenu.contains(event.target) && 
-				        !mobileMenuToggle.contains(event.target)) {
-				        
-				        navMenu.classList.remove('active');
-				        mobileMenuToggle.classList.remove('active');
-				        mobileMenuToggle.setAttribute('aria-expanded', 'false');
-				    }
-				});			
-						// Close mobile menu when clicking on a link
-						document.querySelectorAll('.nav-menu a').forEach(link => {
-							link.addEventListener('click', (event) => {
-								if (event.currentTarget.id !== 'dropdown-trigger') {
-									const navMenu = document.querySelector('.nav-menu');
-									const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-									navMenu.classList.remove('active');
-									mobileMenuToggle.classList.remove('active');
-									mobileMenuToggle.setAttribute('aria-expanded', 'false');
-								}
-							});
+				<a id="MyRepertoireApp"></a>
+				<section class="portfolio">
+					<div class="grid project-gallery">
+						<!-- Project 1: MyRepertoireApp -->
+						<div class="grid-item project-item">
+							<img src="https://github.com/Adithya-Jayan/MyRepertoirApp/blob/main/fastlane/metadata/android/en-US/images/icon.png?raw=true" alt="MyRepertoireApp Screenshot" class="project-image">
+							<div class="project-description">
+								<h3>MyRepertoireApp</h3>
+								<p>An open-source app for performers to manage their repertoire, track practice, and organize media.</p>
+								<h4>Key Features:</h4>
+								<ul>
+									<li><strong>Repertoire Library:</strong> View collections in list or grid format.</li>
+									<li><strong>Media Attachments:</strong> Attach PDFs, Markdown notes, images, audio files, and video links.</li>
+									<li><strong>Practice Tracking:</strong> Log practice sessions and track history.</li>
+									<li><strong>Organization:</strong> Powerful search, filter, and sorting capabilities.</li>
+									<li><strong>Backup & Restore:</strong> Manual and automatic backup options.</li>
+								</ul>
+								<div class="project-links">
+									<a href="https://adithyajayan.in/MyRepertoirApp/" target="_blank" rel="noopener noreferrer" class="button button-small button-accent">Website</a>
+									<a href="https://github.com/Adithya-Jayan/MyRepertoirApp" target="_blank" rel="noopener noreferrer" class="button button-small button-light">GitHub</a>
+								</div>
+							</div>
+						</div>
+						<!-- Add more project-item divs here in the future -->
+					</div>
+				</section>
+		
+				<footer>
+					<div class="container">
+						<div class="col-3">
+							<p>This website showcases my creative work and professional journey. Feel free to explore and connect with me on social media!</p>
+						</div>
+		
+						<div class="col-1">
+							<ul class="unstyled-list">
+								<li><strong>Follow Me</strong></li>
+								<li><a href="https://www.instagram.com/the_happy_little_bird/?utm_source=ig_embed" class="footerLink" target="_blank" rel="noopener noreferrer" aria-label="Visit my Instagram profile">Instagram</a></li>
+								<li><a href="https://www.linkedin.com/in/adithya-jayan-6437821a5/" class="footerLink" target="_blank" rel="noopener noreferrer" aria-label="Visit my LinkedIn profile">LinkedIn</a></li>
+							</ul>
+						</div>
+						
+						<div class="col-1">
+							<ul class="unstyled-list">
+								<li><strong>Check Out</strong></li>
+								<li><a href="https://www.youtube.com/channel/UC9kpozgixsqtsqarPnOg77g" class="footerLink" target="_blank" rel="noopener noreferrer" aria-label="Visit my YouTube channel">YouTube</a></li>
+							</ul>
+						</div>
+		
+						<div class="col-1">
+							<ul class="unstyled-list">
+								<li><strong>Other Links</strong></li>
+								<li><a href="../Anirudh" class="footerLink" aria-label="Visit my brother's portfolio">Brother's Portfolio</a></li>
+							</ul>
+						</div>
+					</div>
+					
+					<div class="container footer-bottom">
+						<p>&copy; 2025 Adithya Jayan. All rights reserved.</p>
+					</div>
+				</footer>
+		
+				<script src="../js/script.js"></script>
+				<script>
+					// Mobile menu toggle
+					const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+					const navMenu = document.querySelector('.nav-menu');
+					
+					if (mobileMenuToggle) {
+						mobileMenuToggle.addEventListener('click', function() {
+							navMenu.classList.toggle('active');
+							const isExpanded = navMenu.classList.contains('active');
+							mobileMenuToggle.setAttribute('aria-expanded', isExpanded);
+							mobileMenuToggle.classList.toggle('active');
 						});
-					</script>
-	<script type="application/ld+json">
-	{
-	  "@context": "https.schema.org",
-	  "@type": "CollectionPage",
-	  "name": "AJ's Projects",
-	  "description": "A showcase of technical and creative projects by Adithya Jayan.",
-	  "url": "https://adithyajayan.in/Projects/",
-	  "creator": {
-		"@type": "Person",
-		"name": "Adithya Jayan"
-	  }
-	}
-	</script>	</body>
-</html>
+					}
+		
+					// Sticky nav links
+					const body = document.body;
+					body.classList.add('scrolled-past-menu');
+		
+													// Parallax scroll for PageLinkContainer
+		
+													const pageLinkContainer = document.querySelector('.PageLinkContainer');
+		
+													if (pageLinkContainer) {
+		
+														let userTookControl = false;
+		
+														let currentScroll = 0;
+		
+														let targetScroll = 0;
+		
+														const lerpFactor = 0.08;
+		
+														let isWheeling = false;
+		
+														let isDragging = false;
+		
+														let isScrollbar = false;
+		
+											
+		
+														function smoothScroll() {
+		
+															if (!isDragging && !isScrollbar) {
+		
+																currentScroll = lerp(currentScroll, targetScroll, lerpFactor);
+		
+																pageLinkContainer.scrollLeft = currentScroll;
+		
+															}
+		
+															requestAnimationFrame(smoothScroll);
+		
+														}
+		
+											
+		
+														function lerp(start, end, t) {
+		
+															return start * (1 - t) + end * t;
+		
+														}
+		
+											
+		
+														window.addEventListener('scroll', function() {
+		
+															if (userTookControl) return;
+		
+															const scrollTop = window.scrollY;
+		
+															const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+		
+															const scrollPercent = scrollTop / docHeight;
+		
+															const maxScrollLeft = pageLinkContainer.scrollWidth - pageLinkContainer.clientWidth;
+		
+															targetScroll = scrollPercent * maxScrollLeft;
+		
+														});
+		
+											
+		
+														let wheelTimeout;
+		
+														pageLinkContainer.addEventListener('wheel', (evt) => {
+		
+															userTookControl = true;
+		
+															isWheeling = true;
+		
+															clearTimeout(wheelTimeout);
+		
+															wheelTimeout = setTimeout(() => { isWheeling = false; }, 150);
+		
+											
+		
+															evt.preventDefault();
+		
+															targetScroll += evt.deltaY;
+		
+															const maxScrollLeft = pageLinkContainer.scrollWidth - pageLinkContainer.clientWidth;
+		
+															targetScroll = Math.max(0, Math.min(targetScroll, maxScrollLeft));
+		
+														});
+		
+											
+		
+														let touchStartX = 0;
+		
+														let scrollLeftStart = 0;
+		
+											
+		
+														pageLinkContainer.addEventListener('touchstart', (e) => {
+		
+															userTookControl = true;
+		
+															isDragging = true;
+		
+															touchStartX = e.touches[0].pageX - pageLinkContainer.offsetLeft;
+		
+															scrollLeftStart = pageLinkContainer.scrollLeft;
+		
+														});
+		
+											
+		
+														pageLinkContainer.addEventListener('touchmove', (e) => {
+		
+															if (!userTookControl) return;
+		
+															e.preventDefault();
+		
+															const x = e.touches[0].pageX - pageLinkContainer.offsetLeft;
+		
+															const walk = (x - touchStartX) * 2; //scroll-fast
+		
+															pageLinkContainer.scrollLeft = scrollLeftStart - walk;
+		
+														});
+		
+											
+		
+														pageLinkContainer.addEventListener('touchend', (e) => {
+		
+															isDragging = false;
+		
+															currentScroll = pageLinkContainer.scrollLeft;
+		
+															targetScroll = pageLinkContainer.scrollLeft;
+		
+														});
+		
+											
+		
+														let scrollTimeout;
+		
+														pageLinkContainer.addEventListener('scroll', () => {
+		
+															if (!userTookControl || isWheeling || isDragging) return;
+		
+															isScrollbar = true;
+		
+															clearTimeout(scrollTimeout);
+		
+															scrollTimeout = setTimeout(() => {
+		
+																isScrollbar = false;
+		
+																currentScroll = pageLinkContainer.scrollLeft;
+		
+																targetScroll = pageLinkContainer.scrollLeft;
+		
+															}, 150);
+		
+														});
+		
+											
+		
+														smoothScroll();
+		
+													}		</script>
+		
+				<script>
+				/* When the user clicks on the arrow,
+				toggle between hiding and showing the dropdown content */
+				document.querySelector('.dropbtn').addEventListener('click', function(event) {
+					event.stopPropagation();
+					document.getElementById("myDropdown").classList.toggle("show");
+					document.querySelector(".arrow-down").classList.toggle("arrow-up");
+				});
+		
+						// Close the dropdown if the user clicks outside of it
+						window.addEventListener('click', function(event) {
+						    // Close dropdown
+						    var dropdown = document.getElementById('myDropdown');
+						    if (dropdown.classList.contains('show') && !event.target.closest('.dropdown')) {
+						        dropdown.classList.remove('show');
+						        var arrow = document.querySelector(".arrow-down");
+						        if (arrow.classList.contains("arrow-up")) {
+						            arrow.classList.remove("arrow-up");
+						        }
+						    }
+				
+						    // Close mobile menu
+						    const navMenu = document.querySelector('.nav-menu');
+						    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+						    if (navMenu.classList.contains('active') && 
+						        !navMenu.contains(event.target) && 
+						        !mobileMenuToggle.contains(event.target)) {
+						        
+						        navMenu.classList.remove('active');
+						        mobileMenuToggle.classList.remove('active');
+						        mobileMenuToggle.setAttribute('aria-expanded', 'false');
+						    }
+						});			
+								// Close mobile menu when clicking on a link
+								document.querySelectorAll('.nav-menu a').forEach(link => {
+									link.addEventListener('click', (event) => {
+										if (event.currentTarget.id !== 'dropdown-trigger') {
+											const navMenu = document.querySelector('.nav-menu');
+											const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+											navMenu.classList.remove('active');
+											mobileMenuToggle.classList.remove('active');
+											mobileMenuToggle.setAttribute('aria-expanded', 'false');
+										}
+									});
+								});
+							</script>
+			<script type="application/ld+json">
+			{
+			  "@context": "https.schema.org",
+			  "@type": "CollectionPage",
+			  "name": "AJ's Projects",
+			  "description": "A showcase of technical and creative projects by Adithya Jayan.",
+			  "url": "https://adithyajayan.in/Projects/",
+			  "creator": {
+				"@type": "Person",
+				"name": "Adithya Jayan"
+			  }
+			}
+			</script>	</body>
+		</html>
