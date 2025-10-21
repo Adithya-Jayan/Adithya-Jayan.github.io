@@ -1268,6 +1268,12 @@ button:focus {
   .button-gal-group .button-gal-menu:first-child { border-radius: 0.5em 0 0 0.5em; }
   .button-gal-group .button-gal-menu:last-child { border-radius: 0 0.5em 0.5em 0; }
 
+@media (max-width: 480px) {
+	.breadcrumbs {
+		display: none;
+	}
+}
+
 .dropdown-content a.current-page {
     background-color: #555;
     color: #999;
