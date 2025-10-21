@@ -173,5 +173,25 @@ $(document).ready(function() {
   
   console.log("Starting Load Gallery");
   Runinsequence();
+  generateBreadcrumbs();
   
 });
+
+function generateBreadcrumbs() {
+    const path = window.location.pathname;
+    const parts = path.split('/').filter(part => part !== '');
+    const breadcrumbs = document.getElementById('breadcrumbs');
+    
+    if (breadcrumbs) {
+        let breadcrumbHtml = '> ';
+        
+        if (parts.length === 0 || parts[parts.length - 1] === 'index.html') {
+            breadcrumbHtml += 'Home';
+        } else {
+            const pageName = parts[parts.length - 1].replace(/_/g, ' ').replace('.html', '');
+            breadcrumbHtml += `${pageName.charAt(0).toUpperCase() + pageName.slice(1)}`;
+        }
+        
+        breadcrumbs.innerHTML = breadcrumbHtml;
+    }
+}

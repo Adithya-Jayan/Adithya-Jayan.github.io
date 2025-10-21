@@ -65,7 +65,10 @@
 	
 	<body>
 		<header>
-			<a href="../"><img src="https://res.cloudinary.com/dtml8icqh/image/upload/v1760783581/logo_gtb8la.png" alt="my logo" class="logo"></a>
+			<div class="logo-area">
+				<a href="../"><img src="https://res.cloudinary.com/dtml8icqh/image/upload/v1760783581/logo_gtb8la.png" alt="my logo" class="logo"></a>
+				<div class="breadcrumbs" id="breadcrumbs"></div>
+			</div>
 				<nav>
 				<button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
 					<span></span>
@@ -216,13 +219,15 @@
 									const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
 									navMenu.classList.remove('active');
 									mobileMenuToggle.classList.remove('active');
-									mobileMenuToggle.setAttribute('aria-expanded', 'false');
-								}
-							});
-						});
-					</script>	</body>
-
-	<script>
+																		mobileMenuToggle.setAttribute('aria-expanded', 'false');
+																	}
+																});
+															});
+														</script>	
+														<script src="../js/script.js"></script>
+													</body>
+						
+							<script>
 		//Initialize isotope gallery
 		$('.grid').isotope({
 			// options
