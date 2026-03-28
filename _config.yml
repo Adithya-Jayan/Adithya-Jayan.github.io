@@ -1,3 +1,43 @@
+# Site Configuration
+title: "Adithya Jayan | Electronics & Communication Engineer"
+description: "Artsy, Nature-Themed Portfolio | VLSI Design | Digital Art | 3D Modeling"
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://adithya-jayan.github.io" # the base hostname & protocol for your site
+
+# Collections configuration
+collections:
+  projects:
+    output: true
+    permalink: /projects/:title/
+  art:
+    output: true
+    permalink: /art/:title/
+  models:
+    output: true
+    permalink: /models/:title/
+
+# Build settings
+markdown: kramdown
 theme: jekyll-theme-cayman
-title: Welcome to AJ's homepage!
-description: Feel free to bookmark this page to keep an eye out on my project updates
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Exclusions
+exclude:
+  - node_modules
+  - vendor
+  - reorganize.sh
+  - detailed_instructions.txt
+  - REVAMP_CHECKLIST.md
+  - .gitignore
+  - README.md
+  - CNAME
+  - HomePageElements_Untracked/
+  - Google Font info.txt
+  - .git/
+  - .github/
+  - .jekyll-cache/
+  - .sass-cache/
+  - _site/

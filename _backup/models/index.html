@@ -1,0 +1,28 @@
+---
+layout: default
+title: 3D Model Library
+---
+
+<section class="gallery-hero animate-on-scroll">
+  <h1 class="page-title">3D Modeling & Animation</h1>
+  <p class="page-subtitle">Explorations in Blender 3D, asset design, and character modeling.</p>
+</section>
+
+<div class="portfolio-grid animate-on-scroll">
+  {% for model in site.models %}
+    <article class="project-card blob-shape-{{ forloop.index | modulo: 3 | plus: 1 }}" onclick="location.href='{{ model.url | relative_url }}'">
+      {% if model.thumbnail %}
+        <img src="{{ model.thumbnail | relative_url }}" alt="{{ model.title }}" class="card-thumbnail">
+      {% endif %}
+      <div class="card-content">
+        <h3 class="card-title">{{ model.title }}</h3>
+        <p class="card-excerpt">{{ model.excerpt | default: model.description }}</p>
+        <div class="card-tags">
+          {% for tag in model.tags %}
+            <span class="tag">{{ tag }}</span>
+          {% endfor %}
+        </div>
+      </div>
+    </article>
+  {% endfor %}
+</div>

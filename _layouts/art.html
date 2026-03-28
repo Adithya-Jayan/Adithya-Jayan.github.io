@@ -1,0 +1,70 @@
+---
+layout: default
+---
+
+<article class="art-detail animate-on-scroll">
+  <header class="detail-header">
+    <h1 class="piece-title">{{ page.title }}</h1>
+    <div class="piece-meta">
+      {% for tag in page.tags %}
+        <span class="tag">{{ tag }}</span>
+      {% endfor %}
+    </div>
+  </header>
+
+  <div class="piece-main">
+    {% if page.thumbnail %}
+      <img src="{{ page.thumbnail | relative_url }}" alt="{{ page.title }}" class="piece-image">
+    {% endif %}
+    
+    <div class="piece-content">
+      {{ content }}
+    </div>
+  </div>
+
+  <footer class="detail-footer">
+    <a href="{{ '/art/' | relative_url }}" class="back-link">← Back to Gallery</a>
+  </footer>
+</article>
+
+<style>
+.art-detail {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.detail-header {
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.piece-title {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.piece-image {
+  width: 100%;
+  height: auto;
+  border-radius: 2rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  margin-bottom: 3rem;
+}
+
+.piece-content {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--color-text-secondary);
+}
+
+.detail-footer {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.back-link {
+  font-weight: 600;
+  color: var(--color-accent-sage);
+}
+</style>

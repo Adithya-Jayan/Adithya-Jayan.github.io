@@ -1,0 +1,45 @@
+---
+layout: default
+---
+
+<article class="model-detail animate-on-scroll">
+  <header class="detail-header">
+    <h1 class="project-title">{{ page.title }}</h1>
+    <div class="project-meta">
+      {% for tag in page.tags %}
+        <span class="tag">{{ tag }}</span>
+      {% endfor %}
+    </div>
+  </header>
+
+  <div class="project-main">
+    {{ content }}
+  </div>
+
+  <footer class="detail-footer">
+    <a href="{{ '/models/' | relative_url }}" class="back-link">← Back to Model Library</a>
+  </footer>
+</article>
+
+<style>
+.model-detail {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.detail-header {
+  margin-bottom: 4rem;
+  text-align: center;
+}
+
+.detail-footer {
+  margin-top: 5rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.back-link {
+  font-weight: 600;
+  color: var(--color-accent-sage);
+}
+</style>

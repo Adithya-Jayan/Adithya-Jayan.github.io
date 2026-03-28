@@ -1,0 +1,33 @@
+<header class="site-header">
+  <div class="logo-area">
+    <a href="{{ '/' | relative_url }}">
+      <img src="https://res.cloudinary.com/dtml8icqh/image/upload/v1760783581/logo_gtb8la.png" alt="Adithya Jayan Logo" class="logo">
+    </a>
+    <div class="breadcrumbs" id="breadcrumbs"></div>
+  </div>
+
+  <nav>
+    <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <ul class="nav-menu">
+      <li class="explore-dropdown">
+        <div class="dropbtn-wrapper" id="explore-trigger">
+          <span class="explore-label">Explore</span>
+          <span class="arrow-down"></span>
+        </div>
+        <div id="myDropdown" class="dropdown-content">
+          <a href="{{ '/' | relative_url }}">Home</a>
+          <a href="{{ '/projects/' | relative_url }}">Projects</a>
+          <a href="{{ '/art/' | relative_url }}">Art Gallery</a>
+          <a href="{{ '/models/' | relative_url }}">3D Model Library</a>
+          <a href="{{ '/resume/' | relative_url }}">Resume</a>
+        </div>
+      </li>
+      <li><a href="{{ '/' | relative_url }}#About">About</a></li>
+      <li><a href="{{ '/resume/' | relative_url }}">Experience</a></li>
+    </ul>
+  </nav>
+</header>

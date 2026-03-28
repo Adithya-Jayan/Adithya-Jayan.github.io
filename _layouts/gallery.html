@@ -1,0 +1,213 @@
+---
+layout: default
+---
+
+<section class="gallery-hero" style="background-image: url('{{ page.hero_image | relative_url }}');">
+  <div class="hero-overlay"></div>
+  <div class="container animate-on-scroll">
+    <h1 class="hero-title">{{ page.gallery_title }}</h1>
+    <p class="hero-description">{{ page.description }}</p>
+  </div>
+</section>
+
+<section class="gallery-section animate-on-scroll">
+  <div class="gallery-filters button-gal-group filters-button-group">
+    <button class="button button-gal-menu is-checked" data-filter="*">Show All</button>
+    {% assign filter_list = "" | split: "," %}
+    {% for item in site.data[page.data_file] %}
+      {% assign tags = item.tags | split: " " %}
+      {% for tag in tags %}
+        {% assign slug = tag | slugify %}
+        {% unless filter_list contains slug %}
+          {% assign filter_list = filter_list | push: slug %}
+        {% endunless %}
+      {% endfor %}
+    {% endfor %}
+    
+    {% for filter_slug in filter_list %}
+      <button class="button button-gal-menu" data-filter=".{{ filter_slug }}">{{ filter_slug | replace: "-", " " | capitalize }}</button>
+    {% endfor %}
+  </div>
+
+  <div id="gallery" class="grid portfolio-grid">
+    {% for item in site.data[page.data_file] %}
+      {% capture item_classes %}
+        {% assign item_tags = item.tags | split: " " %}
+        {% for t in item_tags %}{{ t | slugify }} {% endfor %}
+      {% endcapture %}
+      
+      <div class="grid-item {{ item_classes | strip }}">
+        <a class="photolink" 
+           href="{{ item.href }}"
+           data-description="{{ item.description | escape }}" 
+           data-subtitle='{{ item.subtitle | escape }}'>
+          <div class="gallery-card">
+            <div class="sage-leaf-bg"></div>
+            <img src="{{ item.src }}" alt="{{ item.alt | escape }}" class="gallery-image">
+            <div class="card-overlay">
+              <span class="view-icon">
+                {% if item.tags contains 'Video' %}
+                  <i class="play-icon">▶</i>
+                {% else %}
+                  <i class="zoom-icon">🔍</i>
+                {% endif %}
+              </span>
+            </div>
+          </div>
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+<style>
+/* Gallery Section Styles */
+.gallery-section {
+  padding: 6rem 0;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.gallery-filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 4rem;
+}
+
+.button-gal-menu {
+  background: var(--color-bg-secondary);
+  border: none;
+  padding: 0.6rem 1.5rem;
+  border-radius: 999px;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  transition: all 0.3s ease;
+}
+
+.button-gal-menu.is-checked, .button-gal-menu:hover {
+  background: var(--color-accent-sage);
+  color: white;
+}
+
+.portfolio-grid {
+  display: block;
+}
+
+.grid-item {
+  width: 350px;
+  margin-bottom: 2rem;
+  padding: 0 1rem;
+}
+
+.gallery-card {
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  aspect-ratio: 1/1;
+  border-radius: 0.5rem;
+}
+
+.gallery-card:hover {
+  transform: translateY(-5px);
+}
+
+.gallery-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.card-overlay {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(138, 154, 91, 0.4);
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s ease;
+}
+
+.gallery-card:hover .card-overlay {
+  opacity: 1;
+}
+
+.view-icon {
+  color: white;
+  font-size: 2rem;
+  background: rgba(0, 0, 0, 0.2);
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 992px) {
+  .grid-item { width: 50%; }
+}
+
+@media (max-width: 768px) {
+  .grid-item { width: 100%; }
+}
+</style>
+
+<script>
+window.addEventListener('load', function() {
+  var $grid = $('.grid').isotope({
+    itemSelector: '.grid-item',
+    layoutMode: 'masonry',
+    masonry: {
+      columnWidth: '.grid-item',
+      isFitWidth: true
+    }
+  });
+
+  // Re-layout after images are loaded
+  if (typeof imagesLoaded !== 'undefined') {
+    $('.grid').imagesLoaded().progress( function() {
+      $grid.isotope('layout');
+    });
+  }
+
+  // Filter items on button click
+  $('.filters-button-group').on('click', 'button', function() {
+    var filterValue = $(this).attr('data-filter');
+    $grid.isotope({ filter: filterValue });
+    
+    $('.filters-button-group').find('.is-checked').removeClass('is-checked');
+    $(this).addClass('is-checked');
+  });
+
+  // Init Magnific Popup
+  $('.grid').magnificPopup({
+    delegate: 'a.photolink',
+    gallery: { enabled: true },
+    type: 'image', // default
+    image: {
+      titleSrc: function(item) {
+        var desc = item.el.attr('data-description');
+        var sub = item.el.attr('data-subtitle'); 
+        return desc + '<small>' + sub + '</small>';
+      }
+    },
+    callbacks: {
+      elementParse: function(item) {
+        var tags = item.el.closest('.grid-item').attr('class').toLowerCase();
+        if(tags.indexOf('video') !== -1) {
+          item.type = 'iframe';
+        } else {
+          item.type = 'image';
+        }
+      }
+    }
+  });
+});
+</script>

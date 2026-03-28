@@ -1,0 +1,28 @@
+---
+layout: default
+title: Artwork Gallery
+---
+
+<section class="gallery-hero animate-on-scroll">
+  <h1 class="page-title">Digital & Traditional Artwork</h1>
+  <p class="page-subtitle">A creative space for my sketches, illustrations, and concept art.</p>
+</section>
+
+<div class="portfolio-grid animate-on-scroll">
+  {% for piece in site.art %}
+    <article class="project-card blob-shape-{{ forloop.index | modulo: 3 | plus: 1 }}" onclick="location.href='{{ piece.url | relative_url }}'">
+      {% if piece.thumbnail %}
+        <img src="{{ piece.thumbnail | relative_url }}" alt="{{ piece.title }}" class="card-thumbnail">
+      {% endif %}
+      <div class="card-content">
+        <h3 class="card-title">{{ piece.title }}</h3>
+        <p class="card-excerpt">{{ piece.excerpt | default: piece.description }}</p>
+        <div class="card-tags">
+          {% for tag in piece.tags %}
+            <span class="tag">{{ tag }}</span>
+          {% endfor %}
+        </div>
+      </div>
+    </article>
+  {% endfor %}
+</div>

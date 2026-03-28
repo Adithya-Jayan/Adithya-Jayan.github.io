@@ -1,1 +1,16 @@
-*Untracked*
+# Jekyll and general build artifacts
+_site/
+.jekyll-cache/
+.sass-cache/
+.jekyll-metadata
+vendor/
+node_modules/
+.sass-cache/
+
+# OS and common editor files
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.vscode/
+.idea/

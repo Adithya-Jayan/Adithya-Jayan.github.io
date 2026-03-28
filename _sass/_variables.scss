@@ -1,0 +1,17 @@
+// Earthy Boho / Desert Agave Palette Matrix
+:root {
+  --color-bg-primary: #FAF7F0;    // Softer Buttery White
+  --color-bg-secondary: #E9F2E0;  // Slightly more saturated Spring Green
+  --color-text-primary: #2C3E50;   // Deeper River Blue for contrast
+  --color-text-secondary: #5D4037; // Richer Bark Brown
+  --color-accent-sage: #8A9A5B;    // True Moss/Sage
+  --color-accent-terra: #D2691E;   // Chocolate/Cinnamon state
+}
+
+// Semantic variables
+$bg-primary: var(--color-bg-primary);
+$bg-secondary: var(--color-bg-secondary);
+$text-primary: var(--color-text-primary);
+$text-secondary: var(--color-text-secondary);
+$accent-sage: var(--color-accent-sage);
+$accent-terra: var(--color-accent-terra);

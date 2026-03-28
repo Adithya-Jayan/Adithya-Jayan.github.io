@@ -1,0 +1,195 @@
+---
+layout: default
+---
+
+<div class="resume-container animate-on-scroll">
+  <aside class="resume-sidebar">
+    <div class="profile-pic blob-shape-1">
+      <img src="{{ site.profile_image | default: '/assets/images/Me.png' | relative_url }}" alt="Adithya Jayan">
+    </div>
+    <div class="sidebar-info">
+      <h2 class="engineer-name">Adithya Jayan</h2>
+      <p class="engineer-role">Electronics & Communication Engineer</p>
+      <div class="contact-links">
+        <a href="mailto:{{ site.email }}">Email</a>
+        <a href="https://linkedin.com/in/adithya-jayan" target="_blank">LinkedIn</a>
+        <a href="https://github.com/adithya-jayan" target="_blank">GitHub</a>
+      </div>
+    </div>
+  </aside>
+
+  <section class="resume-main">
+    <section class="resume-section">
+      <h2 class="section-title">Professional Experience</h2>
+      <div class="experience-list">
+        {% for job in site.experience %}
+          <article class="job-item">
+            <header class="job-header">
+              <h3 class="job-title">{{ job.title }}</h3>
+              <p class="job-company">{{ job.company }} | <time>{{ job.start_date }}</time> - <time>{{ job.end_date | default: 'Present' }}</time></p>
+            </header>
+            <ul class="job-highlights">
+              {% for bullet in job.highlights %}
+                <li>{{ bullet }}</li>
+              {% endfor %}
+            </ul>
+          </article>
+        {% endfor %}
+      </div>
+    </section>
+
+    <section class="resume-section">
+      <h2 class="section-title">Skills & Expertise</h2>
+      <div class="skills-taxonomy">
+        {% for category in site.skills %}
+          <div class="skill-category">
+            <h4 class="category-name">{{ category.name }}</h4>
+            <div class="skill-tags">
+              {% for skill in category.items %}
+                <span class="skill-tag">{{ skill }}</span>
+              {% endfor %}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </section>
+
+    <section class="resume-section">
+      <h2 class="section-title">Education</h2>
+      <div class="education-item">
+        <h3 class="degree">B.Tech in Electronics and Communication Engineering</h3>
+        <p class="university">National Institute of Technology... | Graduated May 2024</p>
+      </div>
+    </section>
+  </section>
+</div>
+
+<style>
+.resume-container {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.resume-sidebar {
+  position: sticky;
+  top: 4rem;
+  align-self: start;
+}
+
+.profile-pic {
+  width: 250px;
+  height: 250px;
+  background-color: var(--color-bg-secondary);
+  margin-bottom: 2rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.engineer-name {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.engineer-role {
+  color: var(--color-accent-sage);
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.resume-main {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--color-bg-secondary);
+}
+
+.experience-list {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.job-header {
+  margin-bottom: 1rem;
+}
+
+.job-title {
+  font-size: 1.5rem;
+}
+
+.job-company {
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}
+
+.job-highlights {
+  padding-left: 1.5rem;
+  list-style: disc;
+  li {
+    margin-bottom: 0.5rem;
+    color: var(--color-text-secondary);
+  }
+}
+
+.skills-taxonomy {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+
+.category-name {
+  margin-bottom: 1.5rem;
+  font-size: 1.25rem;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.skill-tag {
+  background-color: var(--color-bg-secondary);
+  color: var(--color-text-primary);
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+@media (max-width: 992px) {
+  .resume-container {
+    grid-template-columns: 1fr;
+  }
+  .resume-sidebar {
+    position: static;
+    text-align: center;
+  }
+  .profile-pic {
+    margin: 0 auto 2rem;
+  }
+  .skills-taxonomy {
+    grid-template-columns: 1fr;
+  }
+}
+</style>

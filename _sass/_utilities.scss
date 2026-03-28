@@ -1,0 +1,42 @@
+// Organic Fluid Geometry Utilities
+
+.blob-shape-1 {
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  transition: border-radius 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+  overflow: hidden;
+
+  &:hover {
+    border-radius: 55% 45% 35% 65% / 55% 35% 65% 45%;
+  }
+}
+
+.blob-shape-2 {
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  transition: border-radius 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+  overflow: hidden;
+
+  &:hover {
+    border-radius: 35% 65% 65% 35% / 35% 35% 65% 65%;
+  }
+}
+
+.blob-shape-3 {
+  border-radius: 50% 50% 20% 80% / 25% 80% 20% 75%;
+  transition: border-radius 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+  overflow: hidden;
+
+  &:hover {
+    border-radius: 55% 45% 25% 75% / 30% 75% 25% 70%;
+  }
+}
+
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+
+  &.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
