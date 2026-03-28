@@ -54,6 +54,31 @@
     opacity: 0.85;
   }
 
+  .card-links {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 10;
+
+    .card-link {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05rem;
+      color: var(--color-accent-terra);
+      padding: 0.4rem 0.8rem;
+      border: 1px solid var(--color-accent-terra);
+      border-radius: 0.5rem;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background-color: var(--color-accent-terra);
+        color: white;
+      }
+    }
+  }
+
   .card-tags {
     display: flex;
     flex-wrap: wrap;

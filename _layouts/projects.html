@@ -23,6 +23,14 @@ layout: default
       {% endif %}
       
       <div class="project-content animate-on-scroll" style="transition-delay: 0.2s;">
+        <div class="project-links">
+          {% if page.website %}
+            <a href="{{ page.website }}" target="_blank" rel="noopener noreferrer" class="button button-accent">Website</a>
+          {% endif %}
+          {% if page.github %}
+            <a href="{{ page.github }}" target="_blank" rel="noopener noreferrer" class="button button-light">GitHub</a>
+          {% endif %}
+        </div>
         {{ content }}
       </div>
     </div>

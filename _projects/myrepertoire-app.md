@@ -1,13 +1,18 @@
 ---
 layout: projects
 title: "MyRepertoire App"
-thumbnail: "/assets/images/Fracal-Crossroads.jpg"
-description: "A comprehensive VLSI design tool for managing complex hardware architectures."
-tags: ["VLSI", "App Development", "Hardware Design"]
+thumbnail: "https://github.com/Adithya-Jayan/MyRepertoirApp/blob/main/fastlane/metadata/android/en-US/images/icon.png?raw=true"
+description: "An open-source app for performers to manage their repertoire, track practice, and organize media."
+website: "https://adithyajayan.in/MyRepertoirApp/"
+github: "https://github.com/Adithya-Jayan/MyRepertoirApp"
+tags: ["Mobile App", "Open Source", "Music"]
 ---
 
-### Architectural Overview
-Detailed description of the MyRepertoire App...
+### Key Features:
+- **Repertoire Library:** View collections in list or grid format.
+- **Media Attachments:** Attach PDFs, Markdown notes, images, audio files, and video links.
+- **Practice Tracking:** Log practice sessions and track history.
+- **Organization:** Powerful search, filter, and sorting capabilities.
+- **Backup & Restore:** Manual and automatic backup options.
 
-- **Power Reduction:** Achieved a 20% reduction in static power.
-- **Performance:** Improved timing closure by 15% using optimized RTL blocks.
+An open-source app for performers to manage their repertoire, track practice, and organize media.

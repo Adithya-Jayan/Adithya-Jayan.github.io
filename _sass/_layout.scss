@@ -199,7 +199,7 @@
   margin: 4rem auto; // Restored margins
   padding: 4rem 3rem;
   flex: 1; // Grow to fill space
-  background-color: rgba(250, 247, 240, 0.85); // Semi-transparent primary bg
+  background-color: rgba(250, 247, 240, 0.75); // Slightly more transparent
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border-radius: 2.5rem;
@@ -286,13 +286,16 @@ section {
 .cta-section {
   padding: 8rem 2rem;
   text-align: center;
-  background-color: var(--color-bg-primary);
+  background-color: rgba(250, 247, 240, 0.75); // Slightly transparent
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border-radius: 8rem;
   margin: 4rem auto;
   max-width: 1400px;
   position: relative;
   z-index: 1;
   box-shadow: 0 20px 50px rgba(0,0,0,0.03);
+  border: 1px solid rgba(255, 255, 255, 0.4);
 
   .cta-title {
     font-size: clamp(2rem, 5vw, 3rem);

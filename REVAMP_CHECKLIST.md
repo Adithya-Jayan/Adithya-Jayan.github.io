@@ -75,8 +75,8 @@
 
 ## Phase 8: Final Polishing & Quality Assurance
 - [x] **Mobile Responsive Audit**
-- [ ] **SEO & Metadata Tuning**
-- [ ] **Performance Optimization**
+- [x] **SEO & Metadata Tuning**
+- [x] **Performance Optimization**
 
 ## Phase 9: Navigation, Reachability & Missing Sections
 - [x] **Contact Section Restoration**
@@ -90,3 +90,10 @@
 - [x] **Project Gallery Layout Refinement**
     - [x] Change from 3 columns to 2 columns.
     - [x] Enforce minimum width on items to prevent squishing.
+
+## Fixes completed.
+- [x] The contents of the my repertoir project has been restored from the original version. The thumbnail and dedicated github/website links have been added to the project page and gallery cards.
+- [x] The feedback and suggestions section is now only on the home page.
+- [x] Backgrounds of main content and sections are now slightly transparent to allow background vines to show through.
+- [x] Instagram post links (embedded gallery) have been added back to the Art Gallery.
+- [x] The "Explore More" section now uses the animated leafy CSS design from `vines_buttons.txt`.
