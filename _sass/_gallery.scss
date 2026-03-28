@@ -12,7 +12,8 @@
   text-align: center;
   color: white;
   // Fill the top of the island (negate .main-content padding)
-  margin: -4rem -3rem 0;
+  margin: -4rem -3rem 4rem -3rem; // top right bottom left
+  width: calc(100% + 6rem); // Compensate for parent padding
   border-radius: 2.5rem 2.5rem 10rem 10rem / 2.5rem 2.5rem 5rem 5rem;
   overflow: hidden;
 
@@ -38,17 +39,18 @@
 
   .hero-description {
     font-size: 1.25rem;
-    opacity: 0.9;
+    color: rgba(255, 255, 255, 0.95);
     max-width: 600px;
     margin: 0 auto;
     font-weight: 500;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
   }
 }
 
 .gallery-section {
   padding: 5rem 1.5rem;
-  max-width: 1400px;
-  margin: 0 auto 4rem; 
+  max-width: 100%; // Allow full width of parent
+  margin: 0 0 4rem; 
   background-color: rgba(250, 247, 240, 0.85); 
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
@@ -99,9 +101,19 @@
     display: block; // Override display: grid from _components.scss for Isotope
     position: relative;
   }
+
+  // Support for 2 columns in model library
+  &.model-grid {
+    .grid-sizer, .grid-item {
+      width: 50%;
+      @media (max-width: 768px) {
+        width: 100%;
+      }
+    }
+  }
 }
 
-// grid-sizer defines the column width for Isotope
+// Default grid-sizer (3 columns)
 .grid-sizer {
   width: 33.333%;
   @media (max-width: 960px) {

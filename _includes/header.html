@@ -19,15 +19,15 @@
           <span class="arrow-down"></span>
         </a>
         <div id="myDropdown" class="dropdown-content">
-          <a href="{{ '/' | relative_url }}">Home</a>
-          <a href="{{ '/projects/' | relative_url }}">Projects</a>
-          <a href="{{ '/art/' | relative_url }}">Art Gallery</a>
-          <a href="{{ '/models/' | relative_url }}">3D Model Library</a>
-          <a href="{{ '/resume/' | relative_url }}">Resume</a>
+          <a href="{{ '/' | relative_url }}" {% if page.url == '/' or page.url == '/index.html' %}class="current-page"{% endif %}>Home</a>
+          <a href="{{ '/projects/' | relative_url }}" {% if page.url contains '/projects/' %}class="current-page"{% endif %}>Projects</a>
+          <a href="{{ '/art/' | relative_url }}" {% if page.url contains '/art/' %}class="current-page"{% endif %}>Art Gallery</a>
+          <a href="{{ '/models/' | relative_url }}" {% if page.url contains '/models/' %}class="current-page"{% endif %}>3D Model Library</a>
+          <a href="{{ '/resume/' | relative_url }}" {% if page.url contains '/resume/' %}class="current-page"{% endif %}>Resume</a>
         </div>
       </li>
-      <li><a href="{{ '/' | relative_url }}#About">About</a></li>
-      <li><a href="{{ '/resume/' | relative_url }}">Experience</a></li>
+      <li><a href="{{ '/' | relative_url }}#About" {% if page.url == '/' or page.url == '/index.html' %}class="active-nav"{% endif %}>About</a></li>
+      <li><a href="{{ '/resume/' | relative_url }}" {% if page.url contains '/resume/' %}class="active-nav"{% endif %}>Experience</a></li>
     </ul>
   </nav>
 </header>

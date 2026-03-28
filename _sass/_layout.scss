@@ -55,7 +55,7 @@
       letter-spacing: 0.1rem;
       transition: color 0.3s ease;
       
-      &:hover {
+      &:hover, &.active-nav {
         color: var(--color-accent-sage);
       }
     }
@@ -195,7 +195,7 @@
 }
 
 .main-content {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 4rem auto; // Restored margins
   padding: 4rem 3rem;
   flex: 1; // Grow to fill space
@@ -249,10 +249,11 @@
 
   .hero-description {
     font-size: 1.25rem;
-    opacity: 0.95;
+    color: rgba(255, 255, 255, 0.95); // Ensure it is bright white/light
     max-width: 600px;
     margin: 0 auto;
-    font-weight: 400;
+    font-weight: 500;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
   }
 }
 

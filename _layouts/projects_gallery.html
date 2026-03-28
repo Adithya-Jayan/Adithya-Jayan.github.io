@@ -1,0 +1,53 @@
+---
+layout: default
+---
+
+<section class="gallery-hero animate-on-scroll" style="background-image: url('{{ page.hero_image | relative_url }}');">
+  <div class="hero-overlay"></div>
+  <div class="container">
+    <h1 class="hero-title">{{ page.gallery_title }}</h1>
+    <p class="hero-description">{{ page.description }}</p>
+  </div>
+</section>
+
+<section class="gallery-section animate-on-scroll delay-2">
+  <div class="gallery-filters button-gal-group filters-button-group">
+    <button class="button button-gal-menu is-checked" data-filter="*">Show All</button>
+    {% assign filter_list = "" | split: "," %}
+    {% for item in site.projects %}
+      {% for tag in item.tags %}
+        {% unless filter_list contains tag %}
+          {% assign filter_list = filter_list | push: tag %}
+        {% endunless %}
+      {% endfor %}
+    {% endfor %}
+    
+    {% for filter_name in filter_list %}
+      <button class="button button-gal-menu" data-filter=".{{ filter_name }}">{{ filter_name }}</button>
+    {% endfor %}
+  </div>
+
+  <div id="gallery" class="grid portfolio-grid">
+    <div class="grid-sizer"></div>
+    {% for project in site.projects %}
+      {% assign stagger_index = forloop.index | modulo: 6 | plus: 1 %}
+      <div class="grid-item {% for tag in project.tags %}{{ tag }} {% endfor %}">
+          <article class="project-card animate-on-scroll delay-{{ stagger_index }}" onclick="location.href='{{ project.url | relative_url }}'">
+            <div class="sage-leaf-bg"></div>
+            {% if project.thumbnail %}
+              <img src="{{ project.thumbnail | relative_url }}" alt="{{ project.title }}" class="card-thumbnail">
+            {% endif %}
+            <div class="card-content">
+              <h3 class="card-title">{{ project.title }}</h3>
+              <p class="card-excerpt">{{ project.excerpt | default: project.description }}</p>
+              <div class="card-tags">
+                {% for tag in project.tags %}
+                  <span class="tag">{{ tag }}</span>
+                {% endfor %}
+              </div>
+            </div>
+          </article>
+      </div>
+    {% endfor %}
+  </div>
+</section>

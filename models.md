@@ -1,5 +1,5 @@
 ---
-layout: gallery
+layout: models_gallery
 title: 3D Model Library
 gallery_title: "3D Model Library"
 description: "Exploring the world of 3D modeling, from photorealistic environments to stylized characters."

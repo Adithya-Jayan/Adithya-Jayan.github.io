@@ -1,0 +1,156 @@
+---
+layout: default
+---
+
+<section class="gallery-hero animate-on-scroll" style="background-image: url('{{ page.hero_image | relative_url }}');">
+  <div class="hero-overlay"></div>
+  <div class="container">
+    <h1 class="hero-title">{{ page.gallery_title }}</h1>
+    <p class="hero-description">{{ page.description }}</p>
+    {% if page.hero_button_text %}
+      <a href="{{ page.hero_button_url }}" target="_blank" class="btn-primary" style="margin-top: 2rem; display: inline-block;">{{ page.hero_button_text }}</a>
+    {% endif %}
+  </div>
+</section>
+
+<section class="gallery-section animate-on-scroll delay-2">
+  <div class="gallery-filters button-gal-group filters-button-group">
+    <button class="button button-gal-menu is-checked" data-filter="*">Show All</button>
+    {% assign filter_list = "" | split: "," %}
+    {% for item in site.data[page.data_file] %}
+      {% assign tags = item.tags | split: " " %}
+      {% for tag in tags %}
+        {% unless filter_list contains tag %}
+          {% assign filter_list = filter_list | push: tag %}
+        {% endunless %}
+      {% endfor %}
+    {% endfor %}
+    
+    {% for filter_name in filter_list %}
+      <button class="button button-gal-menu" data-filter=".{{ filter_name }}">{{ filter_name }}</button>
+    {% endfor %}
+  </div>
+
+  <div id="gallery" class="grid portfolio-grid model-grid">
+    <div class="grid-sizer"></div>
+    {% for item in site.data[page.data_file] %}
+      {% assign stagger_index = forloop.index | modulo: 6 | plus: 1 %}
+      <div class="grid-item {{ item.tags }}">
+          <div class="gallery-card animate-on-scroll delay-{{ stagger_index }} model-card">
+            {% if item.tags contains '3D' and item.href contains 'sketchfab.com' %}
+              <div class="sketchfab-embed-wrapper">
+                <iframe title="{{ item.alt }}" class="sketchfab-iframe" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="{{ item.href }}?autospin=0.2&ui_hint=0"></iframe>
+              </div>
+            {% else %}
+               <a class="photolink" href="{{ item.href }}" data-type="{{ item.type }}" data-description="{{ item.description | escape }}" subtitle='{{ item.subtitle | escape }}'>
+                  <img src="{{ item.src }}" alt="{{ item.alt | escape }}" class="photo">
+                  <div class="card-overlay">
+                    <span class="view-icon">
+                      {% if item.tags contains 'Video' %}
+                        <i class="play-icon">▶</i>
+                      {% else %}
+                        <i class="zoom-icon">🔍</i>
+                      {% endif %}
+                    </span>
+                  </div>
+               </a>
+            {% endif %}
+            
+            <div class="model-card-content">
+              <h3 class="model-title">{{ item.description }}</h3>
+              <p class="model-subtitle">{{ item.subtitle }}</p>
+              <div class="model-actions">
+                {% if item.buy_url %}
+                  <a href="{{ item.buy_url }}" target="_blank" class="btn-model-get">Get Model</a>
+                {% endif %}
+                <a href="{{ item.href }}" class="photolink btn-model-view" data-type="{{ item.type }}" data-description="{{ item.description | escape }}" subtitle='{{ item.subtitle | escape }}'>View Full</a>
+              </div>
+            </div>
+          </div>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+<style>
+.model-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: white;
+  border-radius: 2rem;
+  overflow: hidden;
+  border: 4px solid white;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+}
+
+.sketchfab-embed-wrapper {
+  width: 100%;
+  aspect-ratio: 16/9;
+  position: relative;
+}
+
+.sketchfab-iframe {
+  width: 100%;
+  height: 100%;
+}
+
+.model-card-content {
+  padding: 1.5rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.model-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--color-text-primary);
+  font-family: 'Bricolage Grotesque', sans-serif;
+}
+
+.model-subtitle {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+.model-actions {
+  margin-top: auto;
+  display: flex;
+  gap: 0.8rem;
+}
+
+.btn-model-get, .btn-model-view {
+  flex: 1;
+  text-align: center;
+  padding: 0.6rem;
+  border-radius: 0.8rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-model-get {
+  background: var(--color-accent-sage);
+  color: white;
+}
+
+.btn-model-get:hover {
+  background: var(--color-accent-terra);
+  transform: translateY(-2px);
+}
+
+.btn-model-view {
+  background: var(--color-bg-secondary);
+  color: var(--color-text-primary);
+}
+
+.btn-model-view:hover {
+  background: #e0e0e0;
+  transform: translateY(-2px);
+}
+</style>
