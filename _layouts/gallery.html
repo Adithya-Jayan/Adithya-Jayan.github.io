@@ -41,7 +41,7 @@ layout: default
          data-description="{{ item.description | escape }}" 
          subtitle='{{ item.subtitle | escape }}'>
           <div class="gallery-card animate-on-scroll delay-{{ stagger_index }}">
-            <img src="{{ item.src }}" alt="{{ item.alt | escape }}" class="photo">
+            <img src="{{ item.src }}" alt="{{ item.alt | escape }}" class="photo" loading="lazy">
             <div class="card-overlay">
               <span class="view-icon">
                 {% if item.tags contains 'Video' %}

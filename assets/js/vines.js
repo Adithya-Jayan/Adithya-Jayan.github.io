@@ -13,7 +13,7 @@
     maxAge:       13000,  // ms before a vine stops growing
     growthRate:   0.09,   // px per ms (base)
     maxVines:     30,
-    maxSeconds:   240,    // total animation length
+    maxSeconds:   300,    // total animation length
     maxFT:        80,     // max frame-time clamp
     twistFactor:  11,     // lower → more bends & branches
     branchFactor: 6,
@@ -293,6 +293,6 @@
     if (running) requestAnimationFrame(frame);
   }
 
-  /* ── Start Immediately ── */
-  init();
+  /* ── 5 Second Delayed Start ── */
+  setTimeout(init, 5000);
 }());

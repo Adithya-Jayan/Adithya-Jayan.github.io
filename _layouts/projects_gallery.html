@@ -35,7 +35,7 @@ layout: default
           <article class="project-card animate-on-scroll delay-{{ stagger_index }}" onclick="location.href='{{ project.url | relative_url }}'">
             <div class="sage-leaf-bg"></div>
             {% if project.thumbnail %}
-              <img src="{{ project.thumbnail | relative_url }}" alt="{{ project.title }}" class="card-thumbnail">
+              <img src="{{ project.thumbnail | relative_url }}" alt="{{ project.title }}" class="card-thumbnail" loading="lazy">
             {% endif %}
             <div class="card-content">
               <h3 class="card-title">{{ project.title }}</h3>
