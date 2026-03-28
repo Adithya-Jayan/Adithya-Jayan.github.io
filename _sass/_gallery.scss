@@ -94,6 +94,11 @@
 .portfolio-grid {
   width: 100%;
   margin: 0 auto;
+  
+  &.grid {
+    display: block; // Override display: grid from _components.scss for Isotope
+    position: relative;
+  }
 }
 
 // grid-sizer defines the column width for Isotope
@@ -109,8 +114,9 @@
 
 // grid-item fits into the column defined by sizer
 .grid-item {
-  width: 100%;
+  width: 33.333%;
   padding: 1rem;
+  float: left; // Good practice for Isotope masonry
   
   @media (max-width: 960px) {
     width: 50%;

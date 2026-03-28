@@ -1,8 +1,108 @@
 $(document).ready(function() {
+  console.log("Document ready, initializing scripts...");
+  initGallery();
   generateBreadcrumbs();
   initMobileMenu();
   initParallax();
 });
+
+function initGallery() {
+  // Use a more specific selector to only target Isotope galleries
+  var $grid = $('.portfolio-grid.grid');
+  if ($grid.length === 0) {
+    console.log("Isotope Gallery not found on this page.");
+    return;
+  }
+
+  console.log("Isotope Gallery found, initializing...");
+
+  try {
+    // Initialize Isotope
+    var $iso = $grid.isotope({
+      itemSelector: '.grid-item',
+      layoutMode: 'masonry',
+      percentPosition: true,
+      masonry: {
+        columnWidth: '.grid-sizer'
+      }
+    });
+
+    // Layout Isotope after each image loads - using vanilla imagesLoaded for better stability
+    var imgLoad = imagesLoaded($grid[0]);
+    imgLoad.on('progress', function() {
+      $iso.isotope('layout');
+    });
+    
+    // Layout once more after all are done
+    imgLoad.on('always', function() {
+       $iso.isotope('layout');
+    });
+
+  } catch (error) {
+    console.error("Error initializing Isotope or imagesLoaded:", error);
+  }
+
+  // Filter items on button click
+  $('.filters-button-group').on('click', 'button', function(e) {
+    e.preventDefault();
+    var filterValue = $(this).attr('data-filter');
+    console.log("Filtering items by: " + filterValue);
+    
+    $grid.isotope({ filter: filterValue });
+    
+    // UI update
+    $('.filters-button-group').find('.is-checked').removeClass('is-checked');
+    $(this).addClass('is-checked');
+  });
+
+  console.log("Initializing Magnific Popup...");
+  
+  try {
+    // Init Magnific Popup with delegation from a stable parent
+    $('.gallery-section').magnificPopup({
+      delegate: '.photolink',
+      type: 'image',
+      gallery: {
+        enabled: true,
+        navigateByImgClick: true,
+        preload: [0,1],
+        tPrev: 'Previous',
+        tNext: 'Next'
+      },
+      image: {
+        tError: '<a href="%url%">The image #%curr%</a> could not be loaded.',
+        titleSrc: function(item) {
+          var title = item.el.attr('data-description') || 'Artwork';
+          var subtitle = item.el.attr('subtitle') || '';
+          return title + '<small>' + subtitle + '</small>';
+        }
+      },
+      callbacks: {
+        elementParse: function(item) {
+          var type = item.el.attr('data-type');
+          if (type === 'mfp-iframe') {
+            item.type = 'iframe';
+          } else if (type === 'mfp-image') {
+            item.type = 'image';
+          } else {
+            var src = item.src.toLowerCase();
+            if (src.indexOf('youtube.com') !== -1 || src.indexOf('vimeo.com') !== -1 || src.indexOf('mp4') !== -1 || src.indexOf('sketchfab.com') !== -1) {
+              item.type = 'iframe';
+            } else {
+              item.type = 'image';
+            }
+          }
+        }
+      },
+      closeBtnInside: false,
+      midClick: true,
+      fixedContentPos: false,
+      mainClass: 'mfp-with-zoom mfp-img-mobile'
+    });
+  } catch (error) {
+    console.error("Error initializing Magnific Popup:", error);
+  }
+}
 
 function initMobileMenu() {
   const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');

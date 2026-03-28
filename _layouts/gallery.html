@@ -7,6 +7,9 @@ layout: default
   <div class="container">
     <h1 class="hero-title">{{ page.gallery_title }}</h1>
     <p class="hero-description">{{ page.description }}</p>
+    {% if page.hero_button_text %}
+      <a href="{{ page.hero_button_url }}" target="_blank" class="btn-primary" style="margin-top: 2rem; display: inline-block;">{{ page.hero_button_text }}</a>
+    {% endif %}
   </div>
 </section>
 
@@ -32,11 +35,12 @@ layout: default
     <div class="grid-sizer"></div>
     {% for item in site.data[page.data_file] %}
       {% assign stagger_index = forloop.index | modulo: 6 | plus: 1 %}
-      <a class="photolink grid-item animate-on-scroll delay-{{ stagger_index }} {{ item.tags }}" 
-         href="{{ item.src }}"
+      <a class="photolink grid-item {{ item.tags }}" 
+         href="{{ item.href }}"
+         data-type="{{ item.type }}"
          data-description="{{ item.description | escape }}" 
          subtitle='{{ item.subtitle | escape }}'>
-          <div class="gallery-card">
+          <div class="gallery-card animate-on-scroll delay-{{ stagger_index }}">
             <img src="{{ item.src }}" alt="{{ item.alt | escape }}" class="photo">
             <div class="card-overlay">
               <span class="view-icon">
@@ -53,64 +57,3 @@ layout: default
   </div>
 </section>
 
-<script>
-$(document).ready(function() {
-  // Initialize Isotope
-  var $grid = $('.grid').isotope({
-    itemSelector: '.grid-item',
-    layoutMode: 'masonry',
-    percentPosition: true,
-    masonry: {
-      columnWidth: '.grid-sizer'
-    }
-  });
-
-  // Layout Isotope after each image loads
-  $grid.imagesLoaded().progress(function() {
-    $grid.isotope('layout');
-  });
-
-  // Filter items on button click
-  $('.filters-button-group').on('click', 'button', function() {
-    var filterValue = $(this).attr('data-filter');
-    $grid.isotope({ filter: filterValue });
-    
-    // UI update
-    $('.filters-button-group').find('.is-checked').removeClass('is-checked');
-    $(this).addClass('is-checked');
-  });
-
-  // Init Magnific Popup
-  $('.grid').magnificPopup({
-    delegate: 'a.photolink',
-    type: 'image',
-    gallery: {
-      enabled: true,
-      navigateByImgClick: true,
-      preload: [0,1],
-      tPrev: 'Previous',
-      tNext: 'Next'
-    },
-    image: {
-      tError: '<a href="%url%">The image #%curr%</a> could not be loaded.',
-      titleSrc: function(item) {
-        var title = item.el.attr('data-description') || 'Artwork';
-        var subtitle = item.el.attr('subtitle') || '';
-        return title + '<small>' + subtitle + '</small>';
-      }
-    },
-    callbacks: {
-      elementParse: function(item) {
-        var src = item.src.toLowerCase();
-        if (src.indexOf('youtube.com') !== -1 || src.indexOf('vimeo.com') !== -1 || src.indexOf('mp4') !== -1) {
-          item.type = 'iframe';
-        } else {
-          item.type = 'image';
-        }
-      }
-    },
-    closeBtnInside: false,
-    midClick: true
-  });
-});
-</script>
