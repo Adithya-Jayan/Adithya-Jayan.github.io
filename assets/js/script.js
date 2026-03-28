@@ -17,25 +17,23 @@ function initMobileMenu() {
     });
   }
 
-  // Improved Dropdown logic - click anywhere on trigger
+  // Improved Dropdown logic - click to navigate on desktop, toggle on mobile toggle specifically
   const exploreTrigger = document.getElementById('explore-trigger');
-  if (exploreTrigger) {
-    exploreTrigger.addEventListener('click', function(event) {
-      event.stopPropagation();
-      document.getElementById("myDropdown").classList.toggle("show");
-      document.querySelector(".arrow-down").classList.toggle("arrow-up");
-    });
+  const dropdownContent = document.getElementById("myDropdown");
+  const arrow = document.querySelector(".arrow-down");
+
+  // Only toggle dropdown manually if we're on mobile and it's not a hover situation
+  // but let the click event through for navigation.
+  if (exploreTrigger && dropdownContent) {
+    // If the user specifically wants to navigate, clicking will do so by default for <a> tags.
+    // We don't need to do anything else here if hover is handling the dropdown.
   }
 
   // Close dropdown/menu if clicking outside
   window.addEventListener('click', function(event) {
-    var dropdown = document.getElementById('myDropdown');
-    if (dropdown && dropdown.classList.contains('show') && !event.target.closest('.explore-dropdown')) {
-      dropdown.classList.remove('show');
-      var arrow = document.querySelector(".arrow-down");
-      if (arrow && arrow.classList.contains("arrow-up")) {
-        arrow.classList.remove("arrow-up");
-      }
+    if (dropdownContent && dropdownContent.classList.contains('show') && !event.target.closest('.explore-dropdown')) {
+      dropdownContent.classList.remove('show');
+      if (arrow) arrow.classList.remove("arrow-up");
     }
 
     if (navMenu && navMenu.classList.contains('active') && 

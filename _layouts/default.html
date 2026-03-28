@@ -8,24 +8,13 @@
     {% seo %}
   </head>
   <body>
-    <div class="noise-overlay"></div>
+    <canvas id="vine-canvas"></canvas>
     
-    <!-- Botanical Watermarks (Pure CSS Art) -->
-    <div class="botanical-accent css-leaf" style="top: 15%; left: -30px; transform: rotate(25deg);"></div>
-    <div class="botanical-accent css-leaf" style="top: 10%; right: -20px; transform: rotate(-110deg) scale(0.8);"></div>
-    <div class="botanical-accent css-vine" style="top: 45%; left: 20px;"></div>
-    <div class="botanical-accent css-leaf" style="bottom: 10%; left: -10px; transform: rotate(45deg) scale(1.2);"></div>
-    <div class="botanical-accent css-vine" style="bottom: 20%; right: 30px; transform: rotate(15deg) scale(0.9);"></div>
-
     {% include header.html %}
     
     <main class="main-content">
       {{ content }}
     </main>
-
-    <div class="ImageOverlap animate-on-scroll" aria-hidden="true">
-      <img alt="Wall climber boy" src="https://res.cloudinary.com/dtml8icqh/image/upload/v1760783588/Wall-climber-boy-1_h0z0za.png">
-    </div>
 
     {% include footer.html %}
     
@@ -35,6 +24,7 @@
     <script src="{{ '/assets/vendor/isotope/isotope.min.js' | relative_url }}"></script>
     <script src="{{ '/assets/vendor/Magnific-Popup/dist/jquery.magnific-popup.min.js' | relative_url }}"></script>
     <script src="{{ '/assets/js/script.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/vines.js' | relative_url }}"></script>
     <script>
       // Scroll Reveal Logic
       document.addEventListener('DOMContentLoaded', () => {

@@ -32,11 +32,23 @@
 
 .animate-on-scroll {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 1s ease-out, transform 1s ease-out;
+  transform: translateY(40px) scale(0.95);
+  transition: 
+    opacity 1.2s cubic-bezier(0.2, 0.8, 0.2, 1),
+    transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: transform, opacity;
 
   &.is-visible {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
+  }
+}
+
+// Utility for manual staggering in liquid templates
+@for $i from 1 through 10 {
+  .delay-#{$i} {
+    // Only apply delay to the entrance animation properties
+    transition-property: opacity, transform !important;
+    transition-delay: #{$i * 0.15}s !important;
   }
 }

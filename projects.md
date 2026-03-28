@@ -3,7 +3,7 @@ layout: default
 title: Projects Gallery
 ---
 
-<section class="gallery-hero animate-on-scroll">
+<section class="gallery-hero animate-on-scroll" style="background-image:url(https://res.cloudinary.com/dtml8icqh/image/upload/v1760783581/Fracal-Crossroads_v1_zrvh6o.jpg);">
   <div class="hero-overlay"></div>
   <div class="container">
     <h1 class="hero-title">Engineering & Design Projects</h1>
@@ -12,9 +12,10 @@ title: Projects Gallery
 </section>
 
 
-<div class="portfolio-grid animate-on-scroll">
+<div class="portfolio-grid animate-on-scroll delay-2">
   {% for project in site.projects %}
-    <article class="project-card" onclick="location.href='{{ project.url | relative_url }}'">
+    {% assign stagger_index = forloop.index | modulo: 6 | plus: 1 %}
+    <article class="project-card animate-on-scroll delay-{{ stagger_index }}" onclick="location.href='{{ project.url | relative_url }}'">
       <div class="sage-leaf-bg"></div>
       {% if project.thumbnail %}
         <img src="{{ project.thumbnail | relative_url }}" alt="{{ project.title }}" class="card-thumbnail">

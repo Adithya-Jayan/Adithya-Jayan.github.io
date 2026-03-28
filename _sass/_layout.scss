@@ -101,6 +101,14 @@
       &.arrow-up { transform: rotate(180deg); }
     }
 
+    &:hover {
+      .dropdown-content {
+        display: block;
+        animation: slideDown 0.3s ease-out;
+      }
+      .arrow-down { transform: rotate(180deg); }
+    }
+
     .dropdown-content {
       display: none;
       position: absolute;
@@ -110,9 +118,19 @@
       min-width: 220px;
       box-shadow: 0 15px 40px rgba(0,0,0,0.12);
       border-radius: 1.2rem;
-      margin-top: 1rem;
+      padding: 0.5rem 0;
       overflow: hidden;
       border: 1px solid var(--color-bg-secondary);
+      // Transparent bridge to maintain hover
+      &::before {
+        content: '';
+        position: absolute;
+        top: -20px;
+        left: 0;
+        width: 100%;
+        height: 20px;
+        background: transparent;
+      }
 
       &.show { 
         display: block;
@@ -178,9 +196,17 @@
 
 .main-content {
   max-width: 1200px;
-  margin: 4rem auto;
-  padding: 0 2rem;
-  min-height: 60vh;
+  margin: 4rem auto; // Restored margins
+  padding: 4rem 3rem;
+  flex: 1; // Grow to fill space
+  background-color: rgba(250, 247, 240, 0.85); // Semi-transparent primary bg
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 2.5rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  position: relative;
+  z-index: 1;
 }
 
 // Global Hero Styles
@@ -194,17 +220,18 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  margin-top: -4rem;
-  border-radius: 0 0 10rem 10rem / 0 0 5rem 5rem;
+  margin-top: 0; // Don't pull up, let vines show
+  margin-bottom: 2rem;
+  border-radius: 0 0 8rem 8rem / 0 0 4rem 4rem;
   overflow: hidden;
   color: white;
   padding: 0 2rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 
   .hero-overlay {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.4);
-    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.6));
+    background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.5));
   }
 
   .container {
@@ -214,42 +241,70 @@
   }
 
   .hero-title {
-    font-size: 4rem;
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
     margin-bottom: 1rem;
     color: white;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    text-shadow: 0 2px 15px rgba(0,0,0,0.3);
   }
 
   .hero-description {
     font-size: 1.25rem;
-    opacity: 0.9;
+    opacity: 0.95;
     max-width: 600px;
     margin: 0 auto;
+    font-weight: 400;
   }
 }
 
 // Sticky Stacking Sections
 section {
   position: relative;
-  background-color: var(--color-bg-primary);
+  // Removed global background-color to let vines show through
   
   .section-title {
-    position: sticky;
-    top: 4rem; // Below the site header
-    background: var(--color-bg-primary);
-    padding: 1rem 0;
-    z-index: 100;
-    margin-bottom: 2rem;
+    font-size: 2.8rem;
+    margin-bottom: 3.5rem;
+    position: relative;
+    padding-bottom: 1.2rem;
+    color: var(--color-text-primary);
+    display: inline-block;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 5px;
+      background: var(--color-accent-sage);
+      border-radius: 2px;
+    }
   }
 }
 
 .site-footer {
-  padding: 6rem 2rem;
+  padding: 1.5rem 2rem 3rem; // Reduced top padding
   background-color: var(--color-bg-secondary);
   border-top: 1px solid rgba(0, 0, 0, 0.05);
   text-align: center;
   position: relative;
   z-index: 100; // Above noise
+
+  .ImageOverlap {
+    position: absolute;
+    top: 0;
+    right: 15%;
+    z-index: 1100; 
+    width: 200px;
+    pointer-events: none;
+    transform: translateY(-50%);
+
+    img {
+      width: 100%;
+      height: auto;
+      filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1));
+    }
+  }
 
   .footer-container {
     max-width: 800px;
@@ -263,9 +318,9 @@ section {
   .footer-info p {
     font-size: 1.2rem;
     color: var(--color-text-secondary);
-    font-family: 'Lora', serif;
-    font-style: italic;
-    line-height: 1.8;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 600;
+    line-height: 1.6;
   }
 
   .social-links {
@@ -307,22 +362,6 @@ section {
     color: var(--color-accent-terra);
     font-weight: 600;
     text-decoration: underline;
-  }
-}
-
-.ImageOverlap {
-  position: relative;
-  z-index: 1000; // Above footer top
-  width: 200px;
-  margin-left: auto;
-  margin-right: 15%;
-  margin-bottom: -100px; // Pull him down into the footer area
-  pointer-events: none;
-
-  img {
-    width: 100%;
-    height: auto;
-    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1));
   }
 }
 
@@ -368,7 +407,7 @@ section {
     }
   }
   
-  .ImageOverlap { width: 120px; margin-bottom: -60px; }
+  .ImageOverlap { width: 120px; right: 5%; }
   .social-links { flex-direction: column; gap: 1.5rem; }
   .gallery-hero { height: 40vh; border-radius: 0 0 5rem 5rem / 0 0 2rem 2rem; }
 }

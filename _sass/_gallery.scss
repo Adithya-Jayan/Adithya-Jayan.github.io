@@ -1,0 +1,234 @@
+// Gallery & Hero Specific Architecture
+
+.gallery-hero {
+  height: 60vh;
+  min-height: 500px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  // Fill the top of the island (negate .main-content padding)
+  margin: -4rem -3rem 0;
+  border-radius: 2.5rem 2.5rem 10rem 10rem / 2.5rem 2.5rem 5rem 5rem;
+  overflow: hidden;
+
+  .hero-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to bottom, rgba(44, 62, 80, 0.4), rgba(44, 62, 80, 0.7));
+    backdrop-filter: blur(2px);
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    padding: 0 1.5rem;
+  }
+
+  .hero-title {
+    font-size: clamp(3rem, 10vw, 5rem);
+    margin-bottom: 1.5rem;
+    color: white;
+  }
+
+  .hero-description {
+    font-size: 1.25rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+    font-weight: 500;
+  }
+}
+
+.gallery-section {
+  padding: 5rem 1.5rem;
+  max-width: 1400px;
+  margin: 0 auto 4rem; 
+  background-color: rgba(250, 247, 240, 0.85); 
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 4rem;
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  position: relative;
+  z-index: 10;
+}
+
+.gallery-filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.button-gal-menu {
+  background: white;
+  border: 1px solid var(--color-bg-secondary);
+  padding: 0.8rem 1.8rem;
+  border-radius: 999px;
+  cursor: pointer;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08rem;
+  color: var(--color-text-secondary);
+  transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+
+  &.is-checked, &:hover {
+    background: var(--color-accent-sage);
+    color: white;
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(138, 154, 91, 0.25);
+    border-color: var(--color-accent-sage);
+  }
+}
+
+.portfolio-grid {
+  width: 100%;
+  margin: 0 auto;
+}
+
+// grid-sizer defines the column width for Isotope
+.grid-sizer {
+  width: 33.333%;
+  @media (max-width: 960px) {
+    width: 50%;
+  }
+  @media (max-width: 560px) {
+    width: 100%;
+  }
+}
+
+// grid-item fits into the column defined by sizer
+.grid-item {
+  width: 100%;
+  padding: 1rem;
+  
+  @media (max-width: 960px) {
+    width: 50%;
+  }
+
+  @media (max-width: 560px) {
+    width: 100%;
+  }
+}
+
+.gallery-card {
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+  transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+  border-radius: 2rem;
+  border: 4px solid white;
+  background: white;
+
+  &:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
+    
+    .card-overlay {
+      opacity: 1;
+    }
+    
+    img {
+      transform: scale(1.08);
+    }
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  .card-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(138, 154, 91, 0.4);
+    backdrop-filter: blur(2px);
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s ease;
+    z-index: 2;
+  }
+}
+
+.view-icon {
+  color: white;
+  font-size: 2rem;
+  background: rgba(0, 0, 0, 0.2);
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgba(255,255,255,0.3);
+}
+
+// Magnific Popup Customizations
+.mfp-bg {
+  background: rgba(44, 62, 80, 0.95) !important;
+  backdrop-filter: blur(10px);
+}
+
+.mfp-figure::after {
+  background: var(--color-bg-primary) !important;
+  border-radius: 2rem;
+}
+
+.mfp-bottom-bar {
+  background: white;
+  padding: 1.5rem !important;
+  border-radius: 0 0 2rem 2rem;
+  margin-top: -1px !important;
+  position: relative;
+}
+
+.mfp-title {
+  color: var(--color-text-primary) !important;
+  font-family: 'Bricolage Grotesque', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 1.2rem !important;
+  padding-right: 60px !important;
+
+  small {
+    display: block !important;
+    color: var(--color-text-secondary) !important;
+    font-family: 'Outfit', sans-serif !important;
+    font-weight: 400 !important;
+    font-size: 0.95rem !important;
+    margin-top: 0.5rem !important;
+    line-height: 1.5 !important;
+  }
+}
+
+.mfp-counter {
+  color: var(--color-text-secondary) !important;
+  font-family: 'Outfit', sans-serif !important;
+  font-weight: 600 !important;
+  top: 1.5rem !important;
+  right: 1.5rem !important;
+}
+
+.mfp-arrow {
+  opacity: 0.8 !important;
+  &:hover { opacity: 1 !important; }
+}
+
+.mfp-close {
+  color: var(--color-text-primary) !important;
+  font-size: 2.5rem !important;
+  padding-right: 10px !important;
+}

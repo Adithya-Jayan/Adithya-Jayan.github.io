@@ -2,75 +2,35 @@
 layout: default
 ---
 
-<article class="project-detail animate-on-scroll">
-  <header class="detail-header">
-    <h1 class="project-title">{{ page.title }}</h1>
-    <div class="project-meta">
-      {% for tag in page.tags %}
-        <span class="tag">{{ tag }}</span>
-      {% endfor %}
-    </div>
-  </header>
-
-  <div class="project-main">
-    {% if page.thumbnail %}
-      <div class="thumbnail-wrapper blob-shape-1">
-        <img src="{{ page.thumbnail | relative_url }}" alt="{{ page.title }}" class="project-image">
+<div class="project-detail-container">
+  <div class="css-leaf" style="top: 15%; right: -40px; transform: rotate(-25deg); opacity: 0.04;"></div>
+  
+  <article class="project-detail">
+    <header class="detail-header animate-on-scroll">
+      <h1 class="project-title">{{ page.title }}</h1>
+      <div class="project-meta">
+        {% for tag in page.tags %}
+          <span class="tag">{{ tag }}</span>
+        {% endfor %}
       </div>
-    {% endif %}
-    
-    <div class="project-content">
-      {{ content }}
+    </header>
+
+    <div class="project-main">
+      {% if page.thumbnail %}
+        <div class="thumbnail-wrapper animate-on-scroll">
+          <img src="{{ page.thumbnail | relative_url }}" alt="{{ page.title }}" class="project-image">
+        </div>
+      {% endif %}
+      
+      <div class="project-content animate-on-scroll" style="transition-delay: 0.2s;">
+        {{ content }}
+      </div>
     </div>
-  </div>
 
-  <footer class="detail-footer">
-    <a href="{{ '/projects/' | relative_url }}" class="back-link">← Back to Projects</a>
-  </footer>
-</article>
-
-<style>
-.project-detail {
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.detail-header {
-  margin-bottom: 4rem;
-  text-align: center;
-}
-
-.project-title {
-  font-size: 3.5rem;
-  margin-bottom: 1.5rem;
-}
-
-.thumbnail-wrapper {
-  max-width: 800px;
-  margin: 0 auto 4rem;
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
-}
-
-.project-image {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.project-content {
-  font-size: 1.2rem;
-  line-height: 1.8;
-  color: var(--color-text-secondary);
-}
-
-.detail-footer {
-  margin-top: 5rem;
-  padding-top: 2rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-.back-link {
-  font-weight: 600;
-  color: var(--color-accent-sage);
-}
-</style>
+    <footer class="detail-footer animate-on-scroll">
+      <a href="{{ '/projects/' | relative_url }}" class="back-link">
+        <span class="arrow">←</span> Back to Projects
+      </a>
+    </footer>
+  </article>
+</div>

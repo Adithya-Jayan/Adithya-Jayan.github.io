@@ -13,9 +13,10 @@ permalink: /models/
   </div>
 </section>
 
-<div class="portfolio-grid animate-on-scroll">
+<div class="portfolio-grid animate-on-scroll delay-2">
   {% for model in site.models %}
-    <article class="project-card" onclick="location.href='{{ model.url | relative_url }}'">
+    {% assign stagger_index = forloop.index | modulo: 6 | plus: 1 %}
+    <article class="project-card animate-on-scroll delay-{{ stagger_index }}" onclick="location.href='{{ model.url | relative_url }}'">
       <div class="sage-leaf-bg"></div>
       {% if model.thumbnail %}
         <img src="{{ model.thumbnail | relative_url }}" alt="{{ model.title }}" class="card-thumbnail">
