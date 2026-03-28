@@ -90,8 +90,8 @@
     });
     g.appendChild(body);
     g.appendChild(mk('path', { d:`M 0,${d*2} C -1,${d*35} 0,${d*70} 0,${d*96}`, fill:'none', stroke:'#1a3a20', 'stroke-width':'0.9', opacity:'0.36' }));
-    g.appendChild(mk('path', { d:`M -1,${d*36} C -13,${d*47} -17,${d*51}`, fill:'none', stroke:'#1a3a20', 'stroke-width':'0.6', opacity:'0.27' }));
-    g.appendChild(mk('path', { d:`M 0,${d*56} C 12,${d*68} 15,${d*73}`, fill:'none', stroke:'#1a3a20', 'stroke-width':'0.6', opacity:'0.27' }));
+    g.appendChild(mk('path', { d:`M -1,${d*36} C -13,${d*47} -17,${d*51} -17,${d*51}`, fill:'none', stroke:'#1a3a20', 'stroke-width':'0.6', opacity:'0.27' }));
+    g.appendChild(mk('path', { d:`M 0,${d*56} C 12,${d*68} 15,${d*73} 15,${d*73}`, fill:'none', stroke:'#1a3a20', 'stroke-width':'0.6', opacity:'0.27' }));
     
     const t = mk('text', { x:'0', y:String(d*126), 'text-anchor':'middle', 'dominant-baseline':'central' });
     t.style.cssText = 'font-family:"Bricolage Grotesque", sans-serif;font-style:italic;font-size:12px;font-weight:800;fill:var(--color-text-primary);text-transform:uppercase;';

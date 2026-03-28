@@ -8,7 +8,7 @@ hero_image: "https://res.cloudinary.com/dtml8icqh/image/upload/v1760783581/Medit
 permalink: /art/
 ---
 
-<section class="insta-gallery-section animate-on-scroll">
+<section class="insta-gallery-section">
   <div class="container">
     <h2 class="section-title">More Creative Projects</h2>
     <div class="insta-grid">
@@ -28,24 +28,33 @@ permalink: /art/
   </div>
 </section>
 
-<script async src="//www.instagram.com/embed.js"></script>
+<script async src="https://www.instagram.com/embed.js"></script>
 
 <style>
 .insta-gallery-section {
-  padding: 6rem 0;
+  padding: 8rem 0;
+  background-color: rgba(233, 242, 224, 0.4); /* Light secondary tint */
+  margin: 4rem -3rem;
+  width: calc(100% + 6rem);
+  border-radius: 4rem;
+  position: relative;
+  z-index: 5;
+  display: block !important;
 }
 .insta-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2rem;
+  gap: 3rem;
   justify-items: center;
+  padding: 2rem;
 }
 .insta-item {
   width: 100%;
   max-width: 540px;
   background: white;
-  border-radius: 1.5rem;
-  padding: 1rem;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  border-radius: 2rem;
+  padding: 1.5rem;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+  min-height: 600px;
 }
 </style>

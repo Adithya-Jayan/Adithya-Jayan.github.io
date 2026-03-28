@@ -91,6 +91,7 @@ function initGallery() {
         tNext: 'Next'
       },
       image: {
+        verticalFit: true,
         tError: '<a href="%url%">The image #%curr%</a> could not be loaded.',
         titleSrc: function(item) {
           var title = item.el.attr('data-description') || 'Artwork';
@@ -106,8 +107,8 @@ function initGallery() {
           } else if (type === 'mfp-image') {
             item.type = 'image';
           } else {
-            var src = item.src.toLowerCase();
-            if (src.indexOf('youtube.com') !== -1 || src.indexOf('vimeo.com') !== -1 || src.indexOf('mp4') !== -1 || src.indexOf('sketchfab.com') !== -1) {
+            var href = item.el.attr('href').toLowerCase();
+            if (href.indexOf('youtube.com') !== -1 || href.indexOf('vimeo.com') !== -1 || href.indexOf('mp4') !== -1 || href.indexOf('sketchfab.com') !== -1) {
               item.type = 'iframe';
             } else {
               item.type = 'image';
@@ -184,28 +185,25 @@ function initParallax() {
 
 function generateBreadcrumbs() {
   const path = window.location.pathname;
-  const parts = path.split('/').filter(part => part !== '');
+  const parts = path.split('/').filter(part => part !== '' && part !== 'index.html');
   const breadcrumbs = document.getElementById('breadcrumbs');
   
   if (breadcrumbs) {
-    let breadcrumbHtml = '> ';
+    let breadcrumbHtml = '<a href="/">Home</a>';
+    let currentPath = '/';
     
-    if (parts.length === 0 || (parts.length === 1 && parts[0] === 'index.html')) {
-      breadcrumbHtml += 'Home';
-    } else {
-      const lastPart = parts[parts.length - 1].replace(/_/g, ' ').replace('.html', '');
-      if (lastPart === '' || lastPart === 'index') {
-          const dirIndex = parts[parts.length - 1] === '' ? parts.length - 2 : parts.length - 1;
-          const dirName = parts[dirIndex];
-          if (dirName) {
-            breadcrumbHtml += `${dirName.charAt(0).toUpperCase() + dirName.slice(1)}`;
-          } else {
-            breadcrumbHtml += 'Home';
-          }
+    parts.forEach((part, index) => {
+      currentPath += part + '/';
+      const cleanPart = part.replace(/_/g, ' ').replace(/-/g, ' ').replace('.html', '');
+      const capitalizedPart = cleanPart.charAt(0).toUpperCase() + cleanPart.slice(1);
+      
+      breadcrumbHtml += ` <span class="separator">></span> `;
+      if (index === parts.length - 1) {
+        breadcrumbHtml += `<span>${capitalizedPart}</span>`;
       } else {
-          breadcrumbHtml += `${lastPart.charAt(0).toUpperCase() + lastPart.slice(1)}`;
+        breadcrumbHtml += `<a href="${currentPath}">${capitalizedPart}</a>`;
       }
-    }
+    });
     
     breadcrumbs.innerHTML = breadcrumbHtml;
   }
