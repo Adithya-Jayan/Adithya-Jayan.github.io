@@ -4,7 +4,28 @@ $(document).ready(function() {
   generateBreadcrumbs();
   initMobileMenu();
   initParallax();
+  initBackToTop();
 });
+
+function initBackToTop() {
+  const backToTopButton = document.getElementById('backToTop');
+  if (!backToTopButton) return;
+
+  window.addEventListener('scroll', function() {
+    if (window.pageYOffset > 400) {
+      backToTopButton.classList.add('visible');
+    } else {
+      backToTopButton.classList.remove('visible');
+    }
+  });
+
+  backToTopButton.addEventListener('click', function() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+}
 
 function initGallery() {
   // Use a more specific selector to only target Isotope galleries

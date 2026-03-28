@@ -283,6 +283,24 @@ section {
   }
 }
 
+.cta-section {
+  padding: 8rem 2rem;
+  text-align: center;
+  background-color: var(--color-bg-primary);
+  border-radius: 8rem;
+  margin: 4rem auto;
+  max-width: 1400px;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.03);
+
+  .cta-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 3rem;
+    color: var(--color-text-primary);
+  }
+}
+
 .site-footer {
   padding: 1.5rem 2rem 3rem; // Reduced top padding
   background-color: var(--color-bg-secondary);

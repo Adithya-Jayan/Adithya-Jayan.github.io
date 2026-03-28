@@ -75,5 +75,18 @@
 
 ## Phase 8: Final Polishing & Quality Assurance
 - [x] **Mobile Responsive Audit**
-- [x] **SEO & Metadata Tuning**
-- [x] **Performance Optimization**
+- [ ] **SEO & Metadata Tuning**
+- [ ] **Performance Optimization**
+
+## Phase 9: Navigation, Reachability & Missing Sections
+- [x] **Contact Section Restoration**
+    - [x] Restore the "Feedback / Suggestions / Collaboration" CTA section above footer.
+- [x] **Back to Top Button**
+    - [x] Implement a floating botanical-styled button for quick scroll-up.
+- [x] **Leaf-Vine Bottom Navigation**
+    - [x] Replace "Work and Play" on Home with new leaf-vine button array.
+    - [x] Add the same navigation block to the bottom of Art, Models, and Projects pages.
+    - [x] Use Flower icon for current page indicator.
+- [x] **Project Gallery Layout Refinement**
+    - [x] Change from 3 columns to 2 columns.
+    - [x] Enforce minimum width on items to prevent squishing.

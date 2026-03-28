@@ -102,41 +102,37 @@
     position: relative;
   }
 
-  // Support for 2 columns in model library
-  &.model-grid {
+  // 3 Columns for Art
+  &.art-grid {
+    .grid-sizer, .grid-item {
+      width: 33.333%;
+      @media (max-width: 960px) { width: 50%; }
+      @media (max-width: 560px) { width: 100%; }
+    }
+  }
+
+  // 2 Columns for Models and Projects
+  &.model-grid, &.project-grid {
     .grid-sizer, .grid-item {
       width: 50%;
-      @media (max-width: 768px) {
-        width: 100%;
-      }
+      @media (max-width: 960px) { width: 100%; }
+    }
+    .grid-item {
+      min-width: 400px; // Prevent squishing
+      @media (max-width: 960px) { min-width: 0; }
     }
   }
 }
 
-// Default grid-sizer (3 columns)
+// Default (fallback)
 .grid-sizer {
   width: 33.333%;
-  @media (max-width: 960px) {
-    width: 50%;
-  }
-  @media (max-width: 560px) {
-    width: 100%;
-  }
 }
 
-// grid-item fits into the column defined by sizer
 .grid-item {
   width: 33.333%;
-  padding: 1rem;
-  float: left; // Good practice for Isotope masonry
-  
-  @media (max-width: 960px) {
-    width: 50%;
-  }
-
-  @media (max-width: 560px) {
-    width: 100%;
-  }
+  padding: 1.2rem;
+  float: left;
 }
 
 .gallery-card {

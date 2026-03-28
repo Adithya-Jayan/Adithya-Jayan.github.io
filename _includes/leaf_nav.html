@@ -1,0 +1,41 @@
+<section class="leaf-nav-section animate-on-scroll">
+  <h2 class="section-title text-center">Explore More</h2>
+  <div class="leaf-nav-container">
+    <div class="vine-line"></div>
+    
+    <div class="leaf-nav-item {% if page.url == '/' or page.url == '/index.html' %}current{% endif %}">
+      <a href="{{ '/' | relative_url }}">
+        <div class="nav-icon">{% if page.url == '/' or page.url == '/index.html' %}🌸{% else %}🍃{% endif %}</div>
+        <span class="nav-label">Home</span>
+      </a>
+    </div>
+
+    <div class="leaf-nav-item {% if page.url contains '/projects/' %}current{% endif %}">
+      <a href="{{ '/projects/' | relative_url }}">
+        <div class="nav-icon">{% if page.url contains '/projects/' %}🌸{% else %}🍃{% endif %}</div>
+        <span class="nav-label">Projects</span>
+      </a>
+    </div>
+
+    <div class="leaf-nav-item {% if page.url contains '/art/' %}current{% endif %}">
+      <a href="{{ '/art/' | relative_url }}">
+        <div class="nav-icon">{% if page.url contains '/art/' %}🌸{% else %}🍃{% endif %}</div>
+        <span class="nav-label">Art Gallery</span>
+      </a>
+    </div>
+
+    <div class="leaf-nav-item {% if page.url contains '/models/' %}current{% endif %}">
+      <a href="{{ '/models/' | relative_url }}">
+        <div class="nav-icon">{% if page.url contains '/models/' %}🌸{% else %}🍃{% endif %}</div>
+        <span class="nav-label">3D Models</span>
+      </a>
+    </div>
+
+    <div class="leaf-nav-item {% if page.url contains '/resume' %}current{% endif %}">
+      <a href="{{ '/resume/' | relative_url }}">
+        <div class="nav-icon">{% if page.url contains '/resume' %}🌸{% else %}🍃{% endif %}</div>
+        <span class="nav-label">Resume</span>
+      </a>
+    </div>
+  </div>
+</section>

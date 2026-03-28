@@ -30,26 +30,4 @@ title: Home
   </div>
 </section>
 
-<section class="featured-collections animate-on-scroll delay-3">
-  <h2 class="section-title text-center">Work & Play</h2>
-  <div class="collection-grid">
-    <a href="{{ '/projects/' | relative_url }}" class="collection-card">
-      <div class="sage-leaf-bg"></div>
-      <div class="card-overlay">
-        <h3>Engineering</h3>
-      </div>
-    </a>
-    <a href="{{ '/art/' | relative_url }}" class="collection-card delay-1">
-      <div class="sage-leaf-bg"></div>
-      <div class="card-overlay">
-        <h3>Art</h3>
-      </div>
-    </a>
-    <a href="{{ '/models/' | relative_url }}" class="collection-card delay-2">
-      <div class="sage-leaf-bg"></div>
-      <div class="card-overlay">
-        <h3>3D Models</h3>
-      </div>
-    </a>
-  </div>
-</section>
+{% include leaf_nav.html %}

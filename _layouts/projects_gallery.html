@@ -27,7 +27,7 @@ layout: default
     {% endfor %}
   </div>
 
-  <div id="gallery" class="grid portfolio-grid">
+  <div id="gallery" class="grid portfolio-grid project-grid">
     <div class="grid-sizer"></div>
     {% for project in site.projects %}
       {% assign stagger_index = forloop.index | modulo: 6 | plus: 1 %}
@@ -51,3 +51,5 @@ layout: default
     {% endfor %}
   </div>
 </section>
+
+{% include leaf_nav.html %}

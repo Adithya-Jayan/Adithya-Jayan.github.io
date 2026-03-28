@@ -1,0 +1,200 @@
+
+<style>
+.leaf-g { cursor: pointer; }
+.leaf-body { transition: fill 0.35s ease; }
+.vine-status {
+  text-align: center;
+  font-family: var(--font-serif);
+  font-style: italic;
+  color: var(--color-text-secondary);
+  font-size: 13px;
+  letter-spacing: 0.07em;
+  margin-top: 2px;
+  min-height: 20px;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.vine-status.show { opacity: 1; }
+</style>
+
+<svg width="100%" viewBox="0 0 680 300" xmlns="http://www.w3.org/2000/svg">
+
+  <text x="340" y="27" text-anchor="middle"
+    style="font-family:var(--font-serif);font-style:italic;font-size:11.5px;letter-spacing:0.2em;fill:var(--color-text-tertiary)">
+    — navigate —
+  </text>
+
+  <!-- Vine shadow -->
+  <path d="M -6,162 C 48,156 82,168 158,162 C 234,156 272,170 360,163 C 436,156 474,170 560,162 C 622,156 658,168 700,161"
+    fill="none" stroke="#0c0804" stroke-width="5" stroke-linecap="round" opacity="0.14"/>
+
+  <!-- Vine main -->
+  <path d="M -6,160 C 48,154 82,166 158,160 C 234,154 272,168 360,161 C 436,154 474,168 560,160 C 622,154 658,166 700,159"
+    fill="none" stroke="#4a3520" stroke-width="5.5" stroke-linecap="round"/>
+
+  <!-- Vine sheen -->
+  <path d="M -6,158 C 48,152 82,164 158,158 C 234,152 272,166 360,159 C 436,152 474,166 560,158 C 622,152 658,164 700,157"
+    fill="none" stroke="#6e5030" stroke-width="1.6" stroke-linecap="round" opacity="0.38"/>
+
+  <!-- Tendril 1 -->
+  <path d="M 250,160 C 256,147 266,143 259,154" fill="none" stroke="#4a3520" stroke-width="1.7" stroke-linecap="round"/>
+
+  <!-- Tendril 2 -->
+  <path d="M 486,160 C 492,172 502,177 494,166" fill="none" stroke="#4a3520" stroke-width="1.7" stroke-linecap="round"/>
+
+  <!-- Tendril 3 (small) -->
+  <path d="M 158,160 C 152,170 143,174 151,163" fill="none" stroke="#4a3520" stroke-width="1.4" stroke-linecap="round"/>
+
+  <!-- Berry cluster 1 (~x=290) -->
+  <circle cx="292" cy="157" r="4.5" fill="#681c1c"/>
+  <circle cx="300" cy="154" r="4" fill="#7e2828"/>
+  <circle cx="285" cy="154" r="3.2" fill="#5a1818"/>
+
+  <!-- Berry cluster 2 (~x=600) -->
+  <circle cx="602" cy="157" r="4.5" fill="#681c1c"/>
+  <circle cx="610" cy="154" r="4" fill="#7e2828"/>
+  <circle cx="596" cy="155" r="3.2" fill="#5a1818"/>
+
+  <!-- == LEAF 1: Home — UP at x=82 == -->
+  <g transform="translate(82, 160)">
+    <g class="leaf-g" id="lf0">
+      <path class="leaf-body" d="M 0,0 C 27,-22 34,-68 0,-100 C -34,-68 -27,-22 0,0 Z" fill="#3c6e4a"/>
+      <path d="M 0,-2 C -1,-35 0,-70 0,-96" fill="none" stroke="#2a5038" stroke-width="0.9" opacity="0.42"/>
+      <path d="M -1,-40 C -13,-51 -17,-55" fill="none" stroke="#2a5038" stroke-width="0.6" opacity="0.32"/>
+      <path d="M 0,-58 C 12,-70 15,-75" fill="none" stroke="#2a5038" stroke-width="0.6" opacity="0.32"/>
+      <path d="M -1,-23 C -9,-30 -12,-33" fill="none" stroke="#2a5038" stroke-width="0.5" opacity="0.28"/>
+      <text x="0" y="-48" text-anchor="middle" dominant-baseline="central"
+        style="font-family:var(--font-serif);font-style:italic;font-size:12px;fill:rgba(240,232,212,0.9)">Home</text>
+    </g>
+  </g>
+
+  <!-- == LEAF 2: About — DOWN at x=198 == -->
+  <g transform="translate(198, 160)">
+    <g class="leaf-g" id="lf1">
+      <path class="leaf-body" d="M 0,0 C 27,22 34,68 0,100 C -34,68 -27,22 0,0 Z" fill="#4a7840"/>
+      <path d="M 0,2 C -1,35 0,70 0,96" fill="none" stroke="#385e30" stroke-width="0.9" opacity="0.42"/>
+      <path d="M -1,40 C -13,51 -17,55" fill="none" stroke="#385e30" stroke-width="0.6" opacity="0.32"/>
+      <path d="M 0,58 C 12,70 15,75" fill="none" stroke="#385e30" stroke-width="0.6" opacity="0.32"/>
+      <path d="M -1,23 C -9,30 -12,33" fill="none" stroke="#385e30" stroke-width="0.5" opacity="0.28"/>
+      <text x="0" y="48" text-anchor="middle" dominant-baseline="central"
+        style="font-family:var(--font-serif);font-style:italic;font-size:12px;fill:rgba(240,232,212,0.9)">About</text>
+    </g>
+  </g>
+
+  <!-- == LEAF 3: Work — UP at x=318 == -->
+  <g transform="translate(318, 160)">
+    <g class="leaf-g" id="lf2">
+      <path class="leaf-body" d="M 0,0 C 27,-22 34,-68 0,-100 C -34,-68 -27,-22 0,0 Z" fill="#2d6050"/>
+      <path d="M 0,-2 C -1,-35 0,-70 0,-96" fill="none" stroke="#204840" stroke-width="0.9" opacity="0.42"/>
+      <path d="M -1,-40 C -13,-51 -17,-55" fill="none" stroke="#204840" stroke-width="0.6" opacity="0.32"/>
+      <path d="M 0,-58 C 12,-70 15,-75" fill="none" stroke="#204840" stroke-width="0.6" opacity="0.32"/>
+      <text x="0" y="-48" text-anchor="middle" dominant-baseline="central"
+        style="font-family:var(--font-serif);font-style:italic;font-size:12px;fill:rgba(240,232,212,0.9)">Work</text>
+    </g>
+  </g>
+
+  <!-- == LEAF 4: Journal — DOWN at x=430 == -->
+  <g transform="translate(430, 160)">
+    <g class="leaf-g" id="lf3">
+      <path class="leaf-body" d="M 0,0 C 27,22 34,68 0,100 C -34,68 -27,22 0,0 Z" fill="#4e6c32"/>
+      <path d="M 0,2 C -1,35 0,70 0,96" fill="none" stroke="#3c5425" stroke-width="0.9" opacity="0.42"/>
+      <path d="M -1,40 C -13,51 -17,55" fill="none" stroke="#3c5425" stroke-width="0.6" opacity="0.32"/>
+      <path d="M 0,58 C 12,70 15,75" fill="none" stroke="#3c5425" stroke-width="0.6" opacity="0.32"/>
+      <text x="0" y="48" text-anchor="middle" dominant-baseline="central"
+        style="font-family:var(--font-serif);font-style:italic;font-size:11px;fill:rgba(240,232,212,0.9)">Journal</text>
+    </g>
+  </g>
+
+  <!-- == LEAF 5: Gallery — UP at x=546 == -->
+  <g transform="translate(546, 160)">
+    <g class="leaf-g" id="lf4">
+      <path class="leaf-body" d="M 0,0 C 27,-22 34,-68 0,-100 C -34,-68 -27,-22 0,0 Z" fill="#3a5e4a"/>
+      <path d="M 0,-2 C -1,-35 0,-70 0,-96" fill="none" stroke="#284838" stroke-width="0.9" opacity="0.42"/>
+      <path d="M -1,-40 C -13,-51 -17,-55" fill="none" stroke="#284838" stroke-width="0.6" opacity="0.32"/>
+      <path d="M 0,-58 C 12,-70 15,-75" fill="none" stroke="#284838" stroke-width="0.6" opacity="0.32"/>
+      <text x="0" y="-48" text-anchor="middle" dominant-baseline="central"
+        style="font-family:var(--font-serif);font-style:italic;font-size:11px;fill:rgba(240,232,212,0.9)">Gallery</text>
+    </g>
+  </g>
+
+  <!-- == LEAF 6: Contact — DOWN at x=620 == -->
+  <g transform="translate(620, 160)">
+    <g class="leaf-g" id="lf5">
+      <path class="leaf-body" d="M 0,0 C 27,22 34,68 0,100 C -34,68 -27,22 0,0 Z" fill="#2d604a"/>
+      <path d="M 0,2 C -1,35 0,70 0,96" fill="none" stroke="#204838" stroke-width="0.9" opacity="0.42"/>
+      <path d="M -1,40 C -13,51 -17,55" fill="none" stroke="#204838" stroke-width="0.6" opacity="0.32"/>
+      <path d="M 0,58 C 12,70 15,75" fill="none" stroke="#204838" stroke-width="0.6" opacity="0.32"/>
+      <text x="0" y="48" text-anchor="middle" dominant-baseline="central"
+        style="font-family:var(--font-serif);font-style:italic;font-size:11px;fill:rgba(240,232,212,0.9)">Contact</text>
+    </g>
+  </g>
+
+</svg>
+
+<div class="vine-status" id="vine-status"></div>
+
+<script>
+(function () {
+  const config = [
+    { id: 'lf0', tilt: -12, freq: 0.75, phase: 0.0,  amp: 2.5, page: 'Home',    color: '#3c6e4a', hov: '#5a9a6a', act: '#6cb858' },
+    { id: 'lf1', tilt:   8, freq: 0.70, phase: 1.3,  amp: 2.0, page: 'About',   color: '#4a7840', hov: '#6aaa5c', act: '#84c050' },
+    { id: 'lf2', tilt:  -5, freq: 0.80, phase: 2.1,  amp: 2.5, page: 'Work',    color: '#2d6050', hov: '#459870', act: '#54b888' },
+    { id: 'lf3', tilt:  14, freq: 0.68, phase: 0.8,  amp: 2.0, page: 'Journal', color: '#4e6c32', hov: '#70984a', act: '#8eba52' },
+    { id: 'lf4', tilt: -16, freq: 0.76, phase: 1.7,  amp: 2.5, page: 'Gallery', color: '#3a5e4a', hov: '#58886a', act: '#68ac7a' },
+    { id: 'lf5', tilt:   5, freq: 0.72, phase: 2.8,  amp: 2.0, page: 'Contact', color: '#2d604a', hov: '#459868', act: '#52b870' },
+  ];
+
+  config.forEach(c => {
+    c.el   = document.getElementById(c.id);
+    c.body = c.el.querySelector('.leaf-body');
+    c.isHovered = false;
+    c.isActive  = false;
+    c.hoverStart = 0;
+
+    c.el.addEventListener('mouseenter', () => {
+      c.isHovered = true;
+      c.hoverStart = performance.now() / 1000;
+      c.body.setAttribute('fill', c.hov);
+    });
+
+    c.el.addEventListener('mouseleave', () => {
+      c.isHovered = false;
+      c.body.setAttribute('fill', c.isActive ? c.act : c.color);
+    });
+
+    c.el.addEventListener('click', () => {
+      config.forEach(x => {
+        x.isActive = false;
+        if (!x.isHovered) x.body.setAttribute('fill', x.color);
+      });
+      c.isActive = true;
+      if (!c.isHovered) c.body.setAttribute('fill', c.act);
+
+      const s = document.getElementById('vine-status');
+      s.classList.remove('show');
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        s.textContent = '→ ' + c.page;
+        s.classList.add('show');
+      }));
+    });
+  });
+
+  function tick() {
+    const t = performance.now() / 1000;
+    config.forEach(c => {
+      let angle, tf;
+      if (c.isHovered) {
+        const ht = t - c.hoverStart;
+        angle = c.tilt + Math.sin(ht * 7.5) * 7;
+        tf = `rotate(${angle.toFixed(3)}) scale(1.07)`;
+      } else {
+        angle = c.tilt + Math.sin(t * c.freq + c.phase) * c.amp;
+        tf = `rotate(${angle.toFixed(3)})`;
+      }
+      c.el.setAttribute('transform', tf);
+    });
+    requestAnimationFrame(tick);
+  }
+  tick();
+})();
+</script>
