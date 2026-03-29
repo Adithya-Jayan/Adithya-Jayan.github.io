@@ -1,0 +1,41 @@
+{% if page.url == "/" or page.url == "/index.html" %}
+<section class="cta-section animate-on-scroll">
+  <div class="container">
+    <h2 class="cta-title">Feedback / Suggestions / Collaboration?</h2>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeD6Boo_Rb04NCZB_E3BYl9k7TB55n37yyd9mtFo7a4E0uZTQ/viewform?usp=sf_link"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="btn-primary">Contact Me!</a>
+  </div>
+</section>
+{% endif %}
+
+<footer class="site-footer">
+  <div class="ImageOverlap animate-on-scroll" aria-hidden="true">
+    <img alt="Wall climber boy" src="https://res.cloudinary.com/dtml8icqh/image/upload/v1760783588/Wall-climber-boy-1_h0z0za.png">
+  </div>
+  <div class="footer-container">
+    <div class="footer-info">
+      <p>Technical rigor, creative soul</p>
+    </div>
+    
+    <div class="social-links">
+      <a href="https://www.instagram.com/the_happy_little_bird/" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="https://www.linkedin.com/in/adithya-jayan-6437821a5/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://www.youtube.com/channel/UC9kpozgixsqtsqarPnOg77g" target="_blank" rel="noopener noreferrer">YouTube</a>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; {{ site.time | date: '%Y' }} Adithya Jayan. All rights reserved.</p>
+      <div class="other-links">
+        <a href="{{ '/Anirudh/' | relative_url }}">Brother's Portfolio</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Back to Top Button -->
+  <button id="backToTop" class="back-to-top" aria-label="Back to top" title="Back to top">
+    <span class="leaf-icon">🍃</span>
+    <span class="arrow-up">↑</span>
+  </button>
+</footer>

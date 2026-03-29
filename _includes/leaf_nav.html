@@ -1,0 +1,190 @@
+<section class="leaf-nav-section animate-on-scroll">
+  <h2 class="section-title text-center">Explore More</h2>
+  
+  <div class="leafy-vines-nav-wrapper">
+    <style>
+    .leafy-vines-nav-wrapper {
+      max-width: 680px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+    }
+    .nv { cursor: pointer; }
+    .lv, .fv {
+      transform-box: fill-box;
+      transform-origin: center;
+      transition: opacity 0.44s ease, transform 0.48s cubic-bezier(0.16, 0, 0.14, 1);
+    }
+    .lv.off { opacity: 0; transform: scale(0.82); pointer-events: none; }
+    .fv.off { opacity: 0; transform: scale(0.08) rotate(28deg); pointer-events: none; }
+    </style>
+
+    <svg width="100%" viewBox="0 0 680 316" preserveAspectRatio="xMidYMid meet">
+      <!-- Vine shadow -->
+      <path d="M-10,163 C44,157 82,169 158,163 C234,157 272,171 360,164 C436,157 474,171 558,163 C622,157 658,169 700,162"
+        fill="none" stroke="#060402" stroke-width="5" stroke-linecap="round" opacity=".13"/>
+      <!-- Vine main -->
+      <path d="M-10,161 C44,155 82,167 158,161 C234,155 272,169 360,162 C436,155 474,169 558,161 C622,155 658,167 700,160"
+        fill="none" stroke="#4a3520" stroke-width="5.5" stroke-linecap="round"/>
+      <!-- Vine highlight -->
+      <path d="M-10,159 C44,153 82,165 158,159 C234,153 272,167 360,160 C436,153 474,167 558,159 C622,153 658,165 700,158"
+        fill="none" stroke="#705232" stroke-width="1.5" stroke-linecap="round" opacity=".33"/>
+
+      <!-- Tendrils -->
+      <path d="M246,161 C252,147 262,143 255,154" fill="none" stroke="#4a3520" stroke-width="1.6" stroke-linecap="round"/>
+      <path d="M488,161 C494,174 504,179 496,168" fill="none" stroke="#4a3520" stroke-width="1.6" stroke-linecap="round"/>
+      <path d="M152,161 C146,171 137,175 145,164" fill="none" stroke="#4a3520" stroke-width="1.3" stroke-linecap="round"/>
+
+      <!-- Berry cluster 1 -->
+      <circle cx="292" cy="158" r="4.5" fill="#6a1c1c"/>
+      <circle cx="300" cy="155" r="4"   fill="#7e2828"/>
+      <circle cx="285" cy="155" r="3.2" fill="#581818"/>
+      <!-- Berry cluster 2 -->
+      <circle cx="576" cy="157" r="4.5" fill="#6a1c1c"/>
+      <circle cx="584" cy="154" r="4"   fill="#7e2828"/>
+      <circle cx="569" cy="155" r="3.2" fill="#581818"/>
+
+      <!-- Nav items -->
+      <g id="n0" class="nv" transform="translate(72,161)"></g>
+      <g id="n1" class="nv" transform="translate(184,161)"></g>
+      <g id="n2" class="nv" transform="translate(314,161)"></g>
+      <g id="n3" class="nv" transform="translate(428,161)"></g>
+      <g id="n4" class="nv" transform="translate(534,161)"></g>
+    </svg>
+  </div>
+</section>
+
+<script>
+(function () {
+  const NS = 'http://www.w3.org/2000/svg';
+  
+  {% assign active_index = 0 %}
+  {% if page.url contains '/projects' %}{% assign active_index = 1 %}
+  {% elsif page.url contains '/art' %}{% assign active_index = 2 %}
+  {% elsif page.url contains '/models' %}{% assign active_index = 3 %}
+  {% elsif page.url contains '/resume' %}{% assign active_index = 4 %}
+  {% endif %}
+  
+  let ai = {{ active_index }};
+  
+  const cfg = [
+    { l:'Home',      url: '{{ "/" | relative_url }}',         dir:-1, x:72,  c:'#3c6e4a', hv:'#5a9a6a', tilt:-9,  f:.74, p:0.0, a:2.3 },
+    { l:'Projects',  url: '{{ "/projects/" | relative_url }}', dir: 1, x:184, c:'#4a7840', hv:'#6aaa5c', tilt: 8,  f:.69, p:1.2, a:2.0 },
+    { l:'Art Gallery', url: '{{ "/art/" | relative_url }}',      dir:-1, x:314, c:'#2d6050', hv:'#459870', tilt:-5,  f:.78, p:2.0, a:2.4 },
+    { l:'3D Models', url: '{{ "/models/" | relative_url }}',   dir: 1, x:428, c:'#4e6c32', hv:'#70984a', tilt:13,  f:.67, p:0.7, a:2.0 },
+    { l:'Resume',    url: '{{ "/resume/" | relative_url }}',   dir:-1, x:534, c:'#3a5e4a', hv:'#58886a', tilt:-13, f:.75, p:1.6, a:2.3 },
+  ];
+
+  function mk(tag, a) {
+    const e = document.createElementNS(NS, tag);
+    if (a) Object.entries(a).forEach(([k, v]) => e.setAttribute(k, String(v)));
+    return e;
+  }
+
+  function mkLeaf(dir, color, label) {
+    const d = dir;
+    const g = mk('g', { class: 'lv' });
+    const body = mk('path', {
+      d: `M 0,0 C 27,${d*22} 34,${d*68} 0,${d*100} C -34,${d*68} -27,${d*22} 0,0 Z`,
+      fill: color, class: 'lb'
+    });
+    g.appendChild(body);
+    g.appendChild(mk('path', { d:`M 0,${d*2} C -1,${d*35} 0,${d*70} 0,${d*96}`, fill:'none', stroke:'#1a3a20', 'stroke-width':'0.9', opacity:'0.36' }));
+    g.appendChild(mk('path', { d:`M -1,${d*36} C -13,${d*47} -17,${d*51} -17,${d*51}`, fill:'none', stroke:'#1a3a20', 'stroke-width':'0.6', opacity:'0.27' }));
+    g.appendChild(mk('path', { d:`M 0,${d*56} C 12,${d*68} 15,${d*73} 15,${d*73}`, fill:'none', stroke:'#1a3a20', 'stroke-width':'0.6', opacity:'0.27' }));
+    
+    const t = mk('text', { x:'0', y:String(d*126), 'text-anchor':'middle', 'dominant-baseline':'central' });
+    t.style.cssText = 'font-family:"Bricolage Grotesque", sans-serif;font-style:italic;font-size:12px;font-weight:800;fill:var(--color-text-primary);text-transform:uppercase;';
+    t.textContent = label;
+    g.appendChild(t);
+    return g;
+  }
+
+  function mkFlower(dir, label) {
+    const d = dir;
+    const g = mk('g', { class: 'fv off' });
+    const stemPath = mk('path', {
+      d: `M 0,${d*4} C ${d*-2},${d*32} ${d*2},${d*52} 0,${d*70}`,
+      fill:'none', stroke:'#5c7c38', 'stroke-width':'2.1', 'stroke-linecap':'round'
+    });
+    g.appendChild(stemPath);
+    g.appendChild(mk('path', { d:`M 0,${d*54} C -8,${d*61} -13,${d*67} -5,${d*61} Z`, fill:'#4a7040', opacity:'0.75' }));
+    g.appendChild(mk('path', { d:`M 0,${d*54} C  8,${d*61}  13,${d*67}  5,${d*61} Z`, fill:'#4a7040', opacity:'0.75' }));
+    const h = mk('g', { transform:`translate(0,${d*72})` });
+    for (let i = 0; i < 5; i++) {
+      h.appendChild(mk('ellipse', { cx:'0', cy:'-21', rx:'10', ry:'18', fill:'#f6cad8', opacity:'0.87', transform:`rotate(${i*72})` }));
+    }
+    for (let i = 0; i < 5; i++) {
+      h.appendChild(mk('ellipse', { cx:'0', cy:'-13', rx:'6.5', ry:'11', fill:'#e898ba', opacity:'0.90', transform:`rotate(${36 + i*72})` }));
+    }
+    h.appendChild(mk('circle', { r:'13', fill:'#fcd060' }));
+    h.appendChild(mk('circle', { r:'8',  fill:'#e8a820' }));
+    h.appendChild(mk('circle', { r:'4',  fill:'#d09010', opacity:'0.7' }));
+    for (let i = 0; i < 8; i++) {
+      const ang = i * 45 * Math.PI / 180;
+      h.appendChild(mk('circle', { cx: (Math.cos(ang) * 5.5).toFixed(1), cy: (Math.sin(ang) * 5.5).toFixed(1), r: '1.5', fill: '#9c6c10' }));
+    }
+    g.appendChild(h);
+    const t = mk('text', { x:'0', y:String(d * 126), 'text-anchor':'middle', 'dominant-baseline':'central' });
+    t.style.cssText = 'font-family:"Bricolage Grotesque", sans-serif;font-style:italic;font-size:12px;font-weight:800;fill:var(--color-text-primary);text-transform:uppercase;';
+    t.textContent = label;
+    g.appendChild(t);
+    return g;
+  }
+
+  const lgs = [], fgs = [], ogs = [];
+
+  cfg.forEach((item, i) => {
+    const og = document.getElementById(`n${i}`);
+    ogs.push(og);
+    const lg = mkLeaf(item.dir, item.c, item.l);
+    const fg = mkFlower(item.dir, item.l);
+    og.appendChild(lg);
+    og.appendChild(fg);
+    lgs.push(lg);
+    fgs.push(fg);
+
+    og.addEventListener('mouseenter', () => {
+      item.hovered = true;
+      item.hoverStart = performance.now() / 1000;
+      if (i !== ai) lg.querySelector('.lb').setAttribute('fill', item.hv);
+    });
+    og.addEventListener('mouseleave', () => {
+      item.hovered = false;
+      if (i !== ai) lg.querySelector('.lb').setAttribute('fill', item.c);
+    });
+    
+    og.addEventListener('click', () => {
+      if (i === ai) return;
+      fgs[ai].classList.add('off');
+      lgs[ai].classList.remove('off');
+      lgs[i].classList.add('off');
+      fgs[i].classList.remove('off');
+      setTimeout(() => { window.location.href = item.url; }, 500);
+    });
+    
+    if (i === ai) {
+       lg.classList.add('off');
+       fg.classList.remove('off');
+    }
+  });
+
+  function tick() {
+    const t = performance.now() / 1000;
+    cfg.forEach((item, i) => {
+      let ang;
+      if (item.hovered && i !== ai) {
+        const ht = t - item.hoverStart;
+        ang = item.tilt + Math.sin(ht * 7.2) * 8;
+      } else if (i === ai) {
+        ang = item.tilt * 0.32 + Math.sin(t * item.f * 0.6 + item.p) * 0.85;
+      } else {
+        ang = item.tilt + Math.sin(t * item.f + item.p) * item.a;
+      }
+      ogs[i].setAttribute('transform', `translate(${item.x},161) rotate(${ang.toFixed(3)})`);
+    });
+    requestAnimationFrame(tick);
+  }
+  tick();
+})();
+</script>

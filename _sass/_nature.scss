@@ -1,0 +1,92 @@
+// Nature-Themed Graphical Assets (Pure CSS Art)
+
+.css-leaf {
+  position: absolute;
+  width: 100px;
+  height: 150px;
+  background: var(--color-accent-sage);
+  border-radius: 5px 95% 5% 95%;
+  opacity: 0.15;
+  transform: rotate(45deg);
+  z-index: 0;
+  pointer-events: none;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: linear-gradient(to right, transparent 48%, rgba(0,0,0,0.1) 50%, transparent 52%);
+    border-radius: inherit;
+  }
+}
+
+.css-vine {
+  position: absolute;
+  width: 2px;
+  height: 200px;
+  background: rgba(138, 154, 91, 0.2);
+  border-radius: 50%;
+  transform: rotate(-15deg);
+  z-index: 0;
+  pointer-events: none;
+
+  &::before, &::after {
+    content: '';
+    position: absolute;
+    width: 20px; height: 30px;
+    background: var(--color-accent-sage);
+    border-radius: 5px 95% 5% 95%;
+    opacity: 0.6;
+  }
+
+  &::before { top: 20%; left: -15px; transform: rotate(-45deg); }
+  &::after { top: 60%; right: -15px; transform: rotate(45deg); }
+}
+
+// Sage Leaf Background Watermark (Refined)
+.sage-leaf-bg {
+  position: absolute;
+  right: -20px;
+  bottom: -20px;
+  width: 120px;
+  height: 120px;
+  opacity: 0.08;
+  pointer-events: none;
+  z-index: 0;
+  background: var(--color-accent-sage);
+  border-radius: 2px 100% 2px 100%;
+  transform: rotate(15deg);
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: linear-gradient(45deg, transparent 49%, rgba(0,0,0,0.2) 50%, transparent 51%);
+    border-radius: inherit;
+  }
+}
+
+// Leaf Marker for Lists
+.leaf-list {
+  list-style: none;
+  li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.4rem;
+      width: 15px;
+      height: 20px;
+      background: var(--color-accent-sage);
+      border-radius: 2px 100% 2px 100%;
+      opacity: 0.6;
+      transform: rotate(-15deg);
+    }
+  }
+}

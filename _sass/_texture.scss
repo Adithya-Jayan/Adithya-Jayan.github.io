@@ -1,0 +1,35 @@
+// Digital Textures & Environmental Atmosphere
+
+// Woven Linen / Brick Texture from Template
+html {
+  background:
+    linear-gradient(163deg, transparent 0px, transparent 1px, #C49080 1px, #C49080 14px, transparent 14px),
+    linear-gradient(161deg, transparent 0px, #F2EAE4 2px, #C49080 2px, #C49080 16px, transparent 16px),
+    linear-gradient(343deg, transparent 0px, transparent 1px, #B07868 1px, #C49080 14px, transparent 14px),
+    linear-gradient(343deg, transparent 0px, transparent 1px, #B07868 1px, #C49080 14px, transparent 14px);
+  background-color: #EDE4DC;
+  background-size: 48px 30px;
+  background-position: 2px 1px, 23px 16px, 48px 15px, 21px 30px;
+  min-height: 100%;
+}
+
+body {
+  background: transparent !important;
+}
+
+// Growing Vines Background Canvas
+#vine-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  // height is controlled by JS to match full document
+  pointer-events: none;
+  z-index: -1; 
+  display: block;
+}
+
+.parallax-container {
+  position: relative;
+  overflow: hidden;
+}

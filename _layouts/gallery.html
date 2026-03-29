@@ -1,0 +1,64 @@
+---
+layout: default
+---
+
+<section class="gallery-hero animate-on-scroll" style="background-image: url('{{ page.hero_image | relative_url }}');">
+  <div class="hero-overlay"></div>
+  <div class="container">
+    <h1 class="hero-title">{{ page.gallery_title }}</h1>
+    <p class="hero-description">{{ page.description }}</p>
+    {% if page.hero_button_text %}
+      <a href="{{ page.hero_button_url }}" target="_blank" class="btn-primary" style="margin-top: 2rem; display: inline-block;">{{ page.hero_button_text }}</a>
+    {% endif %}
+  </div>
+</section>
+
+<section class="gallery-section animate-on-scroll delay-2">
+  <div class="gallery-filters button-gal-group filters-button-group">
+    <button class="button button-gal-menu is-checked" data-filter="*">Show All</button>
+    {% assign filter_list = "" | split: "," %}
+    {% for item in site.data[page.data_file] %}
+      {% assign tags = item.tags | split: " " %}
+      {% for tag in tags %}
+        {% unless filter_list contains tag %}
+          {% assign filter_list = filter_list | push: tag %}
+        {% endunless %}
+      {% endfor %}
+    {% endfor %}
+    
+    {% for filter_name in filter_list %}
+      <button class="button button-gal-menu" data-filter=".{{ filter_name | slugify }}">{{ filter_name }}</button>
+    {% endfor %}
+  </div>
+
+  <div id="gallery" class="grid portfolio-grid art-grid">
+    <div class="grid-sizer"></div>
+    {% for item in site.data[page.data_file] %}
+      {% assign stagger_index = forloop.index | modulo: 6 | plus: 1 %}
+      {% assign item_tags = item.tags | split: " " %}
+      <a class="photolink grid-item {% for tag in item_tags %}{{ tag | slugify }} {% endfor %}" 
+         href="{{ item.href }}"
+         data-type="{{ item.type }}"
+         data-description="{{ item.description | escape }}" 
+         subtitle='{{ item.subtitle | escape }}'>
+          <div class="gallery-card animate-on-scroll delay-{{ stagger_index }}">
+            <img src="{{ item.src }}" alt="{{ item.alt | escape }}" class="photo" loading="lazy">
+            <div class="card-overlay">
+              <span class="view-icon">
+                {% if item.tags contains 'Video' %}
+                  <i class="play-icon">▶</i>
+                {% else %}
+                  <i class="zoom-icon">🔍</i>
+                {% endif %}
+              </span>
+            </div>
+          </div>
+      </a>
+    {% endfor %}
+  </div>
+</section>
+
+{{ content }}
+
+{% include leaf_nav.html %}
+

@@ -1,0 +1,44 @@
+---
+layout: default
+---
+
+<div class="project-detail-container">
+  <div class="css-leaf" style="top: 15%; right: -40px; transform: rotate(-25deg); opacity: 0.04;"></div>
+  
+  <article class="project-detail">
+    <header class="detail-header animate-on-scroll">
+      <h1 class="project-title">{{ page.title }}</h1>
+      <div class="project-meta">
+        {% for tag in page.tags %}
+          <span class="tag">{{ tag }}</span>
+        {% endfor %}
+      </div>
+    </header>
+
+    <div class="project-main">
+      {% if page.thumbnail %}
+        <div class="thumbnail-wrapper animate-on-scroll">
+          <img src="{{ page.thumbnail | relative_url }}" alt="{{ page.title }}" class="project-image">
+        </div>
+      {% endif %}
+      
+      <div class="project-content animate-on-scroll" style="transition-delay: 0.2s;">
+        <div class="project-links-detail">
+          {% if page.website %}
+            <a href="{{ page.website }}" target="_blank" rel="noopener noreferrer" class="card-link">Website</a>
+          {% endif %}
+          {% if page.github %}
+            <a href="{{ page.github }}" target="_blank" rel="noopener noreferrer" class="card-link">GitHub</a>
+          {% endif %}
+        </div>
+        {{ content }}
+      </div>
+    </div>
+
+    <footer class="detail-footer animate-on-scroll">
+      <a href="{{ '/projects/' | relative_url }}" class="back-link">
+        <span class="arrow">←</span> Back to Projects
+      </a>
+    </footer>
+  </article>
+</div>

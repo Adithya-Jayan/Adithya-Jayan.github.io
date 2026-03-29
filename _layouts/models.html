@@ -1,0 +1,119 @@
+---
+layout: default
+---
+
+<div class="model-detail-container">
+  <div class="css-vine" style="top: 5%; left: 10%; opacity: 0.1;"></div>
+  <div class="css-leaf" style="top: 40%; right: -30px; transform: rotate(-30deg); opacity: 0.05;"></div>
+
+  <article class="model-detail">
+    <header class="detail-header animate-on-scroll">
+      <h1 class="project-title">{{ page.title }}</h1>
+      <div class="project-meta">
+        {% for tag in page.tags %}
+          <span class="tag">{{ tag }}</span>
+        {% endfor %}
+      </div>
+    </header>
+
+    <div class="project-main animate-on-scroll" style="transition-delay: 0.2s;">
+      {{ content }}
+    </div>
+
+    <footer class="detail-footer animate-on-scroll">
+      <a href="{{ '/models/' | relative_url }}" class="back-link">
+        <span class="arrow">←</span> Back to Model Library
+      </a>
+    </footer>
+  </article>
+</div>
+
+<style>
+.model-detail-container {
+  position: relative;
+  width: 100%;
+  padding: 5rem 1rem;
+  overflow: hidden;
+}
+
+.model-detail {
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.detail-header {
+  margin-bottom: 5rem;
+  text-align: center;
+}
+
+.project-title {
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  margin-bottom: 1.5rem;
+  color: var(--color-text-primary);
+}
+
+.project-meta {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.tag {
+  background: var(--color-bg-secondary);
+  color: var(--color-accent-sage);
+  padding: 0.5rem 1.5rem;
+  border-radius: 2rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.project-main {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: var(--color-text-secondary);
+  background: rgba(255, 255, 255, 0.4);
+  padding: 3rem;
+  border-radius: 2.5rem;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
+}
+
+.detail-footer {
+  margin-top: 6rem;
+  padding-top: 3rem;
+  text-align: center;
+  border-top: 1px solid rgba(138, 154, 91, 0.1);
+}
+
+.back-link {
+  font-weight: 700;
+  color: var(--color-accent-sage);
+  font-size: 1.1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.back-link:hover {
+  transform: translateX(-5px);
+  color: var(--color-accent-terra);
+}
+
+.back-link .arrow {
+  font-size: 1.4rem;
+}
+
+@media (max-width: 768px) {
+  .project-main {
+    padding: 1.5rem;
+    font-size: 1.1rem;
+  }
+}
+</style>

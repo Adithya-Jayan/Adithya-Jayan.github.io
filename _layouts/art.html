@@ -1,0 +1,140 @@
+---
+layout: default
+---
+
+<div class="art-detail-container">
+  <div class="css-leaf" style="top: 10%; left: -50px; transform: rotate(15deg); opacity: 0.05;"></div>
+  <div class="css-leaf" style="bottom: 20%; right: -50px; transform: rotate(-45deg); opacity: 0.05;"></div>
+
+  <article class="art-detail">
+    <header class="detail-header animate-on-scroll">
+      <h1 class="piece-title">{{ page.title }}</h1>
+      <div class="piece-meta">
+        {% for tag in page.tags %}
+          <span class="tag">{{ tag }}</span>
+        {% endfor %}
+      </div>
+    </header>
+
+    <div class="piece-main">
+      {% if page.thumbnail %}
+        <div class="image-wrapper animate-on-scroll">
+          <img src="{{ page.thumbnail | relative_url }}" alt="{{ page.title }}" class="piece-image">
+          <div class="sage-leaf-bg"></div>
+        </div>
+      {% endif %}
+      
+      <div class="piece-content animate-on-scroll" style="transition-delay: 0.2s;">
+        {{ content }}
+      </div>
+    </div>
+
+    <footer class="detail-footer animate-on-scroll">
+      <a href="{{ '/art/' | relative_url }}" class="back-link">
+        <span class="arrow">←</span> Back to Gallery
+      </a>
+    </footer>
+  </article>
+</div>
+
+<style>
+.art-detail-container {
+  position: relative;
+  width: 100%;
+  padding: 4rem 1rem;
+  overflow: hidden;
+}
+
+.art-detail {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.detail-header {
+  margin-bottom: 4rem;
+  text-align: center;
+}
+
+.piece-title {
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  margin-bottom: 1.5rem;
+  color: var(--color-text-primary);
+}
+
+.piece-meta {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.tag {
+  background: var(--color-bg-secondary);
+  color: var(--color-accent-sage);
+  padding: 0.4rem 1.2rem;
+  border-radius: 2rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.image-wrapper {
+  position: relative;
+  margin-bottom: 4rem;
+}
+
+.piece-image {
+  width: 100%;
+  height: auto;
+  border-radius: 1.5rem;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
+  display: block;
+}
+
+.piece-content {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: var(--color-text-secondary);
+  background: rgba(255, 255, 255, 0.4);
+  padding: 2.5rem;
+  border-radius: 2rem;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.detail-footer {
+  margin-top: 5rem;
+  padding-top: 3rem;
+  text-align: center;
+  border-top: 1px solid rgba(138, 154, 91, 0.1);
+}
+
+.back-link {
+  font-weight: 700;
+  color: var(--color-accent-sage);
+  font-size: 1.1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.back-link:hover {
+  transform: translateX(-5px);
+  color: var(--color-accent-terra);
+}
+
+.back-link .arrow {
+  font-size: 1.4rem;
+}
+
+@media (max-width: 768px) {
+  .piece-content {
+    padding: 1.5rem;
+    font-size: 1.1rem;
+  }
+}
+</style>
