@@ -432,4 +432,27 @@ section {
   .ImageOverlap { width: 120px; right: 5%; }
   .social-links { flex-direction: column; gap: 1.5rem; }
   .gallery-hero { height: 40vh; border-radius: 0 0 5rem 5rem / 0 0 2rem 2rem; }
+
+  .main-content {
+    padding: 2rem 1rem;
+    margin: 1rem auto;
+    border-radius: 1.5rem;
+  }
+
+  .gallery-hero {
+    margin: -2rem -1rem 2rem -1rem;
+    width: calc(100% + 2rem);
+  }
+
+  .gallery-section {
+    padding: 3rem 1rem;
+    border-radius: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .cta-section {
+    padding: 4rem 1.5rem;
+    border-radius: 3rem;
+    margin: 2rem 1rem;
+  }
 }

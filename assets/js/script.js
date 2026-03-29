@@ -96,7 +96,7 @@ function initGallery() {
         titleSrc: function(item) {
           var title = item.el.attr('data-description') || 'Artwork';
           var subtitle = item.el.attr('subtitle') || '';
-          return title + '<small>' + subtitle + '</small>';
+          return title + (subtitle ? '<small>' + subtitle + '</small>' : '');
         }
       },
       callbacks: {
@@ -118,8 +118,9 @@ function initGallery() {
       },
       closeBtnInside: false,
       midClick: true,
-      fixedContentPos: false,
-      mainClass: 'mfp-with-zoom mfp-img-mobile'
+      fixedContentPos: true, // Better for mobile overflow
+      mainClass: 'mfp-with-zoom mfp-img-mobile',
+      removalDelay: 300
     });
   } catch (error) {
     console.error("Error initializing Magnific Popup:", error);
@@ -144,11 +145,14 @@ function initMobileMenu() {
   const dropdownContent = document.getElementById("myDropdown");
   const arrow = document.querySelector(".arrow-down");
 
-  // Only toggle dropdown manually if we're on mobile and it's not a hover situation
-  // but let the click event through for navigation.
   if (exploreTrigger && dropdownContent) {
-    // If the user specifically wants to navigate, clicking will do so by default for <a> tags.
-    // We don't need to do anything else here if hover is handling the dropdown.
+    exploreTrigger.addEventListener('click', function(e) {
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        dropdownContent.classList.toggle('show');
+        if (arrow) arrow.classList.toggle("arrow-up");
+      }
+    });
   }
 
   // Close dropdown/menu if clicking outside

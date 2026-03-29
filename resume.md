@@ -1,6 +1,7 @@
 ---
 layout: resume
 title: Resume & Skills
+permalink: /resume/
 profile_image: "/assets/images/Me.png"
 email: "adithyaj8@gmail.com"
 education:
