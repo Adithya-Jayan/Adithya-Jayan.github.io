@@ -10,7 +10,9 @@ permalink: /art/
 
 <section class="insta-gallery-section">
   <div class="container">
-    <h2 class="section-title">More Creative Projects</h2>
+    <div class="text-center" style="margin-bottom: 4rem;">
+      <h2 class="section-title">More Creative Projects</h2>
+    </div>
     <div class="insta-grid">
       <!-- IEEE Animations -->
       <div class="insta-item">
@@ -41,12 +43,21 @@ permalink: /art/
   z-index: 5;
   display: block !important;
 }
+.insta-gallery-section .container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+.insta-gallery-section .section-title::after {
+  left: 50%;
+  transform: translateX(-50%);
+}
 .insta-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 3rem;
   justify-items: center;
-  padding: 2rem;
+  padding: 2rem 0;
 }
 .insta-item {
   width: 100%;
@@ -56,5 +67,8 @@ permalink: /art/
   padding: 1.5rem;
   box-shadow: 0 20px 50px rgba(0,0,0,0.08);
   min-height: 600px;
+}
+.text-center {
+  text-align: center;
 }
 </style>

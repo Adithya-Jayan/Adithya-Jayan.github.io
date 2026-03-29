@@ -13,6 +13,8 @@
       <span></span>
     </button>
     <ul class="nav-menu">
+      <li><a href="{{ '/' | relative_url }}#About" {% if page.url == '/' or page.url == '/index.html' %}class="active-nav"{% endif %}>About</a></li>
+      <li><a href="{{ '/resume/' | relative_url }}" {% if page.url contains '/resume/' %}class="active-nav"{% endif %}>Experience</a></li>
       <li class="explore-dropdown">
         <a href="{{ '/' | relative_url }}" class="dropbtn-wrapper" id="explore-trigger">
           <span class="explore-label">Explore</span>
@@ -26,8 +28,6 @@
           <a href="{{ '/resume/' | relative_url }}" {% if page.url contains '/resume/' %}class="current-page"{% endif %}>Resume</a>
         </div>
       </li>
-      <li><a href="{{ '/' | relative_url }}#About" {% if page.url == '/' or page.url == '/index.html' %}class="active-nav"{% endif %}>About</a></li>
-      <li><a href="{{ '/resume/' | relative_url }}" {% if page.url contains '/resume/' %}class="active-nav"{% endif %}>Experience</a></li>
     </ul>
   </nav>
 </header>
