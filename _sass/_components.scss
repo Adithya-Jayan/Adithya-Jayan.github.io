@@ -129,10 +129,31 @@
 }
 
 .portfolio-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 2.5rem;
+  display: block; // Changed from grid to block for Isotope compatibility
+  width: 100%;
   padding: 4rem 0;
+  position: relative; // Required for Isotope
+}
+
+.grid-sizer, .grid-item {
+  width: 33.333%; // Default for desktop (3 columns)
+}
+
+@media (max-width: 992px) {
+  .grid-sizer, .grid-item {
+    width: 50%; // 2 columns for tablets
+  }
+}
+
+@media (max-width: 768px) {
+  .grid-sizer, .grid-item {
+    width: 100%; // 1 column for mobile
+  }
+}
+
+.grid-item {
+  padding: 1.25rem; // Half of the 2.5rem gap to simulate gap with Isotope
+  float: left;
 }
 
 /* Back to Top Button */

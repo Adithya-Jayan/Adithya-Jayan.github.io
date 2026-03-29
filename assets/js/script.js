@@ -28,103 +28,80 @@ function initBackToTop() {
 }
 
 function initGallery() {
-  // Use a more specific selector to only target Isotope galleries
   var $grid = $('.portfolio-grid.grid');
-  if ($grid.length === 0) {
-    console.log("Isotope Gallery not found on this page.");
-    return;
-  }
+  if ($grid.length === 0) return;
 
-  console.log("Isotope Gallery found, initializing...");
+  console.log("Initializing Gallery with Isotope...");
 
-  try {
-    // Initialize Isotope
-    var $iso = $grid.isotope({
-      itemSelector: '.grid-item',
-      layoutMode: 'masonry',
-      percentPosition: true,
-      masonry: {
-        columnWidth: '.grid-sizer'
-      }
-    });
+  // Initialize Isotope
+  var $iso = $grid.isotope({
+    itemSelector: '.grid-item',
+    layoutMode: 'masonry',
+    percentPosition: true,
+    masonry: {
+      columnWidth: '.grid-sizer'
+    },
+    transitionDuration: '0.6s'
+  });
 
-    // Layout Isotope after each image loads - using vanilla imagesLoaded for better stability
-    var imgLoad = imagesLoaded($grid[0]);
-    imgLoad.on('progress', function() {
-      $iso.isotope('layout');
-    });
+  // Use imagesLoaded to trigger layout after images load
+  $grid.imagesLoaded().progress(function() {
+    $iso.isotope('layout');
+  }).always(function() {
+    console.log("All images loaded, final Isotope layout.");
+    $iso.isotope('layout');
     
-    // Layout once more after all are done
-    imgLoad.on('always', function() {
-       $iso.isotope('layout');
-    });
-
-  } catch (error) {
-    console.error("Error initializing Isotope or imagesLoaded:", error);
-  }
+    // Extra safety for mobile: re-layout after a short delay
+    setTimeout(function() {
+      $iso.isotope('layout');
+    }, 500);
+  });
 
   // Filter items on button click
   $('.filters-button-group').on('click', 'button', function(e) {
     e.preventDefault();
     var filterValue = $(this).attr('data-filter');
-    console.log("Filtering items by: " + filterValue);
+    console.log("Filtering by: " + filterValue);
     
-    $grid.isotope({ filter: filterValue });
+    $iso.isotope({ filter: filterValue });
     
-    // UI update
     $('.filters-button-group').find('.is-checked').removeClass('is-checked');
     $(this).addClass('is-checked');
   });
 
-  console.log("Initializing Magnific Popup...");
-  
-  try {
-    // Init Magnific Popup with delegation from a stable parent
-    $('.gallery-section').magnificPopup({
-      delegate: '.photolink',
-      type: 'image',
-      gallery: {
-        enabled: true,
-        navigateByImgClick: true,
-        preload: [0,1],
-        tPrev: 'Previous',
-        tNext: 'Next'
-      },
-      image: {
-        verticalFit: true,
-        tError: '<a href="%url%">The image #%curr%</a> could not be loaded.',
-        titleSrc: function(item) {
-          var title = item.el.attr('data-description') || 'Artwork';
-          var subtitle = item.el.attr('subtitle') || '';
-          return title + (subtitle ? '<small>' + subtitle + '</small>' : '');
+  // Init Magnific Popup
+  $('.gallery-section').magnificPopup({
+    delegate: '.photolink',
+    type: 'image',
+    gallery: {
+      enabled: true,
+      navigateByImgClick: true,
+      preload: [0,1]
+    },
+    image: {
+      verticalFit: true,
+      titleSrc: function(item) {
+        var title = item.el.attr('data-description') || 'Artwork';
+        var subtitle = item.el.attr('subtitle') || '';
+        return title + (subtitle ? '<small>' + subtitle + '</small>' : '');
+      }
+    },
+    callbacks: {
+      elementParse: function(item) {
+        var type = item.el.attr('data-type');
+        var href = item.el.attr('href').toLowerCase();
+        if (type === 'mfp-iframe' || href.indexOf('youtube.com') !== -1 || href.indexOf('vimeo.com') !== -1 || href.indexOf('mp4') !== -1 || href.indexOf('sketchfab.com') !== -1) {
+          item.type = 'iframe';
+        } else {
+          item.type = 'image';
         }
-      },
-      callbacks: {
-        elementParse: function(item) {
-          var type = item.el.attr('data-type');
-          if (type === 'mfp-iframe') {
-            item.type = 'iframe';
-          } else if (type === 'mfp-image') {
-            item.type = 'image';
-          } else {
-            var href = item.el.attr('href').toLowerCase();
-            if (href.indexOf('youtube.com') !== -1 || href.indexOf('vimeo.com') !== -1 || href.indexOf('mp4') !== -1 || href.indexOf('sketchfab.com') !== -1) {
-              item.type = 'iframe';
-            } else {
-              item.type = 'image';
-            }
-          }
-        }
-      },
-      closeBtnInside: false,
-      midClick: true,
-      fixedContentPos: true, // Better for mobile overflow
-      mainClass: 'mfp-with-zoom mfp-img-mobile',
-      removalDelay: 300
-    });
-  } catch (error) {
-    console.error("Error initializing Magnific Popup:", error);
-  }
+      }
+    },
+    fixedContentPos: true,
+    mainClass: 'mfp-with-zoom mfp-img-mobile',
+    removalDelay: 300,
+    midClick: true
+  });
 }
 
 function initMobileMenu() {
@@ -132,7 +109,8 @@ function initMobileMenu() {
   const navMenu = document.querySelector('.nav-menu');
   
   if (mobileMenuToggle) {
-    mobileMenuToggle.addEventListener('click', function() {
+    mobileMenuToggle.addEventListener('click', function(e) {
+      e.stopPropagation();
       navMenu.classList.toggle('active');
       const isExpanded = navMenu.classList.contains('active');
       mobileMenuToggle.setAttribute('aria-expanded', isExpanded);
@@ -140,17 +118,27 @@ function initMobileMenu() {
     });
   }
 
-  // Improved Dropdown logic - click to navigate on desktop, toggle on mobile toggle specifically
+  // Improved Dropdown logic - toggle on click for all devices
   const exploreTrigger = document.getElementById('explore-trigger');
   const dropdownContent = document.getElementById("myDropdown");
   const arrow = document.querySelector(".arrow-down");
 
   if (exploreTrigger && dropdownContent) {
     exploreTrigger.addEventListener('click', function(e) {
+      // Only handle click toggle on mobile
       if (window.innerWidth <= 768) {
         e.preventDefault();
-        dropdownContent.classList.toggle('show');
-        if (arrow) arrow.classList.toggle("arrow-up");
+        e.stopPropagation();
+        
+        const isOpen = dropdownContent.classList.contains('show');
+        
+        if (isOpen) {
+          dropdownContent.classList.remove('show');
+          if (arrow) arrow.classList.remove("arrow-up");
+        } else {
+          dropdownContent.classList.add('show');
+          if (arrow) arrow.classList.add("arrow-up");
+        }
       }
     });
   }
@@ -179,7 +167,6 @@ function initParallax() {
   window.addEventListener('scroll', () => {
     const scrollY = window.pageYOffset;
     accents.forEach((accent, index) => {
-      // Different speed for each accent
       const speed = (index + 1) * 0.15;
       const yPos = -(scrollY * speed);
       accent.style.transform = `translateY(${yPos}px)`;

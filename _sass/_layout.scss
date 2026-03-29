@@ -101,6 +101,7 @@
       &.arrow-up { transform: rotate(180deg); }
     }
 
+  @media (min-width: 769px) {
     &:hover {
       .dropdown-content {
         display: block;
@@ -108,8 +109,9 @@
       }
       .arrow-down { transform: rotate(180deg); }
     }
+  }
 
-    .dropdown-content {
+  .dropdown-content {
       display: none;
       position: absolute;
       top: 100%;
