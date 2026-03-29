@@ -39,7 +39,7 @@ layout: default
             {% endif %}
             <div class="card-content">
               <h3 class="card-title">{{ project.title }}</h3>
-              <p class="card-excerpt">{{ project.excerpt | default: project.description }}</p>
+              <p class="card-excerpt">{{ project.summary | default: project.description | truncate: 100 }}</p>
               
               <div class="card-links" onclick="event.stopPropagation();">
                 {% if project.website %}
