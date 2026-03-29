@@ -235,6 +235,12 @@
   }
 }
 
+.education-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
 .education-item {
   background: white;
   padding: 2.5rem;
@@ -251,6 +257,13 @@
     color: var(--color-accent-sage);
     font-weight: 700;
     font-size: 1.1rem;
+  }
+
+  .status {
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+    color: var(--color-accent-terra);
+    font-weight: 600;
   }
 }
 

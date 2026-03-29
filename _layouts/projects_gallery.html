@@ -23,7 +23,7 @@ layout: default
     {% endfor %}
     
     {% for filter_name in filter_list %}
-      <button class="button button-gal-menu" data-filter=".{{ filter_name }}">{{ filter_name }}</button>
+      <button class="button button-gal-menu" data-filter=".{{ filter_name | slugify }}">{{ filter_name }}</button>
     {% endfor %}
   </div>
 
@@ -31,7 +31,7 @@ layout: default
     <div class="grid-sizer"></div>
     {% for project in site.projects %}
       {% assign stagger_index = forloop.index | modulo: 6 | plus: 1 %}
-      <div class="grid-item {% for tag in project.tags %}{{ tag }} {% endfor %}">
+      <div class="grid-item {% for tag in project.tags %}{{ tag | slugify }} {% endfor %}">
           <article class="project-card animate-on-scroll delay-{{ stagger_index }}" onclick="location.href='{{ project.url | relative_url }}'">
             <div class="sage-leaf-bg"></div>
             {% if project.thumbnail %}

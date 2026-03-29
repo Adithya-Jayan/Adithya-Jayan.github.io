@@ -56,9 +56,14 @@ layout: default
 
     <section class="resume-section animate-on-scroll" style="transition-delay: 0.4s;">
       <h2 class="section-title">Education</h2>
-      <div class="education-item">
-        <h3 class="degree">B.Tech in Electronics and Communication Engineering</h3>
-        <p class="university">National Institute of Technology | Graduated May 2024</p>
+      <div class="education-list">
+        {% for edu in page.education %}
+          <div class="education-item">
+            <h3 class="degree">{{ edu.degree }}</h3>
+            <p class="university">{{ edu.university }} | {{ edu.year }}</p>
+            {% if edu.status %}<p class="status"><em>{{ edu.status }}</em></p>{% endif %}
+          </div>
+        {% endfor %}
       </div>
     </section>
   </section>
