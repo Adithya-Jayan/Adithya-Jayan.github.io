@@ -293,6 +293,6 @@
     if (running) requestAnimationFrame(frame);
   }
 
-  /* ── 5 Second Delayed Start ── */
-  setTimeout(init, 5000);
+  /* ── 1 Second Delayed Start ── */
+  setTimeout(init, 1000);
 }());

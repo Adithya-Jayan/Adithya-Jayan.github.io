@@ -3,7 +3,6 @@ $(document).ready(function() {
   initGallery();
   generateBreadcrumbs();
   initMobileMenu();
-  initParallax();
   initBackToTop();
 });
 
@@ -68,13 +67,15 @@ function initGallery() {
     },
     iframe: {
       markup: '<div class="mfp-iframe-scaler-container">' +
-                '<div class="mfp-close"></div>' +
-                '<div class="mfp-iframe-scaler">' +
-                  '<iframe class="mfp-iframe" frameborder="0" allowfullscreen></iframe>' +
-                '</div>' +
-                '<div class="mfp-bottom-bar">' +
-                  '<div class="mfp-title"></div>' +
-                  '<div class="mfp-counter"></div>' +
+                '<div class="mfp-figure">' +
+                  '<div class="mfp-close"></div>' +
+                  '<div class="mfp-iframe-scaler">' +
+                    '<iframe class="mfp-iframe" frameborder="0" allowfullscreen></iframe>' +
+                  '</div>' +
+                  '<div class="mfp-bottom-bar">' +
+                    '<div class="mfp-title"></div>' +
+                    '<div class="mfp-counter"></div>' +
+                  '</div>' +
                 '</div>' +
               '</div>',
       patterns: {
@@ -145,17 +146,6 @@ function initMobileMenu() {
       navMenu.classList.remove('active');
       mobileMenuToggle.classList.remove('active');
     }
-  });
-}
-
-function initParallax() {
-  const accents = document.querySelectorAll('.botanical-accent');
-  window.addEventListener('scroll', () => {
-    const scrollY = window.pageYOffset;
-    accents.forEach((accent, index) => {
-      const speed = (index + 1) * 0.15;
-      accent.style.transform = `translateY(${-(scrollY * speed)}px)`;
-    });
   });
 }
 
