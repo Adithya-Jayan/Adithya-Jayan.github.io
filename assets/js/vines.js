@@ -29,16 +29,37 @@
   var vines, oldt, elapsed, running;
 
   function setSize() {
+    // Stable height calculation: measure content, not the body (which includes the canvas)
     const width = Math.max(document.body.scrollWidth, document.documentElement.scrollWidth, window.innerWidth);
-    const height = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight, window.innerHeight);
+    
+    // Use the footer position as the definitive "bottom of the wall"
+    const footer = document.querySelector('.site-footer');
+    let height;
+    if (footer) {
+      // height is the top of footer + its height
+      height = footer.offsetTop + footer.offsetHeight;
+    } else {
+      height = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight, window.innerHeight);
+    }
 
     if (c.width !== width || c.height !== height) {
       c.width = width;
       c.height = height;
     }
   }
+  
   setSize();
-  window.addEventListener('resize', setSize);
+  
+  // Use ResizeObserver to detect when Isotope or dynamic content changes the page height
+  if (window.ResizeObserver) {
+    const ro = new ResizeObserver(function() {
+      window.requestAnimationFrame(setSize);
+    });
+    // Observe the body content
+    ro.observe(document.body);
+  } else {
+    window.addEventListener('resize', setSize);
+  }
 
   /* ── edge-spawn helpers ──────────────────────────────────────────────── */
   function edgeSpawn() {
