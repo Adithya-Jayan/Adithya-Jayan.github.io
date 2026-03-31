@@ -129,78 +129,169 @@
 }
 
 .portfolio-grid {
-  display: block; // Changed from grid to block for Isotope compatibility
+  display: block; 
   width: 100%;
   padding: 4rem 0;
-  position: relative; // Required for Isotope
+  position: relative; 
 }
 
 .grid-sizer, .grid-item {
-  width: 33.333%; // Default for desktop (3 columns)
+  width: 33.333%; 
 }
 
 @media (max-width: 992px) {
   .grid-sizer, .grid-item {
-    width: 50%; // 2 columns for tablets
+    width: 50%; 
   }
 }
 
 @media (max-width: 768px) {
   .grid-sizer, .grid-item {
-    width: 100%; // 1 column for mobile
+    width: 100%; 
   }
 }
 
 .grid-item {
-  padding: 1.25rem; // Half of the 2.5rem gap to simulate gap with Isotope
+  padding: 1.25rem; 
   float: left;
 }
 
-/* Back to Top Button */
+/* Dynamic Hovering Bee Scroll Top */
+#bee-container {
+  position: absolute; 
+  top: 0;
+  left: 0;
+  width: 60px;
+  height: 60px;
+  z-index: 9999;
+  cursor: pointer;
+  transform: translate(-200px, -200px); 
+  pointer-events: auto;
+  will-change: transform;
+  
+  @media (max-width: 768px) {
+    display: none !important;
+  }
+}
+
 .back-to-top {
   position: fixed;
-  bottom: 3rem;
-  right: 3rem;
+  bottom: 2rem;
+  right: 2rem;
   width: 4rem;
   height: 4rem;
-  background-color: var(--color-bg-primary);
-  border: 2px solid var(--color-accent-sage);
+  background-color: white;
+  border: 2px solid var(--color-accent-terra);
   border-radius: 50%;
-  color: var(--color-accent-sage);
   cursor: pointer;
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   z-index: 1000;
   transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(20px);
   box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 
   &.visible {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
+    display: flex;
   }
 
   &:hover {
-    background-color: var(--color-accent-sage);
-    color: white;
     transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(138, 154, 91, 0.3);
+    box-shadow: 0 15px 40px rgba(210, 105, 30, 0.2);
   }
 
-  .leaf-icon {
-    font-size: 1.2rem;
-    margin-bottom: -0.2rem;
+  .flower-icon {
+    font-size: 1.8rem;
+    line-height: 1;
   }
 
   .arrow-up {
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 800;
+    color: var(--color-accent-terra);
+    margin-top: -2px;
   }
+
+  .mobile-only {
+    @media (min-width: 769px) {
+      display: none !important;
+    }
+  }
+}
+
+.bee-body {
+  position: absolute;
+  width: 44px;
+  height: 56px;
+  top: 2px;
+  left: 8px;
+  background: repeating-linear-gradient(
+    0deg,
+    #1a1a1a,
+    #1a1a1a 12px,
+    #ffcc00 12px,
+    #ffcc00 24px
+  );
+  border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+  box-shadow: inset -5px -5px 10px rgba(0,0,0,0.4), 0 10px 15px rgba(0,0,0,0.3);
+  will-change: transform;
+}
+
+.wing {
+  position: absolute;
+  width: 28px;
+  height: 38px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  top: -8px;
+  transform-origin: bottom center;
+  box-shadow: inset 0 0 10px rgba(255,255,255,0.5);
+  will-change: transform;
+}
+
+.wing-left { 
+  left: -4px; 
+  animation: flutter-left 0.05s linear infinite alternate; 
+  transform: translateZ(0); /* Force GPU */
+}
+.wing-right { 
+  right: -4px; 
+  animation: flutter-right 0.05s linear infinite alternate; 
+  transform: translateZ(0); /* Force GPU */
+}
+
+.bee-arrow {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 12px solid white;
+  filter: drop-shadow(0 2px 2px rgba(0,0,0,0.5));
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 12px;
+    left: -3px;
+    width: 6px;
+    height: 8px;
+    background-color: white;
+  }
+}
+
+@keyframes flutter-left {
+  from { transform: rotate(-20deg) skewY(-10deg) translateZ(0); }
+  to { transform: rotate(-60deg) skewY(-30deg) translateZ(0); }
+}
+@keyframes flutter-right {
+  from { transform: rotate(20deg) skewY(10deg) translateZ(0); }
+  to { transform: rotate(60deg) skewY(30deg) translateZ(0); }
 }
 
 /* Leaf-Vine Navigation */

@@ -6,31 +6,157 @@ $(document).ready(function() {
   initBackToTop();
 });
 
-function initBackToTop() {
-  const backToTopButton = document.getElementById('backToTop');
-  if (!backToTopButton) return;
+// Physics & Position State for the Bee
+let cx = -200, cy = -200; 
+let tx = -200, ty = -200; 
+let isBeeVisible = false;
+let isFlyingUp = false;
+let hasBeeSpawned = false; // Track initial spawn
+let canSpawnBee = Math.random() < 0.01; // 1 in 100 chance for this page session
+let beeTime = 0;
+let targetHistory = [];
+const REACTION_DELAY = 50; 
+const SCROLL_THRESHOLD = 400;
 
+function initBackToTop() {
+  const bee = document.getElementById('bee-container');
+  const anchor = document.getElementById('backToTop');
+  if (!bee || !anchor) return;
+
+  // ─── Visibility Logic ───
   window.addEventListener('scroll', function() {
-    if (window.pageYOffset > 400) {
-      backToTopButton.classList.add('visible');
+    const isMobile = window.innerWidth <= 768;
+    const shouldBeVisible = window.pageYOffset > SCROLL_THRESHOLD;
+
+    if (shouldBeVisible) {
+      anchor.classList.add('visible');
+      if (!isMobile && canSpawnBee) {
+        if (!isBeeVisible && !isFlyingUp) {
+          isBeeVisible = true;
+          
+          if (!hasBeeSpawned) {
+            // First time: Spawn from left off-screen
+            cx = window.scrollX - 100;
+            cy = window.scrollY + (window.innerHeight * 0.8);
+            hasBeeSpawned = true;
+          } else {
+            // Subsequent times: Fly in from top (where it retreated)
+            cx = window.scrollX + window.innerWidth - 100;
+            cy = window.scrollY - 100;
+          }
+
+          targetHistory = [{
+            x: window.scrollX + window.innerWidth - 100, 
+            y: window.scrollY + window.innerHeight - 100, 
+            time: Date.now()
+          }];
+        }
+      }
     } else {
-      backToTopButton.classList.remove('visible');
+      anchor.classList.remove('visible');
+      if (!isFlyingUp) isBeeVisible = false;
     }
   });
 
-  backToTopButton.addEventListener('click', function() {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  });
+  const triggerScroll = (e) => {
+    if (e) e.preventDefault();
+    if (isFlyingUp) return;
+    
+    isFlyingUp = true;
+    targetHistory = []; 
+    
+    // Switch to fixed positioning during flight to sync with viewport perfectly
+    bee.style.position = 'fixed';
+    // Convert current document coords to viewport coords for the transition
+    cx = cx - window.scrollX;
+    cy = cy - window.scrollY;
+    
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  anchor.addEventListener('click', triggerScroll);
+  bee.addEventListener('click', triggerScroll);
+
+  animateBee();
+}
+
+function animateBee() {
+  const bee = document.getElementById('bee-container');
+  const anchor = document.getElementById('backToTop');
+  if (!bee || !anchor) return;
+
+  // Hidden/Disabled on Mobile
+  if (window.innerWidth <= 768) {
+    bee.style.transform = `translate(-200px, -200px)`;
+    requestAnimationFrame(animateBee);
+    return;
+  }
+
+  beeTime += 0.05;
+  let now = Date.now();
+
+  if (isFlyingUp) {
+    // In fixed mode, target is simply above the viewport
+    tx = cx; 
+    ty = -200; 
+
+    // Very fast lift
+    cx += (tx - cx) * 0.1;
+    cy += (ty - cy) * 0.15;
+
+    // Transition back to absolute once page is at top and bee is offscreen
+    if (window.scrollY < 10 && cy < -100) {
+      isFlyingUp = false;
+      isBeeVisible = false;
+      bee.style.position = 'absolute';
+      // Reset to top-offscreen in document space
+      cx = window.scrollX + window.innerWidth - 100;
+      cy = -200;
+    }
+  } else if (isBeeVisible) {
+    // Get Anchor Position (The Flower)
+    const rect = anchor.getBoundingClientRect();
+    const anchorX = window.scrollX + rect.left + (rect.width / 2) - 30;
+    const anchorY = window.scrollY + rect.top + (rect.height / 2) - 30;
+
+    targetHistory.push({ x: anchorX, y: anchorY, time: now });
+
+    while (targetHistory.length > 1 && now - targetHistory[0].time > REACTION_DELAY) {
+      targetHistory.shift();
+    }
+
+    tx = targetHistory[0].x;
+    ty = targetHistory[0].y;
+
+    cx += (tx - cx) * 0.08; 
+    cy += (ty - cy) * 0.12;  
+  } else {
+    // Retreat straight up
+    tx = cx;
+    ty = window.scrollY - 500;
+    cx += (tx - cx) * 0.05;
+    cy += (ty - cy) * 0.08;
+  }
+
+  // Wobble & Rotation
+  let wobbleX = isFlyingUp ? 0 : Math.sin(beeTime) * 10;
+  let wobbleY = isFlyingUp ? 0 : Math.cos(beeTime * 0.8) * 12;
+
+  let velocityX = tx - cx;
+  let velocityY = ty - cy;
+  let pitch = isFlyingUp ? -20 : (velocityY * 0.05); 
+  let rotation = isFlyingUp ? 0 : (velocityX * 0.03) + pitch;
+  rotation = Math.max(-45, Math.min(45, rotation));
+
+  bee.style.transform = `translate(${cx + wobbleX}px, ${cy + wobbleY}px) rotate(${rotation}deg)`;
+
+  requestAnimationFrame(animateBee);
 }
 
 function initGallery() {
   var $grid = $('.portfolio-grid.grid');
   if ($grid.length === 0) return;
 
-  // Initialize Isotope
   var $iso = $grid.isotope({
     itemSelector: '.grid-item',
     layoutMode: 'masonry',
@@ -52,7 +178,6 @@ function initGallery() {
     $(this).addClass('is-checked');
   });
 
-  // Init Magnific Popup
   $('.gallery-section').magnificPopup({
     delegate: '.photolink',
     type: 'image',
@@ -67,22 +192,20 @@ function initGallery() {
     },
     iframe: {
       markup: '<div class="mfp-iframe-scaler-container">' +
-                '<div class="mfp-figure">' +
-                  '<div class="mfp-close"></div>' +
-                  '<div class="mfp-iframe-scaler">' +
-                    '<iframe class="mfp-iframe" frameborder="0" allowfullscreen></iframe>' +
-                  '</div>' +
-                  '<div class="mfp-bottom-bar">' +
-                    '<div class="mfp-title"></div>' +
-                    '<div class="mfp-counter"></div>' +
-                  '</div>' +
+                '<div class="mfp-close"></div>' +
+                '<div class="mfp-iframe-scaler">' +
+                  '<iframe class="mfp-iframe" frameborder="0" allowfullscreen></iframe>' +
+                '</div>' +
+                '<div class="mfp-bottom-bar">' +
+                  '<div class="mfp-title"></div>' +
+                  '<div class="mfp-counter"></div>' +
                 '</div>' +
               '</div>',
       patterns: {
         youtube: {
           index: 'youtube.com/',
           id: 'v=',
-          src: '//www.youtube.com/embed/%id%?autoplay=1'
+          src: '//www.youtube.com/embed/%id%?autoplay%3D1'
         }
       }
     },
@@ -160,6 +283,7 @@ function generateBreadcrumbs() {
       currentPath += part + '/';
       const cleanPart = part.replace(/_/g, ' ').replace(/-/g, ' ').replace('.html', '');
       const capitalizedPart = cleanPart.charAt(0).toUpperCase() + cleanPart.slice(1);
+      
       breadcrumbHtml += ` <span class="separator">></span> `;
       if (index === parts.length - 1) {
         breadcrumbHtml += `<span>${capitalizedPart}</span>`;

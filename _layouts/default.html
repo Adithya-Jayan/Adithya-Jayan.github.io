@@ -34,6 +34,21 @@
     </main>
 
     {% include footer.html %}
+
+    <!-- Dynamic Hovering Bee Scroll Top -->
+    <div id="bee-container">
+      <div class="wing wing-left"></div>
+      <div class="wing wing-right"></div>
+      <div class="bee-body">
+        <div class="bee-arrow"></div>
+      </div>
+    </div>
+
+    <!-- Mobile Back to Top Button / Desktop Bee Anchor -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top" title="Back to top">
+      <span class="flower-icon">🌸</span>
+      <span class="arrow-up">↑</span>
+    </button>
     
     <!-- Scripts -->
     <script src="{{ '/assets/js/jquery-11.0.min.js' | relative_url }}"></script>
