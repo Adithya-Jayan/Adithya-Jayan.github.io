@@ -21,36 +21,54 @@ const SCROLL_THRESHOLD = 400;
 function initBackToTop() {
   const bee = document.getElementById('bee-container');
   const anchor = document.getElementById('backToTop');
-  if (!bee || !anchor) return;
+  if (!anchor) return;
 
-  // ─── Visibility Logic ───
+  const isMobile = window.innerWidth <= 768;
+
+  // ─── FULL REMOVAL if not enabled or on mobile ───
+  if (!canSpawnBee || isMobile) {
+    if (bee) bee.remove();
+    
+    window.addEventListener('scroll', function() {
+      if (window.pageYOffset > SCROLL_THRESHOLD) {
+        anchor.classList.add('visible');
+      } else {
+        anchor.classList.remove('visible');
+      }
+    });
+
+    anchor.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    return; 
+  }
+
+  // ─── Desktop Bee Logic (Only for the lucky 1%) ───
   window.addEventListener('scroll', function() {
-    const isMobile = window.innerWidth <= 768;
     const shouldBeVisible = window.pageYOffset > SCROLL_THRESHOLD;
 
     if (shouldBeVisible) {
       anchor.classList.add('visible');
-      if (!isMobile && canSpawnBee) {
-        if (!isBeeVisible && !isFlyingUp) {
-          isBeeVisible = true;
-          
-          if (!hasBeeSpawned) {
-            // First time: Spawn from left off-screen
-            cx = window.scrollX - 100;
-            cy = window.scrollY + (window.innerHeight * 0.8);
-            hasBeeSpawned = true;
-          } else {
-            // Subsequent times: Fly in from top (where it retreated)
-            cx = window.scrollX + window.innerWidth - 100;
-            cy = window.scrollY - 100;
-          }
-
-          targetHistory = [{
-            x: window.scrollX + window.innerWidth - 100, 
-            y: window.scrollY + window.innerHeight - 100, 
-            time: Date.now()
-          }];
+      if (!isBeeVisible && !isFlyingUp) {
+        isBeeVisible = true;
+        
+        if (!hasBeeSpawned) {
+          // First time: Spawn from left off-screen
+          cx = window.scrollX - 100;
+          cy = window.scrollY + (window.innerHeight * 0.8);
+          hasBeeSpawned = true;
+        } else {
+          // Subsequent times: Fly in from top
+          cx = window.scrollX + window.innerWidth - 100;
+          cy = window.scrollY - 100;
         }
+
+        targetHistory = [{
+          x: window.scrollX + window.innerWidth - 100, 
+          y: window.scrollY + window.innerHeight - 100, 
+          time: Date.now()
+        }];
       }
     } else {
       anchor.classList.remove('visible');
@@ -65,9 +83,8 @@ function initBackToTop() {
     isFlyingUp = true;
     targetHistory = []; 
     
-    // Switch to fixed positioning during flight to sync with viewport perfectly
+    // Switch to fixed positioning during flight to sync with viewport
     bee.style.position = 'fixed';
-    // Convert current document coords to viewport coords for the transition
     cx = cx - window.scrollX;
     cy = cy - window.scrollY;
     
@@ -82,39 +99,27 @@ function initBackToTop() {
 
 function animateBee() {
   const bee = document.getElementById('bee-container');
-  const anchor = document.getElementById('backToTop');
-  if (!bee || !anchor) return;
-
-  // Hidden/Disabled on Mobile
-  if (window.innerWidth <= 768) {
-    bee.style.transform = `translate(-200px, -200px)`;
-    requestAnimationFrame(animateBee);
-    return;
-  }
+  if (!bee) return; // Stop loop if bee was removed
 
   beeTime += 0.05;
   let now = Date.now();
 
   if (isFlyingUp) {
-    // In fixed mode, target is simply above the viewport
     tx = cx; 
     ty = -200; 
 
-    // Very fast lift
     cx += (tx - cx) * 0.1;
     cy += (ty - cy) * 0.15;
 
-    // Transition back to absolute once page is at top and bee is offscreen
     if (window.scrollY < 10 && cy < -100) {
       isFlyingUp = false;
       isBeeVisible = false;
       bee.style.position = 'absolute';
-      // Reset to top-offscreen in document space
       cx = window.scrollX + window.innerWidth - 100;
       cy = -200;
     }
   } else if (isBeeVisible) {
-    // Get Anchor Position (The Flower)
+    const anchor = document.getElementById('backToTop');
     const rect = anchor.getBoundingClientRect();
     const anchorX = window.scrollX + rect.left + (rect.width / 2) - 30;
     const anchorY = window.scrollY + rect.top + (rect.height / 2) - 30;
@@ -131,14 +136,12 @@ function animateBee() {
     cx += (tx - cx) * 0.08; 
     cy += (ty - cy) * 0.12;  
   } else {
-    // Retreat straight up
     tx = cx;
     ty = window.scrollY - 500;
     cx += (tx - cx) * 0.05;
     cy += (ty - cy) * 0.08;
   }
 
-  // Wobble & Rotation
   let wobbleX = isFlyingUp ? 0 : Math.sin(beeTime) * 10;
   let wobbleY = isFlyingUp ? 0 : Math.cos(beeTime * 0.8) * 12;
 
@@ -205,7 +208,7 @@ function initGallery() {
         youtube: {
           index: 'youtube.com/',
           id: 'v=',
-          src: '//www.youtube.com/embed/%id%?autoplay%3D1'
+          src: '//www.youtube.com/embed/%id%?autoplay=1'
         }
       }
     },
